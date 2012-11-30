@@ -1,0 +1,8 @@
+.idea
+assets
+/protected/runtime/*.log
+/protected/modules/user/views/asset
+/protected/runtime/*.bin
+/protected/runtime/HTML/*.ser
+/protected/extensions/tinymce/assets/*
+
