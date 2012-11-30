@@ -5,4 +5,3 @@ assets
 /protected/runtime/*.bin
 /protected/runtime/HTML/*.ser
 /protected/extensions/tinymce/assets/*
-
