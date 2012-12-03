@@ -2155,3 +2155,13 @@ Stack trace:
 REQUEST_URI=/index.php/rights.css
 HTTP_REFERER=http://api/index.php/rights
 ---
+2012/12/03 08:54:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in D:\xami\yii\framework\web\CController.php:483
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(270): CController->missingAction('')
+#1 D:\xami\yii\framework\web\CWebApplication.php(282): CController->run('')
+#2 D:\xami\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#3 D:\xami\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#4 D:\xami\orzero-cefls\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/
+---

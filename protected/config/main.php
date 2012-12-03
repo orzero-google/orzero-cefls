@@ -26,8 +26,7 @@ return array(
         'application.modules.rights.components.*',
         'application.extensions.debugtoolbar.*',
 	),
-    'defaultController'=>'post',
-
+    'defaultController'=>'cefls',
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 
