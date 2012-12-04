@@ -29,40 +29,7 @@
     <div class="hackbox"></div>
     <div class="header_bottom">
         <div class="header_nav">
-            <ul class="header_nav_link">
-                <li>
-                    <a href="#">关于实外</a>
-                    <ul>
-                        <li><a href="#">关于实外</a></li>
-                        <li><a href="#">二级标题</a></li>
-                        <li><a href="#">关于实外</a></li>
-                        <li><a href="#">二级标题</a></li>
-                        <li><a href="#">二级标题</a></li>
-                        <li><a href="#">二级标题</a></li>
-                        <li><a href="#">二级标题</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">师资队伍</a>
-                    <ul>
-                        <li><a href="#">师资队伍</a></li>
-                        <li><a href="#">师资队伍</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">德育视窗</a></li>
-                <li>
-                    <a href="#">艺体天地</a>
-                    <ul>
-                        <li><a href="#">艺体天地</a></li>
-                        <li><a href="#">艺体天地</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">教学科研</a></li>
-                <li><a href="#">外语特色</a></li>
-                <li><a href="#">交流合作</a></li>
-                <li><a href="#">感悟实外</a></li>
-                <li><a href="#">学子风采</a></li>
-            </ul>
+            <?php echo get_menu();?>
         </div>
     </div>
 </div>

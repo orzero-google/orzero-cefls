@@ -5,7 +5,7 @@ class CeflsController extends Controller
     public $layout='index';
 	public function actionIndex()
 	{
-        get_menu();
+//        get_menu();
 
 		$this->render('index');
 	}
