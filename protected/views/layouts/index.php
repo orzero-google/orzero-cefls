@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html charset=utf8">
-    <title>首页</title>
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <script type="text/javascript" src="/cefls/js/jquery.js"></script>
     <script type="text/javascript" src="/cefls/js/script.js"></script>
     <script type="text/javascript" src="/cefls/js/coin-slider.min.js"></script>
@@ -95,7 +95,7 @@
 </div>
 </div>
 </div>
-<script type="text/javascript" src="./js/global_cn.index.js"></script>
+<script type="text/javascript" src="/cefls/js/global_cn.index.js"></script>
 <!-- index's newsPlan  -->
 <div class="newsPlan">
     <div class="left">
