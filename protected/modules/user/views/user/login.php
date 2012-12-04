@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 	UserModule::t("Login"),
 );
 ?>
-
-<h1><?php echo UserModule::t("Login"); ?></h1>
+<div class="login" id="login">
+<h1 style="text-align:left;padding:10px 0 20px 15px;">管理员登陆</h1>
 
 <?php if(Yii::app()->user->hasFlash('loginMessage')): ?>
 
@@ -15,13 +15,10 @@ $this->breadcrumbs=array(
 
 <?php endif; ?>
 
-<p><?php echo UserModule::t("Please fill out the following form with your login credentials:"); ?></p>
 
 <div class="form">
 <?php echo CHtml::beginForm(); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
-	
 	<?php echo CHtml::errorSummary($model); ?>
 	
 	<div class="row">
@@ -46,7 +43,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row submit">
-		<?php echo CHtml::submitButton(UserModule::t("Login")); ?>
+		<?php echo CHtml::submitButton(UserModule::t("Login"),array('class'=>'button-primary')); ?>
 	</div>
 	
 <?php echo CHtml::endForm(); ?>
@@ -72,8 +69,10 @@ $form = new CForm(array(
     'buttons'=>array(
         'login'=>array(
             'type'=>'submit',
-            'label'=>'Login',
+            'label'=>'Login'
         ),
     ),
 ), $model);
 ?>
+
+    </div>

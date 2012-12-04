@@ -2209,3 +2209,137 @@ Stack trace:
 #16 {main}
 REQUEST_URI=/
 ---
+2012/12/04 13:46:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [1049] Unknown database 'cefls'' in D:\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 D:\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 D:\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\yii\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\yii\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 D:\yii\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 D:\yii\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Menu))
+#7 D:\orzero-cefls\protected\models\Menu.php(23): CActiveRecord::model('Menu')
+#8 D:\orzero-cefls\protected\components\orzero.php(11): Menu::model()
+#9 D:\orzero-cefls\protected\controllers\CeflsController.php(8): get_menu()
+#10 D:\yii\framework\web\actions\CInlineAction.php(50): CeflsController->actionIndex()
+#11 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\yii\framework\web\CWebApplication.php(276): CController->run('')
+#15 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#16 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\orzero-cefls\index.php(11): CApplication->run()
+#18 {main}
+REQUEST_URI=/
+---
+2012/12/04 13:58:57 [error] [php] Trying to get property of non-object (D:\orzero-cefls\protected\components\orzero.php:15)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\CController.php(287): CeflsController->runAction()
+#2 D:\yii\framework\web\CController.php(266): CeflsController->runActionWithFilters()
+#3 D:\yii\framework\web\CWebApplication.php(276): CeflsController->run()
+#4 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\orzero-cefls\index.php(11): CWebApplication->run()
+REQUEST_URI=/
+2012/12/04 13:58:58 [error] [php] Trying to get property of non-object (D:\orzero-cefls\protected\components\orzero.php:15)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\CController.php(287): CeflsController->runAction()
+#2 D:\yii\framework\web\CController.php(266): CeflsController->runActionWithFilters()
+#3 D:\yii\framework\web\CWebApplication.php(276): CeflsController->run()
+#4 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\orzero-cefls\index.php(11): CWebApplication->run()
+REQUEST_URI=/
+2012/12/04 14:04:37 [error] [php] Trying to get property of non-object (D:\orzero-cefls\protected\components\orzero.php:17)
+Stack trace:
+#0 D:\yii\framework\web\CBaseController.php(96): CeflsController->renderInternal()
+#1 D:\yii\framework\web\CController.php(785): CeflsController->renderFile()
+#2 D:\orzero-cefls\protected\controllers\CeflsController.php(10): CeflsController->render()
+#3 D:\yii\framework\web\actions\CInlineAction.php(50): CeflsController->actionIndex()
+#4 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\yii\framework\web\CController.php(287): CeflsController->runAction()
+#6 D:\yii\framework\web\CController.php(266): CeflsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(276): CeflsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\orzero-cefls\index.php(11): CWebApplication->run()
+REQUEST_URI=/
+2012/12/04 14:05:38 [error] [php] Trying to get property of non-object (D:\orzero-cefls\protected\components\orzero.php:17)
+Stack trace:
+#0 D:\yii\framework\web\CBaseController.php(96): CeflsController->renderInternal()
+#1 D:\yii\framework\web\CController.php(785): CeflsController->renderFile()
+#2 D:\orzero-cefls\protected\controllers\CeflsController.php(10): CeflsController->render()
+#3 D:\yii\framework\web\actions\CInlineAction.php(50): CeflsController->actionIndex()
+#4 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\yii\framework\web\CController.php(287): CeflsController->runAction()
+#6 D:\yii\framework\web\CController.php(266): CeflsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(276): CeflsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\orzero-cefls\index.php(11): CWebApplication->run()
+REQUEST_URI=/
+2012/12/04 14:13:15 [error] [exception.CException] exception 'CException' with message 'Menu and its behaviors do not have a method or closure named "data".' in D:\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(226): CComponent->__call('data', Array)
+#1 D:\orzero-cefls\protected\components\orzero.php(14): CActiveRecord->__call('data', Array)
+#2 D:\orzero-cefls\protected\components\orzero.php(14): Menu->data()
+#3 D:\orzero-cefls\protected\views\layouts\index.php(32): get_menu()
+#4 D:\yii\framework\web\CBaseController.php(127): require('D:\orzero-cefls...')
+#5 D:\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\orzero-cefls...', Array, true)
+#6 D:\yii\framework\web\CController.php(785): CBaseController->renderFile('D:\orzero-cefls...', Array, true)
+#7 D:\orzero-cefls\protected\controllers\CeflsController.php(10): CController->render('index')
+#8 D:\yii\framework\web\actions\CInlineAction.php(50): CeflsController->actionIndex()
+#9 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 D:\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(276): CController->run('')
+#13 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#14 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\orzero-cefls\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
+2012/12/04 14:13:25 [error] [exception.CException] exception 'CException' with message 'Menu and its behaviors do not have a method or closure named "getData".' in D:\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(226): CComponent->__call('getData', Array)
+#1 D:\orzero-cefls\protected\components\orzero.php(14): CActiveRecord->__call('getData', Array)
+#2 D:\orzero-cefls\protected\components\orzero.php(14): Menu->getData()
+#3 D:\orzero-cefls\protected\views\layouts\index.php(32): get_menu()
+#4 D:\yii\framework\web\CBaseController.php(127): require('D:\orzero-cefls...')
+#5 D:\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\orzero-cefls...', Array, true)
+#6 D:\yii\framework\web\CController.php(785): CBaseController->renderFile('D:\orzero-cefls...', Array, true)
+#7 D:\orzero-cefls\protected\controllers\CeflsController.php(10): CController->render('index')
+#8 D:\yii\framework\web\actions\CInlineAction.php(50): CeflsController->actionIndex()
+#9 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 D:\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(276): CController->run('')
+#13 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#14 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\orzero-cefls\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
+2012/12/04 14:24:26 [error] [exception.CException] exception 'CException' with message 'Menu and its behaviors do not have a method or closure named "getData".' in D:\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(226): CComponent->__call('getData', Array)
+#1 D:\orzero-cefls\protected\components\orzero.php(14): CActiveRecord->__call('getData', Array)
+#2 D:\orzero-cefls\protected\components\orzero.php(14): Menu->getData()
+#3 D:\orzero-cefls\protected\views\layouts\index.php(32): get_menu()
+#4 D:\yii\framework\web\CBaseController.php(127): require('D:\orzero-cefls...')
+#5 D:\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\orzero-cefls...', Array, true)
+#6 D:\yii\framework\web\CController.php(785): CBaseController->renderFile('D:\orzero-cefls...', Array, true)
+#7 D:\orzero-cefls\protected\controllers\CeflsController.php(10): CController->render('index')
+#8 D:\yii\framework\web\actions\CInlineAction.php(50): CeflsController->actionIndex()
+#9 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 D:\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(276): CController->run('')
+#13 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#14 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\orzero-cefls\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
