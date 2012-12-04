@@ -1,0 +1,59 @@
+INSERT INTO  `cefls`.`blog_menu` (
+`menu_id` ,
+`parent_id` ,
+`menu_name` ,
+`menu_type` ,
+`menu_sort` ,
+`menu_count`
+)
+VALUES 
+(
+NULL ,  '0',  '德育视窗',  '1',  '0',  '0'
+), 
+(
+NULL ,  '0',  '教学科研',  '1',  '0',  '0'
+), 
+(
+NULL ,  '0',  '外语特色',  '1',  '0',  '0'
+), 
+(
+NULL ,  '0',  '交流合作',  '1',  '0',  '0'
+), 
+(
+NULL ,  '0',  '学子风采',  '1',  '0',  '0'
+), 
+(
+NULL ,  '0',  '艺体天地',  '1',  '0',  '0'
+), 
+(
+NULL ,  '0',  '感悟实外',  '1',  '0',  '0'
+)
+
+;
+
+
+INSERT INTO  `cefls`.`blog_menu` (
+`menu_id` ,
+`parent_id` ,
+`menu_name` ,
+`menu_type` ,
+`menu_sort` ,
+`menu_count`
+)
+VALUES 
+(
+NULL ,  '9',  '学子寄情',  '2',  '0',  '0'
+),
+(
+NULL ,  '9',  '家长抒怀',  '2',  '0',  '0'
+),
+(
+NULL ,  '9',  '教师达意',  '2',  '0',  '0'
+),
+(
+NULL ,  '9',  '媒评舆论',  '2',  '0',  '0'
+)
+;
+
+
+SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t` LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`) WHERE (menu_type=:menu_type) AND (`t`.`pa`=1) 

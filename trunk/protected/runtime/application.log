@@ -2165,3 +2165,47 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/
 ---
+2012/12/04 10:59:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'menu_type' in where clause is ambiguous. The SQL statement executed was: SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t`  LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`)  WHERE (menu_type=:menu_type) AND (`t`.`pa`=1).
+2012/12/04 10:59:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'menu_type' in where clause is ambiguous. The SQL statement executed was: SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t`  LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`)  WHERE (menu_type=:menu_type) AND (`t`.`pa`=1)' in D:\xami\yii\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\xami\yii\framework\db\CDbCommand.php(389): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xami\yii\framework\db\ar\CActiveFinder.php(756): CDbCommand->queryAll()
+#2 D:\xami\yii\framework\db\ar\CActiveFinder.php(417): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xami\yii\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xami\yii\framework\db\ar\CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), false)
+#5 D:\xami\yii\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#6 D:\xami\orzero-cefls\protected\components\orzero.php(11): CActiveRecord->find('menu_type=:menu...', Array)
+#7 D:\xami\orzero-cefls\protected\controllers\CeflsController.php(8): get_menu()
+#8 D:\xami\yii\framework\web\actions\CInlineAction.php(49): CeflsController->actionIndex()
+#9 D:\xami\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 D:\xami\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 D:\xami\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xami\yii\framework\web\CWebApplication.php(282): CController->run('')
+#13 D:\xami\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 D:\xami\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#15 D:\xami\orzero-cefls\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
+2012/12/04 11:02:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'menu_type' in where clause is ambiguous. The SQL statement executed was: SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t`  LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`)  WHERE (menu_type=:menu_type).
+2012/12/04 11:02:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'menu_type' in where clause is ambiguous. The SQL statement executed was: SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t`  LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`)  WHERE (menu_type=:menu_type)' in D:\xami\yii\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\xami\yii\framework\db\CDbCommand.php(389): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xami\yii\framework\db\ar\CActiveFinder.php(756): CDbCommand->queryAll()
+#2 D:\xami\yii\framework\db\ar\CActiveFinder.php(417): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xami\yii\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xami\yii\framework\db\ar\CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), false)
+#5 D:\xami\yii\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#6 D:\xami\orzero-cefls\protected\components\orzero.php(11): CActiveRecord->find('menu_type=:menu...', Array)
+#7 D:\xami\orzero-cefls\protected\controllers\CeflsController.php(8): get_menu()
+#8 D:\xami\yii\framework\web\actions\CInlineAction.php(49): CeflsController->actionIndex()
+#9 D:\xami\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 D:\xami\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 D:\xami\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xami\yii\framework\web\CWebApplication.php(282): CController->run('')
+#13 D:\xami\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 D:\xami\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#15 D:\xami\orzero-cefls\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
