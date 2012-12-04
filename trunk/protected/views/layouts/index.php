@@ -6,6 +6,7 @@
     <script type="text/javascript" src="/cefls/js/jquery.js"></script>
     <script type="text/javascript" src="/cefls/js/script.js"></script>
     <script type="text/javascript" src="/cefls/js/coin-slider.min.js"></script>
+    <script type="text/javascript" src="/cefls/js/jquery.fancybox.pack.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/cefls/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/cefls/css/coin-slider-styles.css" />
