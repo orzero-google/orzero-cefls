@@ -2,7 +2,7 @@
 
 class ManageController extends Controller
 {
-    public $layout='admin';
+    public $layout='site';
     public function filters()
     {
         return array(
@@ -52,7 +52,7 @@ class ManageController extends Controller
     public function actionIndex()
     {
         if(empty(YII::app()->user->id)){
-            $this->render('login');
+            $this->redirect('user/login');
             return;
         }
         $user_info=User::model()->findByPk(YII::app()->user->id);
