@@ -66,7 +66,7 @@ function get_header(){
 
 function get_links(){
     //type = 1 为link类型
-    $links = Ads::model()->findAll('type=1');
+    $links = Ads::model()->findAll('type=-1');
 
     $links_html = '
     <div class="frindLinks"><div class="linkList">';
@@ -84,7 +84,7 @@ function get_links(){
         $links_html .= '<a href="'.$link->url.'">'.CHtml::encode($link->title).'</a>';
     }
     $links_html .= '</div></div>';
-    return $link;
+    return $links_html;
 }
 
 
