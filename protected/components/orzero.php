@@ -102,6 +102,7 @@ function get_admin_sidebar(){
     $pid=Yii::app()->request->getParam('pid', 0);
     $cid=Yii::app()->request->getParam('cid', 0);
 
+    $sidebar_html = '';
     $sidebar_html = Yii::app()->cache->get('sidebar::'.$pid.'::'.$cid);
     if(!empty($sidebar_html)){
         return $sidebar_html;
@@ -120,7 +121,7 @@ function get_admin_sidebar(){
             )
         ),
 
-        array('name'=>'[退出登陆]', 'pid'=>'13'),
+        array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'#'),
     );
 
     $c=1;
@@ -131,7 +132,12 @@ function get_admin_sidebar(){
             $cs->registerScript('items'.$c,'$("#cid-sub-'.$c.'").click(function(){$("#id-sub-'.$c.'").toggle();});');
             $_one_url='javascript:viod();';
         }else{
-            $_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
+            if(!empty($one['src'])){
+                $_one_url=$one['src'];
+            }else{
+                $_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
+            }
+
         }
 
         if((isset($one['cid']) && $one['cid']==$cid) || (isset($one['pid']) && $one['pid']==$pid)){
@@ -143,10 +149,10 @@ function get_admin_sidebar(){
         $items_html='';
         if(!empty($one['items'])){
             foreach($one['items'] as $i_one){
-                if(isset($one['pid'])){
+                if(isset($i_one['cid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid']));
                 }elseif(isset($one['cid'])){
-                    $i_one_url=Yii::app()->createUrl('manage/index',array('cid'=>$one['cid']));
+                    $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
                 }
 
                 $sx = '';
