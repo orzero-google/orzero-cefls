@@ -2,7 +2,7 @@
 
 class ManageController extends Controller
 {
-    public $layout='site';
+    public $layout='admin';
     public function filters()
     {
         return array(

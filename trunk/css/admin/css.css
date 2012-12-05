@@ -359,14 +359,20 @@ input.text70{
 	height: 245px;
 }
 /*二级页面左右*/
+.subpageContainer{
+    margin: 20px auto; width: 1000px;
+}
 .subpageContainer .left {
 	width:275px;
 	float: left;
 }
 .subpageContainer .right {
-	width: 675px;
-	float: right;
-	padding-bottom: 30px;
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #C9E0ED;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px;
+    width: 690px;
 }
 /*圆角边框--首页模块*/
 .k-title, .k-center-title, .sub-title {

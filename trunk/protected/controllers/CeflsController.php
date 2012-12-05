@@ -2,7 +2,7 @@
 
 class CeflsController extends Controller
 {
-    public $layout='index';
+    public $layout='site';
 	public function actionIndex()
 	{
 //        get_menu();
