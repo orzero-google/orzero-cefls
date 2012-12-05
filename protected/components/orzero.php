@@ -97,3 +97,69 @@ function get_footer(){
 </div>
 EOF;
 }
+
+function get_admin_sidebar(){
+    $pid=Yii::app()->request->getParam('pid', 0);
+    $cid=Yii::app()->request->getParam('cid', 0);
+
+    $sidebar_html = Yii::app()->cache->get('sidebar::'.$pid.'::'.$cid);
+    if(!empty($sidebar_html)){
+        return $sidebar_html;
+    }
+
+    $items=array(
+        array(
+            'name'=>'个人信息管理',
+            'pid'=>'1',
+            'items'=>array(
+                array('name'=>'修改注册信息', 'cid'=>'1'),
+                array('name'=>'密码修改', 'cid'=>'2'),
+                array('name'=>'交纳会费', 'cid'=>'3'),
+                array('name'=>'站内消息', 'cid'=>'4'),
+                array('name'=>'会员升级', 'cid'=>'10'),
+            )
+        ),
+
+        array('name'=>'[退出登陆]', 'pid'=>'13'),
+    );
+
+    $c=1;
+    $cs=Yii::app()->clientScript;
+    foreach($items as $one){
+        if(!empty($one['items'])){
+            $c++;
+            $cs->registerScript('items'.$c,'$("#cid-sub-'.$c.'").click(function(){$("#id-sub-'.$c.'").toggle();});');
+            $_one_url='javascript:viod();';
+        }else{
+            $_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
+        }
+
+        if((isset($one['cid']) && $one['cid']==$cid) || (isset($one['pid']) && $one['pid']==$pid)){
+            $sidebar_html.='<li'.((!empty($one['items']))?' id="cid-sub-'.$c.'"':'').' class="m"><span class="first"></span><a href="'.$_one_url.'">'.$one['name'].'</a></li>';
+        }else{
+            $sidebar_html.='<li'.((!empty($one['items']))?' id="cid-sub-'.$c.'"':'').'><span></span><a href="'.$_one_url.'">'.$one['name'].'</a></li>';
+        }
+
+        $items_html='';
+        if(!empty($one['items'])){
+            foreach($one['items'] as $i_one){
+                if(isset($one['pid'])){
+                    $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid']));
+                }elseif(isset($one['cid'])){
+                    $i_one_url=Yii::app()->createUrl('manage/index',array('cid'=>$one['cid']));
+                }
+
+                $sx = '';
+                if((isset($i_one['cid']) && $i_one['cid']==$cid) && (isset($one['pid']) && $one['pid']==$pid)){
+                    $sx = ' class="x"';
+                }
+
+                $items_html.='<li'.$sx.'><span></span><a href="'.$i_one_url.'">'.$i_one['name'].'</a></li>';
+            }
+            $sidebar_html .= '<li style="display: block;" id="id-sub-'.$c.'" class="sub"><ul class="sub-leftmenu">'.$items_html.'</ul></li>';
+        }
+    }
+
+    Yii::app()->cache->set('sidebar::'.$pid.'::'.$cid, $sidebar_html);
+    return $sidebar_html;
+}

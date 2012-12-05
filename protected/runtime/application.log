@@ -3658,3 +3658,70 @@ Stack trace:
 REQUEST_URI=/index.php/images/ad1.jpg
 HTTP_REFERER=http://cefls/index.php/
 ---
+2012/12/05 15:49:52 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "createUrlcreateUrl".' in D:\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\orzero-cefls\protected\components\orzero.php(134): CComponent->__call('createUrlcreate...', Array)
+#1 D:\orzero-cefls\protected\components\orzero.php(134): CWebApplication->createUrlcreateUrl('manage/index', Array)
+#2 D:\orzero-cefls\protected\views\manage\index.php(23): get_admin_sidebar()
+#3 D:\yii\framework\web\CBaseController.php(127): require('D:\orzero-cefls...')
+#4 D:\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\orzero-cefls...', Array, true)
+#5 D:\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\orzero-cefls...', Array, true)
+#6 D:\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#7 D:\orzero-cefls\protected\controllers\ManageController.php(64): CController->render('index', Array)
+#8 D:\yii\framework\web\actions\CInlineAction.php(50): ManageController->actionIndex()
+#9 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 D:\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 D:\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 D:\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#18 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('manage/index')
+#19 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 D:\orzero-cefls\index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/manage/index?pid=1&cate=4&iid=4
+HTTP_REFERER=http://cefls/index.php/manage/index?pid=1&cate=3&iid=3
+---
+2012/12/05 16:01:05 [error] [php] Undefined variable: sidebar_html (D:\orzero-cefls\protected\components\orzero.php:139)
+Stack trace:
+#0 D:\yii\framework\web\CBaseController.php(96): ManageController->renderInternal()
+#1 D:\yii\framework\web\CController.php(870): ManageController->renderFile()
+#2 D:\yii\framework\web\CController.php(783): ManageController->renderPartial()
+#3 D:\orzero-cefls\protected\controllers\ManageController.php(64): ManageController->render()
+#4 D:\yii\framework\web\actions\CInlineAction.php(50): ManageController->actionIndex()
+#5 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 D:\yii\framework\web\filters\CFilterChain.php(134): ManageController->runAction()
+#7 D:\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 D:\yii\framework\web\filters\CInlineFilter.php(59): ManageController->filterAccessControl()
+#10 D:\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 D:\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(266): ManageController->runActionWithFilters()
+#13 D:\yii\framework\web\CWebApplication.php(276): ManageController->run()
+#14 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#15 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\orzero-cefls\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/manage/index?pid=1&cid=1&iid=1
+2012/12/05 16:02:36 [error] [php] Undefined index: cid (D:\orzero-cefls\protected\components\orzero.php:137)
+Stack trace:
+#0 D:\yii\framework\web\CBaseController.php(96): ManageController->renderInternal()
+#1 D:\yii\framework\web\CController.php(870): ManageController->renderFile()
+#2 D:\yii\framework\web\CController.php(783): ManageController->renderPartial()
+#3 D:\orzero-cefls\protected\controllers\ManageController.php(64): ManageController->render()
+#4 D:\yii\framework\web\actions\CInlineAction.php(50): ManageController->actionIndex()
+#5 D:\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 D:\yii\framework\web\filters\CFilterChain.php(134): ManageController->runAction()
+#7 D:\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 D:\yii\framework\web\filters\CInlineFilter.php(59): ManageController->filterAccessControl()
+#10 D:\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 D:\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(266): ManageController->runActionWithFilters()
+#13 D:\yii\framework\web\CWebApplication.php(276): ManageController->run()
+#14 D:\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#15 D:\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\orzero-cefls\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/manage/index?pid=1&cid=1&iid=1
