@@ -40,7 +40,7 @@ class Ads extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, img, url, cid, type', 'required'),
+			array('title, img, url', 'required'),
 			array('cid, type, order', 'numerical', 'integerOnly'=>true),
 			array('title, img, url', 'length', 'max'=>255),
 			// The following rule is used by search().

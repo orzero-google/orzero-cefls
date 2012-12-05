@@ -191,11 +191,7 @@ input.text70{
 	margin-left: auto;
 }
 /*页面头样式*/
-.header {
-	background-image: url(../images/index_02.gif);
-	background-repeat: no-repeat;
-	height: 127px;
-}
+
 .hot, .search {
 	padding-top: 15px;
 	text-align: right;
