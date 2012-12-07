@@ -19,7 +19,8 @@ function pd($data=array(), $end='', $stop=true)
 }
 
 function get_menu(){
-    $menu_html = Yii::app()->cache->get('menu');
+    if(!YII_DEBUG)
+        $menu_html = Yii::app()->cache->get('menu');
     if(!empty($menu_html)){
         return $menu_html;
     }
@@ -35,6 +36,7 @@ function get_menu(){
         $menu_html .= '</ul>';
     }
     $menu_html .= '</ul>';
+
     Yii::app()->cache->set('menu', $menu_html);
     return $menu_html;
 }
@@ -49,7 +51,7 @@ function get_header(){
             <div class="header_title"><img src="/images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
             <div class="header_link">
                 <p class="header_link1"><a href="index.html">首页</a>　|　<a href="#">加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="#">实外信箱</a></p>
-                <p class="header_link2"><a href="#">ENGLISH</a>　|　<a href="#">Francais</a>　|　<a href="#">Deutsc</a></p>
+                <p class="header_link2"><a href="#">ENGLISH</a>　|　<a href="#">Française</a>　|　<a href="#">Deutsch</a></p>
                 <p class="header_link3"><input type="text" class="search_text"/><input type="submit" name="submit" class="submit"/></p>
             </div>
         </div>
@@ -65,8 +67,13 @@ function get_header(){
 }
 
 function get_links(){
-    //type = 1 为link类型
-    $links = Ads::model()->findAll('type=-1');
+    if(!YII_DEBUG)
+        $links_html = Yii::app()->cache->get('links_html');
+    if(!empty($links_html)){
+        return $links_html;
+    }
+    //cid = -1 为link类型
+    $links = Ads::model()->findAll('cid=-1');
 
     $links_html = '
     <div class="frindLinks"><div class="linkList">';
@@ -84,6 +91,8 @@ function get_links(){
         $links_html .= '<a href="'.$link->url.'">'.CHtml::encode($link->title).'</a>';
     }
     $links_html .= '</div></div>';
+
+    Yii::app()->cache->set('links_html', $links_html);
     return $links_html;
 }
 
@@ -103,18 +112,19 @@ function get_admin_sidebar(){
     $cid=Yii::app()->request->getParam('cid', 0);
 
     $sidebar_html = '';
-    $sidebar_html = Yii::app()->cache->get('sidebar::'.$pid.'::'.$cid);
+    if(!YII_DEBUG)
+        $sidebar_html = Yii::app()->cache->get('sidebar::'.$pid.'::'.$cid);
     if(!empty($sidebar_html)){
         return $sidebar_html;
     }
 
     $items=array(
         array(
-            'name'=>'个人信息管理',
+            'name'=>'站内广告',
             'pid'=>'1',
             'items'=>array(
-                array('name'=>'修改注册信息', 'cid'=>'1'),
-                array('name'=>'密码修改', 'cid'=>'2'),
+                array('name'=>'新增图片广告', 'cid'=>'1'),
+                array('name'=>'查看图片广告', 'cid'=>'2'),
                 array('name'=>'交纳会费', 'cid'=>'3'),
                 array('name'=>'站内消息', 'cid'=>'4'),
                 array('name'=>'会员升级', 'cid'=>'10'),

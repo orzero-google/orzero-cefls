@@ -1711,3 +1711,6 @@ detailContent22{ padding: 10px; }
 .sresult h4{ font-size: 16px; font-family: "宋体"; padding-top: 14px; color: #66F; }
 .sresult p{ font-family: "宋体"; }
 .sresult p span{ color: #CCC; }
+.row{
+    margin: 0;
+}

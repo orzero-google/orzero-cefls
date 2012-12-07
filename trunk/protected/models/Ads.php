@@ -40,7 +40,7 @@ class Ads extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, img, url', 'required'),
+			array('title, img, url, cid, type', 'required'),
 			array('cid, type, order', 'numerical', 'integerOnly'=>true),
 			array('title, img, url', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -60,19 +60,32 @@ class Ads extends CActiveRecord
 		);
 	}
 
+    public function scopes()
+    {
+        return array(
+            'img_ads'=>array(
+                'condition'=>'cid=0',
+            ),
+            'links'=>array(
+                'condition'=>'cid=-1',
+            ),
+
+        );
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
 	{
 		return array(
-			'aid' => 'Aid',
-			'title' => 'Title',
-			'img' => 'Img',
-			'url' => 'Url',
-			'cid' => 'Cid',
-			'type' => 'Type',
-			'order' => 'Order',
+			'aid' => '广告ID',
+			'title' => '文字介绍',
+			'img' => '上传图片',
+			'url' => '图片链接',
+			'cid' => '分类',
+			'type' => '广告位置',
+			'order' => '排序',
 		);
 	}
 

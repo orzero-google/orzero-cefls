@@ -57,9 +57,11 @@ class ManageController extends Controller
         }
         $user_info=User::model()->findByPk(YII::app()->user->id);
 
-        $cate=Yii::app()->request->getParam('cate', 1);
+        $cid=Yii::app()->request->getParam('cid', 0);
+        $pid=Yii::app()->request->getParam('pid', 0);
         $this->render('index',array(
-            'cate'=>$cate,
+            'cid'=>$cid,
+            'pid'=>$pid,
             'user_info'=>$user_info
         ));
     }

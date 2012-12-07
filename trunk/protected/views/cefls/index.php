@@ -79,8 +79,8 @@
 <div class="top">
     <ul>
         <li class="hover">English</li>
-        <li>Francais</li>
-        <li>Deutsh</li>
+        <li>Française</li>
+        <li>Deutsch</li>
     </ul>
 </div>
 <!-- 英语版开始 -->
