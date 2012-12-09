@@ -180,6 +180,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看图片广告', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'资证荣誉',
+            'pid'=>'2',
+            'items'=>array(
+                array('name'=>'新增资证荣誉', 'cid'=>'1'),
+                array('name'=>'查看资证荣誉', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
