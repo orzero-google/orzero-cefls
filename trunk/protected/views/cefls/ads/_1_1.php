@@ -20,7 +20,7 @@
 		<?php echo $form->error($model,'img'); ?>
         <?php
         if(!empty($model->img)){
-            echo '<img src="/images/temp/'.$model->img.'" style="max-width:640px;" />';
+            echo '<img src="'.$model->img.'" style="max-width:640px;" />';
         }
         ?>
 	</div>
@@ -33,11 +33,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->dropDownListRow($model, 'type', array('首页轮播', '主题图1', '主题图2', '主题图3', '主题图4', '主题图5', '主题图6', '主题图7', '主题图8', '主题图9'));  ?>
-	</div>
-
-	<div class="row">
-        <?php echo $form->dropDownListRow($model, 'cid', array('隐藏', '显示'));  ?>
+		<?php echo $form->dropDownListRow($model, 'type', get_ads_type());  ?>
 	</div>
 
 	<div class="row">

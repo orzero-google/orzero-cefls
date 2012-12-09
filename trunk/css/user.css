@@ -4401,6 +4401,7 @@ a.rsswidget {
 .login label {
     color:#777;
     font-size:14px;
+    display: inline;
 }
 .login form .forgetmenot label {
     font-size:12px;
@@ -7136,6 +7137,9 @@ div.widgets-sortables,#widgets-left .inactive {
     background:transparent url(../images/arrows-dark.png) no-repeat 5px 9px;
 }
 
+#UserLogin_username, #UserLogin_password{
+    height: 40px;
+}
 /*
 h1,h2,#content ul{
     display: none;

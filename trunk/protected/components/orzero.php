@@ -120,18 +120,15 @@ function get_admin_sidebar(){
 
     $items=array(
         array(
-            'name'=>'站内广告',
+            'name'=>'站内图片广告',
             'pid'=>'1',
             'items'=>array(
                 array('name'=>'新增图片广告', 'cid'=>'1'),
                 array('name'=>'查看图片广告', 'cid'=>'2'),
-                array('name'=>'交纳会费', 'cid'=>'3'),
-                array('name'=>'站内消息', 'cid'=>'4'),
-                array('name'=>'会员升级', 'cid'=>'10'),
             )
         ),
 
-        array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'#'),
+        array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
 
     $c=1;
@@ -178,4 +175,127 @@ function get_admin_sidebar(){
 
     Yii::app()->cache->set('sidebar::'.$pid.'::'.$cid, $sidebar_html);
     return $sidebar_html;
+}
+
+
+function get_ads_type($key=''){
+    $list = array(
+        '-1'=>'首页轮播',
+        '1'=>'主题图1',
+        '2'=>'主题图2',
+        '3'=>'主题图3',
+        '4'=>'主题图4',
+        '5'=>'主题图5',
+        '6'=>'主题图6',
+        '7'=>'主题图7',
+        '8'=>'主题图8',
+        '9'=>'主题图9',
+        '-2'=>'首页中部'
+    );
+    if(!empty($key)){
+        if(array_key_exists($key,$list)){
+            return $list[$key];
+        }else{
+            return false;
+        }
+    }
+
+    return $list;
+}
+
+function get_ads_list($type, $limit=1){
+    if(empty($type))
+        return false;
+
+//    $criteria=new CDbCriteria;
+//    $criteria->condition='`cid`=0 AND type='.intval($type);
+//    $criteria->order='`order` ASC';
+//    $criteria->limit = $limit;
+
+    return Ads::model()->img_ads($type, $limit)->findAll();
+}
+/*
+<div class="adList">
+    <div class="ad1"><a href="#"><img src="/cefls/images/ad1.jpg" alt="ad1"></a></div>
+    <div class="ad2"><a href="#"><img src="/cefls/images/ad2.jpg" alt="ad2"></a></div>
+    <div class="ad3"><a href="#"><img src="/cefls/images/ad3.jpg" alt="ad3"></a></div>
+</div>
+*/
+function get_index_adlist(){
+    $list_html = '';
+    if(!YII_DEBUG)
+        $list_html = Yii::app()->cache->get('list_html::index');
+    if(!empty($list_html)){
+        return $list_html;
+    }
+
+    $list = get_ads_list('-2', 3);
+    $list_html = '<div class="adList">';
+
+    $i=1;
+    foreach($list as $list_one){
+        $list_html .= '<div class="ad'.$i.'"><a href="'.CHtml::encode($list_one->url).'" title="'.CHtml::encode($list_one->title).'"><img src="'.CHtml::encode($list_one->img).'" alt="ad'.$i.'"></a></div>';
+        $i++;
+    }
+    $list_html .= '</div>';
+
+    Yii::app()->cache->set('list_html::index', $list_html);
+    return $list_html;
+}
+
+/*
+<div id="slide-index">
+    <div class="slides">
+        <div class="slide autoMaxWidth" links=[{left:'30px',top:'81px'},{left:'30px',top:'244px'},{direction:'tb'}]>
+            <div class="image" id='bi_0'><a target="_blank" href="#"><img name="" src="/cefls/images/hw_149403.jpg" /></a></div>
+            <div class="text" id='bt_0'></div>
+            <div class="button" id='bb_0'></div>
+        </div>
+        <div class="slide autoMaxWidth" links=[{left:'30px',top:'81px'},{left:'30px',top:'244px'},{direction:'tb'}]>
+            <div class="image" id='bi_1'><a href="#" target="_blank"><img name="" src="/cefls/images/hw_149025.jpg" /></a></div>
+            <div class="text" id='bt_1'></div>
+            <div class="button" id='bb_1'></div>
+        </div>
+        <div class="slide autoMaxWidth" links=[{left:'30px',top:'81px'},{left:'30px',top:'244px'},{direction:'tb'}]>
+            <div class="image" id='bi_2'><a target="" href="#"><img name="" src="/cefls/images/hw_194667.jpg" /></a></div>
+            <div class="text" id='bt_2'></div>
+            <div class="button" id='bb_2'></div>
+        </div>
+    </div>
+    <div class="control">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+*/
+function get_img_slides(){
+    $slides_html = '';
+    if(!YII_DEBUG)
+        $slides_html = Yii::app()->cache->get('slides_html::index');
+    if(!empty($slides_html)){
+        return $slides_html;
+    }
+
+    $imgs = get_ads_list('-1', 10);
+
+    $body='';
+    $footer='';
+    foreach($imgs as $img){
+        $body .= '<div class="slide autoMaxWidth" links=[{left:"30px",top:"81px"},{left:"30px",top:"244px"},{direction:"tb"}]>';
+        $body .= '<div class="image" id="bi_1"><a href="#" target="_blank"><img name="" src="'.$img->img.'" /></a></div>';
+        $body .= '<div class="text" id="bt_2"></div>';
+        $body .= '<div class="button" id="bb_2"></div>';
+        $body .= '</div>';
+
+        $footer .= '<a href=""></a>';
+    }
+
+    $slides_html = '<div id="slide-index">';
+    $slides_html .= '<div class="slides">'.$body.'</div>';
+    $slides_html .= '<div class="control">'.$footer.'</div>';
+    $slides_html .= '</div>';
+
+    Yii::app()->cache->set('slides_html::index', $slides_html);
+    return $slides_html;
 }

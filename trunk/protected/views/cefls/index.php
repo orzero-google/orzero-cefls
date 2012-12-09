@@ -1,29 +1,6 @@
 <!-- index's slide  -->
 <div class="videoList-container" id="pcList" style="display:none;margin-bottom:0px;">
-    <div id="slide-index">
-        <div class="slides">
-            <div class="slide autoMaxWidth" links=[{left:'30px',top:'81px'},{left:'30px',top:'244px'},{direction:'tb'}]>
-            <div class="image" id='bi_0'><a target="_blank" href="#"><img name="" src="/cefls/images/hw_149403.jpg" /></a></div>
-            <div class="text" id='bt_0'></div>
-            <div class="button" id='bb_0'></div>
-        </div>
-        <div class="slide autoMaxWidth" links=[{left:'30px',top:'81px'},{left:'30px',top:'244px'},{direction:'tb'}]>
-        <div class="image" id='bi_1'><a href="#" target="_blank"><img name="" src="/cefls/images/hw_149025.jpg" /></a></div>
-        <div class="text" id='bt_1'></div>
-        <div class="button" id='bb_1'></div>
-    </div>
-    <div class="slide autoMaxWidth" links=[{left:'30px',top:'81px'},{left:'30px',top:'244px'},{direction:'tb'}]>
-    <div class="image" id='bi_2'><a target="" href="#"><img name="" src="/cefls/images/hw_194667.jpg" /></a></div>
-    <div class="text" id='bt_2'></div>
-    <div class="button" id='bb_2'></div>
-</div>
-</div>
-<div class="control">
-    <a href=""></a>
-    <a href=""></a>
-    <a href=""></a>
-</div>
-</div>
+    <?php echo get_img_slides(); ?>
 </div>
 <script type="text/javascript" src="/cefls//js/global_cn.index.js"></script>
 <!-- index's newsPlan  -->
@@ -68,11 +45,7 @@
 </div>
 
 <!-- index's adList  -->
-<div class="adList">
-    <div class="ad1"><a href="#"><img src="/cefls/images/ad1.jpg" alt="ad1"></a></div>
-    <div class="ad2"><a href="#"><img src="/cefls/images/ad2.jpg" alt="ad2"></a></div>
-    <div class="ad3"><a href="#"><img src="/cefls/images/ad3.jpg" alt="ad3"></a></div>
-</div>
+<?php echo get_index_adlist(); ?>
 
 <!-- index's foreign -->
 <div class="foreignPlan">

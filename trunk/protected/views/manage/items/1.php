@@ -7,20 +7,25 @@
  * .
  */
 $id=Yii::app()->request->getParam('id', 0);
-$model = Ads::model()->img_ads()->findByPk($id);
+$model = Ads::model()->img_ads_all()->findByPk($id);
 $img_root = Yii::app()->getBasePath().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
 
 $img_old = '';
+$img_temp = '';
 if(empty($model)){
     $model = new Ads;
 }else{
-    $img_old = $img_root.$model->img;
+    $img_old = $img_root.basename($model->img);
+    $img_temp = $model->img;
 }
 $model->cid=0;
 
 if(isset($_POST['Ads']))
 {
     $model->attributes=$_POST['Ads'];
+    if(empty($model->img)){
+        $model->img = $img_temp;
+    }
 
     $img = CUploadedFile::getInstance($model, 'img');
     if(!empty($img)){
@@ -32,7 +37,7 @@ if(isset($_POST['Ads']))
         $img_name  = md5(rand(1,100).date('YmdHis').rand(1,1000)).'.'.$img->extensionName;
         if (is_object($img)) {
             $img->saveAs($img_root.$img_name);
-            $model->img=$img_name;
+            $model->img='/images/temp/'.$img_name;
         }
     }
 
