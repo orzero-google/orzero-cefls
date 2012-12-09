@@ -1714,3 +1714,10 @@ detailContent22{ padding: 10px; }
 .row{
     margin: 0;
 }
+
+.right .items .view{
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    margin: 5px 0;
+}
+

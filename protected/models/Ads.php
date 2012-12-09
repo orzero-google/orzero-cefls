@@ -63,7 +63,7 @@ class Ads extends CActiveRecord
     public function scopes()
     {
         return array(
-            'img_ads'=>array(
+            'img_ads_all'=>array(
                 'condition'=>'cid=0',
             ),
             'links'=>array(
@@ -73,16 +73,27 @@ class Ads extends CActiveRecord
         );
     }
 
+    public function img_ads($type, $limit=1){
+        $this->getDbCriteria()->mergeWith(
+            array(
+                'condition'=>'`cid`=0 AND type='.intval($type),
+                'order'=>'`order` ASC',
+                'limit'=>intval($limit)
+            )
+        );
+        return $this;
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
 	{
 		return array(
-			'aid' => '广告ID',
-			'title' => '文字介绍',
-			'img' => '上传图片',
-			'url' => '图片链接',
+			'aid' => 'ID',
+			'title' => '说明介绍',
+			'img' => '图片',
+			'url' => '链接',
 			'cid' => '分类',
 			'type' => '广告位置',
 			'order' => '排序',
