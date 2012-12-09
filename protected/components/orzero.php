@@ -18,6 +18,59 @@ function pd($data=array(), $end='', $stop=true)
     if($stop) die;
 }
 
+/*
+<div class="left">
+    <h3>关于实外</h3>
+    <ul id="nav">
+        <li class="p1 down">实外概况
+            <ul>
+                <li><a href="#url">2011</a></li>
+                <li><a href="#url">2011</a></li>
+            </ul>
+        </li>
+        <li class="p1 down">Services
+            <ul>
+                <li><a href="#url">Printing</a></li>
+                <li><a href="#url">Photo Framing</a></li>
+                <li><a href="#url">Retouching</a></li>
+                <li><a href="#url">Archiving</a></li>
+            </ul>
+        </li>
+        <li class="p1 down">Shop
+            <ul>
+                <li><a href="#url">Online</a></li>
+                <li><a href="#url">Catalogue</a></li>
+                <li><a href="#url">Mail Order</a></li>
+            </ul>
+        </li>
+        <li><a href="#url">Privacy Policy</a></li>
+    </ul>
+</div>
+*/
+
+function get_left_menu($pid){
+    $cid = Yii::app()->request->getParam('cid', 0);
+
+    if(!YII_DEBUG)
+        $left_menu_html = Yii::app()->cache->get('left_menu_html::'.$cid);
+    if(!empty($left_menu_html)){
+        return $left_menu_html;
+    }
+
+    $cate_p = Menu::model()->with('sub_menu')->findByPk($pid);
+
+    $left_menu_html = '<div class="left"><h3>'.$cate_p->menu_name.'</h3>';
+    foreach($cate_p->sub_menu as $menu_one){
+        $left_menu_html .= '<ul id="nav">';
+        $left_menu_html .= '<li'.(($cid==$menu_one->menu_id) ? ' class="selected"' : '').'><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a></li>';
+        $left_menu_html .= '</ul>';
+    }
+    $left_menu_html .= '</div>';
+
+    Yii::app()->cache->set('left_menu_html::'.$cid, $left_menu_html);
+    return $left_menu_html;
+}
+
 function get_menu(){
     if(!YII_DEBUG)
         $menu_html = Yii::app()->cache->get('menu');
@@ -28,10 +81,10 @@ function get_menu(){
     $menus = Menu::model()->with('sub_menu')->findAll('t.menu_type=:menu_type',array(':menu_type'=>1));
     $menu_html = '<ul class="header_nav_link">';
     foreach($menus as $menu_one){
-        $menu_html .= '<li><a href="#">'.$menu_one->menu_name.'</a><ul>';
+        $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
 
         foreach($menu_one->sub_menu as $sub_menu){
-            $menu_html .= '<li><a href="#">'.$sub_menu->menu_name.'</a></li>';
+            $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id, 'cid'=>$sub_menu->menu_id)).'">'.$sub_menu->menu_name.'</a></li>';
         }
         $menu_html .= '</ul>';
     }
