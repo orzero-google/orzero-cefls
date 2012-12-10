@@ -43,7 +43,7 @@ $this->pageTitle=Yii::app()->name . ' - '.'管理员后台';
         </div>
 
         <?php
-            echo $this->renderPartial('items/'.$cid, array(
+            echo $this->renderPartial('items/'.$pid.'/'.$cid, array(
                 'user_info'=>$user_info,
             ));
         ?>

@@ -73,10 +73,10 @@ class Ads extends CActiveRecord
         );
     }
 
-    public function img_ads($type, $limit=1){
+    public function img_ads($type, $limit=1, $cid=0){
         $this->getDbCriteria()->mergeWith(
             array(
-                'condition'=>'`cid`=0 AND type='.intval($type),
+                'condition'=>'`cid`='.intval($cid).' AND type='.intval($type),
                 'order'=>'`order` ASC',
                 'limit'=>intval($limit)
             )
