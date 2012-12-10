@@ -188,6 +188,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看资证荣誉', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'大事纪要',
+            'pid'=>'3',
+            'items'=>array(
+                array('name'=>'新增大事纪要', 'cid'=>'1'),
+                array('name'=>'查看大事纪要', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
@@ -251,7 +259,8 @@ function get_ads_type($key=''){
         '7'=>'主题图7',
         '8'=>'主题图8',
         '9'=>'主题图9',
-        '-2'=>'首页中部'
+        '-2'=>'首页中部',
+//        '-3'=>'荣誉证书',
     );
     if(!empty($key)){
         if(array_key_exists($key,$list)){
@@ -359,4 +368,9 @@ function get_img_slides(){
 
     Yii::app()->cache->set('slides_html::index', $slides_html);
     return $slides_html;
+}
+
+
+function get_fancybox_img(){
+
 }
