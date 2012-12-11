@@ -15,6 +15,7 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
 
             <?php
             echo $this->renderPartial('items/'.$cid, array(
+                'cid'=>$cid,
             ));
             ?>
 

@@ -6,48 +6,38 @@
  * Time: 下午9:57
  * .
  */
-$id=Yii::app()->request->getParam('id', 0);
-$model = Article::model()->img_ads('-3', 1, '-1')->findByPk($id);
-$img_root = Yii::app()->getBasePath().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
 
-$img_old = '';
-$img_temp = '';
+$cid = 16;
+$time = date("Y-m-d H:i:s");
+
+$id=Yii::app()->request->getParam('id', 0);
+$model = Article::model()->article_list($cid)->findByPk($id);
+
+
+
 if(empty($model)){
-    $model = new Ads;
+    $model = new Article;
 }else{
-    $img_old = $img_root.basename($model->img);
-    $img_temp = $model->img;
-    $model->url=$model->url;
+
 }
 
-$model->cid=-1;
-$model->type=-3;
+$model->uid=Yii::app()->user->id;
+$model->cid=$cid;
+$model->enabled=1;
+$model->audit=1;
+$model->grade=0;
+$model->createtime=empty($model->createtime) ? $time : $model->createtime;
+$model->updatetime=$time;
+$model->sort=0;
+$model->type=0;
 
-if(isset($_POST['Ads']))
+if(isset($_POST['Article']))
 {
-    $model->attributes=$_POST['Ads'];
-    if(empty($model->img)){
-        $model->img = $img_temp;
-    }
-
-    $img = CUploadedFile::getInstance($model, 'img');
-    if(!empty($img)){
-        if(!empty($img_old)){
-            @unlink($img_old);
-        }
-//        if(!is_dir($img_root))
-//            mkdir($img_root,0777,true);
-        $img_name  = md5(rand(1,100).date('YmdHis').rand(1,1000)).'.'.$img->extensionName;
-        if (is_object($img)) {
-            $img->saveAs($img_root.$img_name);
-            $model->img='/images/temp/'.$img_name;
-            $model->url=$model->img;
-        }
-    }
+    $model->attributes=$_POST['Article'];
 
     if($model->save())
-        $this->redirect(array('manage/index', 'pid'=>2, 'cid'=>2));
+        $this->redirect(array('manage/index', 'pid'=>3, 'cid'=>2));
 }
 
-echo $this->renderPartial('//cefls/ads/_2_1', array('model'=>$model, 'img_root'=>$img_root));
+echo $this->renderPartial('//cefls/article/_3_1', array('model'=>$model));
 
