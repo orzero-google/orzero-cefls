@@ -11,7 +11,7 @@ $dataProvider=new CActiveDataProvider('Ads',array(
 $page=intval(Yii::app()->request->getParam('Ads_page', 1));
 ?>
 
-
+<div class="top"></div>
 <link rel="stylesheet" type="text/css" href="/cefls/css/jquery.fancybox.css" media="screen"/>
 
 <div class="middle">
@@ -39,6 +39,7 @@ $page=intval(Yii::app()->request->getParam('Ads_page', 1));
     <div class="hackbox"></div>
 </div>
 
+<div class="bottom" id="bottom"></div>
 <script type="text/javascript">
 $(document).ready(function() {
     $("a.certImg").fancybox();

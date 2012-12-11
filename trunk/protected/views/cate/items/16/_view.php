@@ -1,3 +1,11 @@
-<p class="list"><span><?php echo CHtml::encode($data->excerpt);?>：
+<p class="list<?php
+if($GLOBALS['i']%2 ==0){
+    echo ' theline';
+}
+?>"><a><?php echo CHtml::encode($data->excerpt);?>：
 <?php echo CHtml::encode($data->content);?>
-</span></p>
+</a></p>
+
+<?php
+$GLOBALS['i']++;
+?>
