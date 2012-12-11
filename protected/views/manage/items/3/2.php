@@ -10,18 +10,18 @@
 //$model = Ads::model()->findAll('cid=0');
 
 $criteria=new CDbCriteria;
-$criteria->condition='`cid`=-1 AND `type`=-3';
-$criteria->order='`order` ASC';
-$dataProvider=new CActiveDataProvider('Ads',array(
+$criteria->condition='`cid`=16 AND `enabled`=1';
+$criteria->order='`sort` ASC';
+$dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
     'pagination'=>array(
-        'pageSize'=>5,
+        'pageSize'=>10,
     ),
 ));
 
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
-    'itemView'=>'//cefls/ads/_2_2',
+    'itemView'=>'//cefls/article/_3_2',
     'ajaxUpdate'=>false,
     'template'=>"{items}\n{pager}"
 ));

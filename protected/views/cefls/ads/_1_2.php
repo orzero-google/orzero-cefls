@@ -1,6 +1,6 @@
 <div class="view">
     <b><?php echo CHtml::encode($data->getAttributeLabel('aid')); ?>:</b>
-    <?php echo CHtml::link(CHtml::encode($data->aid.'(修改)'), array('manage/index', 'pid'=>1, 'cid'=>1, 'id'=>$data->aid)); ?>
+    <?php echo CHtml::link(CHtml::encode($data->aid.'[修改]'), array('manage/index', 'pid'=>1, 'cid'=>1, 'id'=>$data->aid)); ?>
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>

@@ -75,8 +75,8 @@ class Article extends CActiveRecord
     public function article_list($cid, $limit=1){
         $this->getDbCriteria()->mergeWith(
             array(
-                'condition'=>'`cid`='.intval($cid).' AND type='.intval($type),
-                'order'=>'`order` ASC',
+                'condition'=>'`cid`='.intval($cid).' AND enabled=1',
+                'order'=>'`sort` ASC',
                 'limit'=>intval($limit)
             )
         );
@@ -97,14 +97,14 @@ class Article extends CActiveRecord
 			'cid' => 'Cid',
 			'audit' => 'Audit',
 			'grade' => 'Grade',
-			'createtime' => 'Createtime',
-			'updatetime' => 'Updatetime',
-			'title' => 'Title',
-			'excerpt' => 'Excerpt',
-			'content' => 'Content',
+			'createtime' => '发布时间',
+			'updatetime' => '更新时间',
+			'title' => '标题',
+			'excerpt' => '出处',
+			'content' => '内容',
 			'author' => 'Author',
 			'enabled' => 'Enabled',
-			'sort' => 'Sort',
+			'sort' => '排序',
 			'type' => 'Type',
 			'clicknumber' => 'Clicknumber',
 		);
