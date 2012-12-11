@@ -15,15 +15,31 @@ $page=intval(Yii::app()->request->getParam('Article_page', 1));
     <div class="thingsTitle"></div>
 </div>
 <div class="middle">
-    <div class="thingsList">
         <?php
+        $GLOBALS['i']=1;
         if(!empty($dataProvider->data))
-            $this->widget('zii.widgets.CListView', array(
+            $this->widget('application.vendors.OListView', array(
                 'dataProvider'=>$dataProvider,
                 'itemView'=>'//cate/items/'.$cid.'/_view',
                 'ajaxUpdate'=>false,
-                'template'=>"{items}\n{pager}" ,
+                'template'=>"{items}" ,
+                'htmlOptions'=>array('class'=>'thingsList'),
+                'jump'=>false,
             ));
         ?>
-    </div>
 </div>
+<?php
+//pd($dataProvider->getPagination());
+
+echo '<div class="bottom" style="text-align: center;">';
+
+$this->widget('application.vendors.OListView', array(
+    'dataProvider'=>$dataProvider,
+    'itemView'=>'//cate/items/'.$cid.'/_view',
+    'ajaxUpdate'=>false,
+    'template'=>"{pager}" ,
+    'htmlOptions'=>array('class'=>'thingsList'),
+    'jump'=>false,
+));
+
+echo '</div>';
