@@ -303,11 +303,10 @@ class OListView extends CBaseListView
 //            echo '<div class="clear"></div>'.'</div>';
         }
         else{
-//            unset($pager['jump']);
+            unset($pager['jump']);
             $this->widget('CLinkPager',$pager);
         }
 
     }
-
 
 }

@@ -3,11 +3,11 @@ $this->pageTitle=Yii::app()->name . ' - '.'管理员后台';
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/css.css" />
 
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/menu.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/sub-lunhuan.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/side.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/add.js" type="text/javascript"></script>
+<!--<script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/js/admin/jquery-1.7.2.min.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/js/admin/menu.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/js/admin/sub-lunhuan.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/js/admin/side.js" type="text/javascript"></script>-->
+<!--<script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/js/admin/add.js" type="text/javascript"></script>-->
 
 
 <div class="subpageContainer">

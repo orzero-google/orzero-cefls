@@ -24,14 +24,14 @@ $page=intval(Yii::app()->request->getParam('Article_page', 1));
                 'ajaxUpdate'=>false,
                 'template'=>"{items}" ,
                 'htmlOptions'=>array('class'=>'thingsList'),
-                'jump'=>false,
+//                'jump'=>false,
             ));
         ?>
 </div>
 <?php
 //pd($dataProvider->getPagination());
 
-echo '<div class="bottom" style="text-align: center;">';
+echo '<div class="bottom" style="text-align: center;margin-top: -20px;">';
 
 $this->widget('application.vendors.OListView', array(
     'dataProvider'=>$dataProvider,
@@ -39,7 +39,7 @@ $this->widget('application.vendors.OListView', array(
     'ajaxUpdate'=>false,
     'template'=>"{pager}" ,
     'htmlOptions'=>array('class'=>'thingsList'),
-    'jump'=>false,
+//    'jump'=>false,
 ));
 
 echo '</div>';

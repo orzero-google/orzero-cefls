@@ -25,7 +25,7 @@ class ManageController extends Controller
                 'users'=>array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions'=>array('admin'),
+                'actions'=>array('admin','del_article','del_ads'),
                 'users'=>array('admin'),
             ),
             array('deny',  // deny all users
@@ -47,6 +47,30 @@ class ManageController extends Controller
                 'height'=>30
             ))
         );
+    }
+
+    public function actionDel_article(){
+        $pid=Yii::app()->request->getParam('pid', 0);
+        $cid=Yii::app()->request->getParam('cid', 0);
+        $id=Yii::app()->request->getParam('id', 0);
+
+        $article = Article::model()->findByPk($id);
+        $article->enabled=0;
+        if($article->save()){
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cid'=>$cid));
+        }
+    }
+
+    public function actionDel_ads(){
+        $pid=Yii::app()->request->getParam('pid', 0);
+        $cid=Yii::app()->request->getParam('cid', 0);
+        $id=Yii::app()->request->getParam('id', 0);
+
+        $article = Ads::model()->findByPk($id);
+        $article->enabled=0;
+        if($article->save()){
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cid'=>$cid));
+        }
     }
 
     public function actionIndex()
