@@ -17,8 +17,31 @@
         <?php echo $form->error($model,'title'); ?>
     </div>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'from'); ?>
+        <?php echo $form->textField($model,'from',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'from'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'author'); ?>
+        <?php echo $form->textField($model,'author',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'author'); ?>
+    </div>
+
 	<div class="row">
-        <?php echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        <?php echo $form->labelEx($model,'content'); ?>
+        <?php
+        $this->widget('application.extensions.tinymce.ETinyMce', array(
+//            'id'=>'Article_content',
+//            'name'=>'Article[content]',
+            'model'=>$model,
+            'attribute'=>'content',
+            'useSwitch' => false,
+            'editorTemplate'=>'full',
+        )); ?>
+<!--        --><?php //echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        <?php echo $form->error($model,'content'); ?>
 	</div>
 
 

@@ -11,6 +11,7 @@
  * @property integer $cid
  * @property integer $type
  * @property integer $order
+ * @property integer $enabled
  */
 class Ads extends CActiveRecord
 {
@@ -41,11 +42,11 @@ class Ads extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, img, url, cid, type', 'required'),
-			array('cid, type, order', 'numerical', 'integerOnly'=>true),
+			array('cid, type, order, enabled', 'numerical', 'integerOnly'=>true),
 			array('title, img, url', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('aid, title, img, url, cid, type, order', 'safe', 'on'=>'search'),
+			array('aid, title, img, url, cid, type, order, enabled', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,7 +77,7 @@ class Ads extends CActiveRecord
     public function img_ads($type, $limit=1, $cid=0){
         $this->getDbCriteria()->mergeWith(
             array(
-                'condition'=>'`cid`='.intval($cid).' AND type='.intval($type),
+                'condition'=>'`cid`='.intval($cid).' AND type='.intval($type).' AND enabled=1',
                 'order'=>'`order` ASC',
                 'limit'=>intval($limit)
             )
@@ -97,6 +98,7 @@ class Ads extends CActiveRecord
 			'cid' => '分类',
 			'type' => '广告位置',
 			'order' => '排序',
+            'enabled' => '显示',
 		);
 	}
 
@@ -118,6 +120,7 @@ class Ads extends CActiveRecord
 		$criteria->compare('cid',$this->cid);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('order',$this->order);
+        $criteria->compare('enabled',$this->enabled);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -51,7 +51,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('uid, cid, audit, grade, createtime, updatetime, title, excerpt, content, sort, type', 'required'),
+			array('uid, cid, audit, grade, createtime, updatetime, title, content, sort, type', 'required'),
 			array('uid, cid, audit, grade, enabled, sort, type, clicknumber', 'numerical', 'integerOnly'=>true),
 			array('src, file, from', 'length', 'max'=>255),
 			array('author', 'length', 'max'=>64),
@@ -92,7 +92,7 @@ class Article extends CActiveRecord
 			'aid' => 'Aid',
 			'src' => 'Src',
 			'file' => 'File',
-			'from' => 'From',
+			'from' => '出处',
 			'uid' => 'Uid',
 			'cid' => 'Cid',
 			'audit' => 'Audit',
@@ -100,9 +100,9 @@ class Article extends CActiveRecord
 			'createtime' => '发布时间',
 			'updatetime' => '更新时间',
 			'title' => '标题',
-			'excerpt' => '出处',
+			'excerpt' => '摘录',
 			'content' => '内容',
-			'author' => 'Author',
+			'author' => '发布人',
 			'enabled' => 'Enabled',
 			'sort' => '排序',
 			'type' => 'Type',

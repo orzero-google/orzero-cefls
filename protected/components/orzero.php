@@ -196,6 +196,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看大事纪要', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'站内文章',
+            'pid'=>'4',
+            'items'=>array(
+                array('name'=>'新增站内文章', 'cid'=>'1'),
+                array('name'=>'查看站内文章', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
