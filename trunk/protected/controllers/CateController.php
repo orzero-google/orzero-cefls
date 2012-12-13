@@ -8,12 +8,31 @@ class CateController extends Controller
         $pid=Yii::app()->request->getParam('pid', 0);
         $cid=Yii::app()->request->getParam('cid', 0);
         $sub_menu = Menu::model()->findByPk($cid);
-		$this->render('index', array(
-            'pid'=>$pid,
-            'cid'=>$cid,
-            'sub_menu'=>$sub_menu
-        ));
+
+        if(empty($pid)){
+            $this->render('cate', array(
+                'cid'=>$cid,
+                'sub_menu'=>$sub_menu
+            ));
+        }else{
+            $this->render('index', array(
+                'pid'=>$pid,
+                'cid'=>$cid,
+                'sub_menu'=>$sub_menu
+            ));
+        }
 	}
+
+    public function actions()
+    {
+        return array(
+            // captcha action renders the CAPTCHA image displayed on the contact page
+            'captcha'=>array(
+                'class'=>'CCaptchaAction',
+                'backColor'=>0xFFFFFF,
+            ),
+        );
+    }
 
 	// Uncomment the following methods and override them if needed
 	/*
