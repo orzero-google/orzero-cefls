@@ -204,7 +204,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看站内文章', 'cid'=>'2'),
             )
         ),
-
+        array(
+            'name'=>'外语板块',
+            'pid'=>'5',
+            'items'=>array(
+                array('name'=>'新增文章', 'cid'=>'1'),
+                array('name'=>'查看文章', 'cid'=>'2'),
+            )
+        ),
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
 
@@ -268,6 +275,9 @@ function get_ads_type($key=''){
         '8'=>'主题图8',
         '9'=>'主题图9',
         '-2'=>'首页中部',
+        '-3'=>'首页英语版图片',
+        '-4'=>'首页法语版图片',
+        '-5'=>'首页德语版图片',
 //        '-3'=>'荣誉证书',
     );
     if(!empty($key)){
