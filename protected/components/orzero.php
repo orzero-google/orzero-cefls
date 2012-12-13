@@ -382,3 +382,7 @@ function get_img_slides(){
 function get_fancybox_img(){
 
 }
+
+function get_cate_article(){
+    return array(16);
+}
