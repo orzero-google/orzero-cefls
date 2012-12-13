@@ -14,9 +14,21 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
 
 
             <?php
-            echo $this->renderPartial('items/'.$cid, array(
-                'cid'=>$cid,
-            ));
+            if(in_array($cid, get_cate_article())){
+                $cate = Menu::model()->findByPk($cid);
+
+                $criteria=new CDbCriteria;
+                $criteria->condition='`cid`=-1 AND `enabled`=1 AND title=:title';
+                $criteria->params=array(':title'=>$cate['menu_name']);
+                $article = Article::model()->find($criteria);
+                $this->renderPartial('//cefls/article/article_view', array('data'=>$article));
+                $article->clicknumber++;
+                $article->save();
+            }else{
+                echo $this->renderPartial('items/'.$cid, array(
+                    'cid'=>$cid,
+                ));
+            }
             ?>
 
 
