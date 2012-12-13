@@ -19,23 +19,25 @@ if(isset($_POST['ContactForm']))
 邮政编码：'.$model->zip.'
         ';
 
-        $model->body.=$user_info;
+        $body = $model->body.$user_info;
 
-        mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-        Yii::app()->user->setFlash('contact','感谢您联系我们！');
-        $this->refresh();
+        if(mail(Yii::app()->params['adminEmail'],$model->subject,$body,$headers)){
+            Yii::app()->user->setFlash('contact','感谢您联系我们,您已经成功发送信件到校长信箱！');
+        }
     }
 }
 
-$this->widget('application.extensions.flash.Flash', array(
-    'keys'=>array('success','error'),
-    'htmlOptions'=>array('class'=>'flash'),
-)); ?><!-- flashes -->
+?>
 
 <div class="middle">
     <?php $form=$this->beginWidget('CActiveForm'); ?>
         <table class="email" cellpadding="0px" cellspacing="0px" width="712px" height="555">
-            <tr><td colspan="3"><?php echo $form->errorSummary($model); ?>&nbsp;</td></tr>
+            <tr><td colspan="3"><?php
+                $this->widget('application.extensions.flash.Flash', array(
+                    'keys'=>array('contact'),
+                    'htmlOptions'=>array('class'=>'flash'),
+                ));
+                echo $form->errorSummary($model); ?>&nbsp;</td></tr>
             <tr class="title">
                 <td width="34px" height="40px;">&nbsp;</td>
                 <td width="678px" colspan="2">成都市实验外国语学校校长</td>
