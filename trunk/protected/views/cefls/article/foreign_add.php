@@ -10,40 +10,115 @@
 )); ?>
 
     <?php echo $form->errorSummary($model); ?>
-
+<h2 style="margin: 10px auto;text-align: center;border: 1px solid #CCCCCC;">英文</h2>
     <div class="row">
-        <?php echo $form->labelEx($model,'title'); ?>
-        <?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
-        <?php echo $form->error($model,'title'); ?>
+        <?php echo $form->labelEx($model,'title_en'); ?>
+        <?php echo $form->textField($model,'title_en',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'title_en'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'from'); ?>
-        <?php echo $form->textField($model,'from',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
-        <?php echo $form->error($model,'from'); ?>
+        <?php echo $form->labelEx($model,'from_en'); ?>
+        <?php echo $form->textField($model,'from_en',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'from_en'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'author'); ?>
-        <?php echo $form->textField($model,'author',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
-        <?php echo $form->error($model,'author'); ?>
+        <?php echo $form->labelEx($model,'author_en'); ?>
+        <?php echo $form->textField($model,'author_en',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'author_en'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'content'); ?>
+        <?php echo $form->textAreaRow($model, 'excerpt_en', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'content_en'); ?>
         <?php
         $this->widget('application.extensions.tinymce.ETinyMce', array(
-//            'id'=>'Article_content',
-//            'name'=>'Article[content]',
             'model'=>$model,
-            'attribute'=>'content',
+            'attribute'=>'content_en',
             'useSwitch' => false,
             'editorTemplate'=>'full',
         )); ?>
-        <!--        --><?php //echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
-        <?php echo $form->error($model,'content'); ?>
+        <?php echo $form->error($model,'content_en'); ?>
     </div>
 
+    <br /><br /><br /><br /><br /><br />
+    <h2 style="margin: 10px auto;text-align: center;border: 1px solid #CCCCCC;">法文</h2>
+    <div class="row">
+        <?php echo $form->labelEx($model,'title_fr'); ?>
+        <?php echo $form->textField($model,'title_fr',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'title_fr'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'from_fr'); ?>
+        <?php echo $form->textField($model,'from_fr',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'from_fr'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'author_fr'); ?>
+        <?php echo $form->textField($model,'author_fr',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'author_fr'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->textAreaRow($model, 'excerpt_fr', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'content_fr'); ?>
+        <?php
+        $this->widget('application.extensions.tinymce.ETinyMce', array(
+            'model'=>$model,
+            'attribute'=>'content_fr',
+            'useSwitch' => false,
+            'editorTemplate'=>'full',
+        )); ?>
+        <?php echo $form->error($model,'content_fr'); ?>
+    </div>
+
+    <br /><br /><br /><br /><br /><br />
+
+    <h2 style="margin: 10px auto;text-align: center;border: 1px solid #CCCCCC;">德文</h2>
+    <div class="row">
+        <?php echo $form->labelEx($model,'title_de'); ?>
+        <?php echo $form->textField($model,'title_de',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'title_de'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'from_de'); ?>
+        <?php echo $form->textField($model,'from_de',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'from_de'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'author_de'); ?>
+        <?php echo $form->textField($model,'author_de',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'author_de'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->textAreaRow($model, 'excerpt_de', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'content_de'); ?>
+        <?php
+        $this->widget('application.extensions.tinymce.ETinyMce', array(
+            'model'=>$model,
+            'attribute'=>'content_de',
+            'useSwitch' => false,
+            'editorTemplate'=>'full',
+        )); ?>
+        <?php echo $form->error($model,'content_de'); ?>
+    </div>
+
+    <br /><br /><br />
 
     <div class="row">
         <?php echo $form->labelEx($model,'sort'); ?>

@@ -59,6 +59,17 @@ class ArticleForeign extends CActiveRecord
 		return '{{article_foreign}}';
 	}
 
+    public function article_list($cid, $limit=1){
+        $this->getDbCriteria()->mergeWith(
+            array(
+                'condition'=>'`cid`='.intval($cid).' AND enabled=1',
+                'order'=>'`sort` ASC',
+                'limit'=>intval($limit)
+            )
+        );
+        return $this;
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -94,40 +105,40 @@ class ArticleForeign extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'aid' => 'Aid',
-			'uid' => 'Uid',
-			'cid' => 'Cid',
-			'audit' => 'Audit',
-			'grade' => 'Grade',
-			'createtime' => 'Createtime',
-			'updatetime' => 'Updatetime',
+			'aid' => '文章ID',
+			'uid' => '用户ID',
+			'cid' => '分类',
+			'audit' => '审核',
+			'grade' => '等级',
+			'createtime' => '发布时间',
+			'updatetime' => '更新时间',
 			'enabled' => 'Enabled',
-			'sort' => 'Sort',
-			'type' => 'Type',
-			'title_en' => 'Title En',
-			'excerpt_en' => 'Excerpt En',
-			'content_en' => 'Content En',
-			'author_en' => 'Author En',
-			'src_en' => 'Src En',
-			'file_en' => 'File En',
-			'from_en' => 'From En',
-			'clicknumber_en' => 'Clicknumber En',
-			'title_fr' => 'Title Fr',
-			'excerpt_fr' => 'Excerpt Fr',
-			'content_fr' => 'Content Fr',
-			'author_fr' => 'Author Fr',
-			'src_fr' => 'Src Fr',
-			'file_fr' => 'File Fr',
-			'from_fr' => 'From Fr',
-			'clicknumber_fr' => 'Clicknumber Fr',
-			'title_de' => 'Title De',
-			'excerpt_de' => 'Excerpt De',
-			'content_de' => 'Content De',
-			'author_de' => 'Author De',
-			'src_de' => 'Src De',
-			'file_de' => 'File De',
-			'from_de' => 'From De',
-			'clicknumber_de' => 'Clicknumber De',
+			'sort' => '排序',
+			'type' => '类型',
+			'title_en' => '英文标题',
+			'excerpt_en' => '英文简介',
+			'content_en' => '英文正文',
+			'author_en' => '英文作者',
+			'src_en' => '英文链接',
+			'file_en' => '英文附件',
+			'from_en' => '英文出处',
+			'clicknumber_en' => '英文点击量',
+			'title_fr' => '法文标题',
+			'excerpt_fr' => '法文简介',
+			'content_fr' => '法文正文',
+			'author_fr' => '法文作者',
+			'src_fr' => '法文链接',
+			'file_fr' => '法文附件',
+			'from_fr' => '法文出处',
+			'clicknumber_fr' => '法文点击量',
+			'title_de' => '德文标题',
+			'excerpt_de' => '德文简介',
+			'content_de' => '德文内容',
+			'author_de' => '德文作者',
+			'src_de' => '德文链接',
+			'file_de' => '德文附件',
+			'from_de' => '德文出处',
+			'clicknumber_de' => '德文点击量',
 		);
 	}
 

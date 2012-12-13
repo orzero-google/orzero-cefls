@@ -44,6 +44,8 @@ $this->pageTitle=Yii::app()->name . ' - '.'管理员后台';
 
         <?php
             echo $this->renderPartial('items/'.$pid.'/'.$cid, array(
+                'menu_pid'=>$pid,
+                'menu_cid'=>$cid,
                 'user_info'=>$user_info,
             ));
         ?>

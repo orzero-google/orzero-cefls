@@ -1721,7 +1721,7 @@ detailContent22{ padding: 10px; }
     margin: 5px 0;
 }
 
-.right .error{
+.right .admin_error{
     background: none repeat scroll 0 0 #EFEFEF;
     border: 1px solid #EAEAEA;
     padding: 30px 15px;
