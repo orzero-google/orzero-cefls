@@ -13,6 +13,26 @@ class ContactForm extends CFormModel
 	public $body;
 	public $verifyCode;
 
+    public $address;
+    public $company;
+    public $mobile;
+    public $zip;
+
+    public function attributeLabels()
+    {
+        return array(
+            'name' => '姓　　名',
+            'email' => '电子邮箱',
+            'subject' => '主　　题',
+            'body' => '信件内容',
+            'verifyCode' => '验证码',
+            'address' => '通讯地址',
+            'company' => '单　　位',
+            'mobile' => '联系电话',
+            'zip' => '邮政编码',
+        );
+    }
+
 	/**
 	 * Declares the validation rules.
 	 */
@@ -28,15 +48,4 @@ class ContactForm extends CFormModel
 		);
 	}
 
-	/**
-	 * Declares customized attribute labels.
-	 * If not declared here, an attribute would have a label that is
-	 * the same as its name with the first letter in upper case.
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'verifyCode'=>'Verification Code',
-		);
-	}
 }

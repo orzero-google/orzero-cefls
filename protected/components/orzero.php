@@ -103,7 +103,7 @@ function get_header(){
         <div class="header_right">
             <div class="header_title"><img src="/images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
             <div class="header_link">
-                <p class="header_link1"><a href="index.html">首页</a>　|　<a href="#">加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="#">实外信箱</a></p>
+                <p class="header_link1"><a href="index.html">首页</a>　|　<a href="#">加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="/index.php/cate/index?cid=61">实外信箱</a></p>
                 <p class="header_link2"><a href="#">ENGLISH</a>　|　<a href="#">Française</a>　|　<a href="#">Deutsch</a></p>
                 <p class="header_link3"><input type="text" class="search_text"/><input type="submit" name="submit" class="submit"/></p>
             </div>
