@@ -17,9 +17,11 @@ if(isset($_POST['ContactForm']))
 单　　位：'.$model->company.'
 联系电话：'.$model->mobile.'
 邮政编码：'.$model->zip.'
-        ';
+';
 
-        $body = $model->body.$user_info;
+        $body = '
+内　　容：
+'.$model->body.$user_info;
 
         if(mail(Yii::app()->params['adminEmail'],$model->subject,$body,$headers)){
             Yii::app()->user->setFlash('contact','感谢您联系我们,您已经成功发送信件到校长信箱！');
