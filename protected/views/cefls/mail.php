@@ -9,21 +9,14 @@ if(isset($_POST['ContactForm']))
         $headers="From: {$model->email}\r\nReply-To: {$model->email}";
 
         $user_info = '
-        <table>
-            <tr>
-                <td class="lefttitle" height="95px">发信人</td>
-                <td width="339px">
-                    <p><span>*</span>姓　　名：'.$model->name.'</p>
-                    <p><span>*</span>电子邮箱：'.$model->email.'</p>
-                    <p>&nbsp;通讯地址：'.$model->address.'</p>
-                </td>
-                <td width="339px">
-                    <p><span>*</span>单　　位：'.$model->company.'</p>
-                    <p>&nbsp;联系电话：'.$model->mobile.'</p>
-                    <p>&nbsp;邮政编码：'.$model->zip.'</p>
-                </td>
-            </tr>
-        </table>
+
+
+姓　　名：'.$model->name.'
+电子邮箱：'.$model->email.'
+通讯地址：'.$model->address.'
+单　　位：'.$model->company.'
+联系电话：'.$model->mobile.'
+邮政编码：'.$model->zip.'
         ';
 
         $model->body.=$user_info;
