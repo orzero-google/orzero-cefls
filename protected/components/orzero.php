@@ -468,8 +468,15 @@ function get_cate_article(){
 */
 function get_index_foreign($type='en'){
 
+    $profile=ArticleForeign::model()->article_list(3)->find();
+    $culture=ArticleForeign::model()->article_list(4)->find();
+
+    $images=Ads::model()->img_ads(-3, 6)->findAll();
 
     $out = Yii::app()->getController()->renderPartial('//cefls/article/foreign_index', array(
+        'profile'=>$profile,
+        'culture'=>$culture,
+        'images'=>$images,
     ),false);
     return $out;
 }
