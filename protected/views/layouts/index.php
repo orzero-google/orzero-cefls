@@ -3,7 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html charset=utf8">
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-    <script type="text/javascript" src="/cefls/js/jquery.js"></script>
     <script type="text/javascript" src="/cefls/js/script.js"></script>
     <script type="text/javascript" src="/cefls/js/coin-slider.min.js"></script>
     <script type="text/javascript" src="/cefls/js/jquery.fancybox.pack.js"></script>

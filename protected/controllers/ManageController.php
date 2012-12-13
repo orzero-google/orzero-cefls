@@ -25,7 +25,7 @@ class ManageController extends Controller
                 'users'=>array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions'=>array('admin','del_article','del_ads'),
+                'actions'=>array('admin','del_article','del_ads','del_article_foreign'),
                 'users'=>array('admin'),
             ),
             array('deny',  // deny all users
@@ -55,6 +55,18 @@ class ManageController extends Controller
         $id=Yii::app()->request->getParam('id', 0);
 
         $article = Article::model()->findByPk($id);
+        $article->enabled=0;
+        if($article->save()){
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cid'=>$cid));
+        }
+    }
+
+    public function actionDel_article_foreign(){
+        $pid=Yii::app()->request->getParam('pid', 0);
+        $cid=Yii::app()->request->getParam('cid', 0);
+        $id=Yii::app()->request->getParam('id', 0);
+
+        $article = ArticleForeign::model()->findByPk($id);
         $article->enabled=0;
         if($article->save()){
             $this->redirect(array('manage/index', 'pid'=>$pid, 'cid'=>$cid));

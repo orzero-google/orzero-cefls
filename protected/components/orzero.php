@@ -67,7 +67,7 @@ function get_left_menu($pid){
     }
     $left_menu_html .= '</div>';
 
-    Yii::app()->cache->set('left_menu_html::'.$cid, $left_menu_html);
+    Yii::app()->cache->set('left_menu_html::'.$cid, $left_menu_html, 1000);
     return $left_menu_html;
 }
 
@@ -90,7 +90,7 @@ function get_menu(){
     }
     $menu_html .= '</ul>';
 
-    Yii::app()->cache->set('menu', $menu_html);
+    Yii::app()->cache->set('menu', $menu_html, 1000);
     return $menu_html;
 }
 
@@ -99,7 +99,7 @@ function get_header(){
     return '
 <div class="header">
     <div class="header_top">
-        <div class="header_left"><a href="#"><img src="/images/logo.jpg" width="101" height="101" alt="logo"/></a></div>
+        <div class="header_left"><a href="/"><img src="/images/logo.jpg" width="101" height="101" alt="logo"/></a></div>
         <div class="header_right">
             <div class="header_title"><img src="/images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
             <div class="header_link">
@@ -126,7 +126,7 @@ function get_links(){
         return $links_html;
     }
     //cid = -1 为link类型
-    $links = Ads::model()->findAll('cid=-1');
+    $links = Ads::model()->findAll('cid=-6 AND enabled=1');
 
     $links_html = '
     <div class="frindLinks"><div class="linkList">';
@@ -145,7 +145,7 @@ function get_links(){
     }
     $links_html .= '</div></div>';
 
-    Yii::app()->cache->set('links_html', $links_html);
+    Yii::app()->cache->set('links_html', $links_html, 1000);
     return $links_html;
 }
 
@@ -210,6 +210,8 @@ function get_admin_sidebar(){
             'items'=>array(
                 array('name'=>'新增文章', 'cid'=>'1'),
                 array('name'=>'查看文章', 'cid'=>'2'),
+                array('name'=>'Profile', 'cid'=>'3'),
+                array('name'=>'Culture', 'cid'=>'4'),
             )
         ),
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
@@ -257,14 +259,20 @@ function get_admin_sidebar(){
         }
     }
 
-    Yii::app()->cache->set('sidebar::'.$pid.'::'.$cid, $sidebar_html);
+    Yii::app()->cache->set('sidebar::'.$pid.'::'.$cid, $sidebar_html, 1000);
     return $sidebar_html;
 }
 
 
 function get_ads_type($key=''){
     $list = array(
+        '-6'=>'友情链接',
+        '-2'=>'首页中部',
         '-1'=>'首页轮播',
+        '-3'=>'首页英语版图片',
+        '-4'=>'首页法语版图片',
+        '-5'=>'首页德语版图片',
+
         '1'=>'主题图1',
         '2'=>'主题图2',
         '3'=>'主题图3',
@@ -274,10 +282,7 @@ function get_ads_type($key=''){
         '7'=>'主题图7',
         '8'=>'主题图8',
         '9'=>'主题图9',
-        '-2'=>'首页中部',
-        '-3'=>'首页英语版图片',
-        '-4'=>'首页法语版图片',
-        '-5'=>'首页德语版图片',
+
 //        '-3'=>'荣誉证书',
     );
     if(!empty($key)){
@@ -327,7 +332,7 @@ function get_index_adlist(){
     }
     $list_html .= '</div>';
 
-    Yii::app()->cache->set('list_html::index', $list_html);
+    Yii::app()->cache->set('list_html::index', $list_html, 1000);
     return $list_html;
 }
 
@@ -384,7 +389,7 @@ function get_img_slides(){
     $slides_html .= '<div class="control">'.$footer.'</div>';
     $slides_html .= '</div>';
 
-    Yii::app()->cache->set('slides_html::index', $slides_html);
+    Yii::app()->cache->set('slides_html::index', $slides_html, 1000);
     return $slides_html;
 }
 
@@ -393,6 +398,78 @@ function get_fancybox_img(){
 
 }
 
+//取得单篇文章的页面
 function get_cate_article(){
     return array(16);
+}
+
+/*
+<div class="bottom">
+    <div class="bLeft">
+        <div class="brief">
+            <div class="blbTop">CEFLS  Profile</div>
+            <div class="blbBottom"><a href="#">Chengdu Experimental Foreign Languages SchoolS) is a nationwide famous foreign languages scne directly under the Chengdu unicipal Educat mittee. Located at No.134 Section 1 N. Yihuan Chengdu City. The school covers an area of 60 unded in 1963, the original Chengdu No.48 Middol was renamed Chengdu Experimental Foreign La School in 1993 with the approva......</a></div>
+        </div>
+        <div class="brief">
+            <div class="blbTop">CEFLS  Culture</div>
+            <div class="blbBottom"><a href="#">Chengdu Experimental Foreign Languages SchoolS) is a nationwide famous foreign languages scne directly under the Chengdu unicipal Educat mittee. Located at No.134 Section 1 N. Yihuan Chengdu City. The school covers an area of 60 unded in 1963, the original Chengdu No.48 Middol was renamed Chengdu Experimental Foreign La School in 1993 with the approva......</a></div>
+        </div>
+    </div>
+    <div class="bMiddle">
+        <div class="bothSide">
+            <div class="newsPic">
+                <img src="/cefls/images/6.jpg" width="150px" height="106px" alt="">
+                <p><a href="#">This is picture's title information</a></p>
+            </div>
+            <div class="newsPic">
+                <img src="/cefls/images/6.jpg" width="150px" height="106px" alt="">
+                <p><a href="#">This is picture's title information</a></p>
+            </div>
+            <div class="newsPic">
+                <img src="/cefls/images/6.jpg" width="150px" height="106px" alt="">
+                <p><a href="#">This is picture's title information</a></p>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="recommend">
+                <h3><a href="#">Foreign Languages School</a></h3>
+                <p>CDEFLS has made great academic achievements.s the junior middle school students have rakby exam results in Chengdu. 100% of the CDEL graduates have passed .</p>
+            </div>
+            <div class="list">
+                <p><span>(11-20)</span><a href="#">CEFLS Qualified for Beijing University’s</a></p>
+                <p><span>(11-30)</span><a href="#">Remarkable Achievements in 27th Nationa...</a></p>
+                <p><span>(11-21)</span><a href="#">Friendly Visit from Switzerland</a></p>
+                <p><span>(11-24)</span><a href="#">2010 Autumn-term Opening Ceremony held</a></p>
+                <p><span>(11-25)</span><a href="#">Students Awarded in Financial Knowledge...</a></p>
+                <p><span>(11-25)</span><a href="#">Remarkable Achievements in NEPCSS</a></p>
+                <p><span>(11-25)</span><a href="#">CEFLS Accepted as Research Base by NAFLE</a></p>
+                <p><span>(11-30)</span><a href="#">Remarkable Achievements in 27th Nationa...</a></p>
+                <p><span>(11-21)</span><a href="#">Friendly Visit from Switzerland</a></p>
+                <p><span>(11-24)</span><a href="#">2010 Autumn-term Opening Ceremony held</a></p>
+            </div>
+            <p class="foreginMore"><a href="#">more&gt;&gt;</a></p>
+        </div>
+        <div class="bothSide">
+            <div class="newsPic">
+                <img src="/cefls/images/6.jpg" width="150px" height="106px" alt="">
+                <p><a href="#">This is picture's title information</a></p>
+            </div>
+            <div class="newsPic">
+                <img src="/cefls/images/6.jpg" width="150px" height="106px" alt="">
+                <p><a href="#">This is picture's title information</a></p>
+            </div>
+            <div class="newsPic">
+                <img src="/cefls/images/6.jpg" width="150px" height="106px" alt="">
+                <p><a href="#">This is picture's title information</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+*/
+function get_index_foreign($type='en'){
+
+
+    $out = Yii::app()->getController()->renderPartial('//cefls/article/foreign_index', array(
+    ),false);
+    return $out;
 }
