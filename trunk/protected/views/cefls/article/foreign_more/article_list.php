@@ -1,0 +1,1 @@
+<li><span>(<?php echo substr($data->createtime, 0, 10);?>)</span><a href="#"><?php echo CHtml::encode($data->{"title_".$GLOBALS['key']});?></a></li>

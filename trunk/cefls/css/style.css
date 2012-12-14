@@ -215,7 +215,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
                         .container .right .article .middle div.preview div.describe span{ display: inline;}
                 .container .right .article .middle div.foreginlist{ width: 870px; height:665px; border:1px solid #cccccc; overflow: hidden; margin-top: 20px;}
                     .container .right .article .middle div.foreginlist ul{ width: 840px; height:540px; font-size: 14px; margin: 0 auto; overflow: hidden;}
-                        .container .right .article .middle div.foreginlist li{ width: 830px; height:27px; line-height: 27px; padding-left: 10px; background: url(../images/container_r4_c9.jpg) center left no-repeat;}
+                        .container .right .article .middle div.foreginlist div.list-view>li{ width: 830px; height:27px; line-height: 27px; padding-left: 10px; background: url(../images/container_r4_c9.jpg) center left no-repeat;}
                         .container .right .article .middle div.foreginlist li span{float: right; color: #7F7F7F;}
                     .container .right .article .middle div.foreginlist div.page{ border-top: 1px solid #cccccc; padding-top: 10px;}
                     .container .right .article .middle div.foreginlist .ad4{text-align: center; padding: 5px; border-bottom: 1px solid #cccccc; }

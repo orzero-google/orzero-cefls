@@ -6,12 +6,12 @@ foreach($keys as $key=>$val):
 <div class="bottom"<?php if($key != 'en') echo ' style="dispaly:none;"';?>>
     <div class="bLeft">
         <div class="brief">
-            <div class="blbTop"><?php echo $profile->{"title_".$key}?></div>
-            <div class="blbBottom"><a href="#"><?php echo $profile->{"excerpt_".$key}?></a></div>
+            <div class="blbTop"><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></div>
+            <div class="blbBottom"><a href="#"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?></a></div>
         </div>
         <div class="brief">
-            <div class="blbTop"><?php echo $culture->{"title_".$key}?></div>
-            <div class="blbBottom"><a href="#"><?php echo $culture->{"excerpt_".$key}?></a></div>
+            <div class="blbTop"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></div>
+            <div class="blbBottom"><a href="#"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?></a></div>
         </div>
     </div>
     <div class="bMiddle">
@@ -40,8 +40,8 @@ foreach($keys as $key=>$val):
         </div>
         <div class="middle">
             <div class="recommend">
-                <h3><a href="#"><?php echo $articles[0]->{"title_".$key}; ?></a></h3>
-                <p><?php echo $articles[0]->{"excerpt_".$key}; ?></p>
+                <h3><a href="#"><?php echo isset($articles[0]->{"title_".$key}) ? $articles[0]->{"title_".$key} : ''; ?></a></h3>
+                <p><?php echo isset($articles[0]->{"excerpt_".$key}) ? $articles[0]->{"excerpt_".$key} :  ''; ?></p>
             </div>
             <div class="list">
                 <?php
@@ -49,7 +49,8 @@ foreach($keys as $key=>$val):
                     if(empty($articles[$i])){
                         echo '<p>&nbsp;</p>';
                     }else{
-                        echo '<p><span>('.substr($articles[$i]->createtime, 0, 5).')</span><a href="#">'.CHtml::encode($articles[$i]->{"title_".$key}).'</a></p>';
+                        echo '<p><span>('.(isset($articles[$i]->createtime) ? substr($articles[$i]->createtime, 0, 5) : '').')</span><a href="#">'.
+                            (isset($articles[$i]->{"title_".$key}) ? CHtml::encode($articles[$i]->{"title_".$key}) : '').'</a></p>';
                     }
                 }
                 ?>

@@ -24,7 +24,7 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
                 $this->renderPartial('//cefls/article/article_view', array('data'=>$article));
                 $article->clicknumber++;
                 $article->save();
-            }else if($cid==61){
+            }else if(in_array($cid, get_cate_page())){
 
             }else{
                 echo $this->renderPartial('items/'.$cid, array(

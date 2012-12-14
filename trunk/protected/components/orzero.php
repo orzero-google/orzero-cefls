@@ -60,11 +60,31 @@ function get_left_menu($pid){
     $cate_p = Menu::model()->with('sub_menu')->findByPk($pid);
 
     $left_menu_html = '<div class="left"><h3>'.$cate_p->menu_name.'</h3>';
+    $left_menu_html .= '<ul id="nav">';
     foreach($cate_p->sub_menu as $menu_one){
-        $left_menu_html .= '<ul id="nav">';
-        $left_menu_html .= '<li'.(($cid==$menu_one->menu_id) ? ' class="selected"' : '').'><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a></li>';
-        $left_menu_html .= '</ul>';
+        $sub_sub_menu_html = '';
+        $selected = false;
+        if(isset($menu_one->sub_menu)){
+            $sub_sub_menu_html .= '<ul style="display: none;">';
+            foreach($menu_one->sub_menu as $sub_sub_menu){
+                $sub_sub_menu_html .= '<li'.(($cid==$sub_sub_menu->menu_id) ? ' class="selected"' : '').'>
+            <a href="'.Yii::app()->createUrl('cate/index', array('cid'=>$sub_sub_menu->menu_id)).'">'.$sub_sub_menu->menu_name.'</a>
+            </li>';
+            }
+            $sub_sub_menu_html .= '</ul>';
+
+            $selected = true;
+        }
+
+
+        $left_menu_html .= '<li'.(($cid==$menu_one->menu_id && $selected==false) ? ' class="p1 down selected"' : ' class="p1 down"').'>'.
+            '<a href="'.($selected==false && Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id))).'">'.
+            $menu_one->menu_name.
+            '</a>'.
+        $sub_sub_menu_html.'</li>';
+
     }
+    $left_menu_html .= '</ul>';
     $left_menu_html .= '</div>';
 
     Yii::app()->cache->set('left_menu_html::'.$cid, $left_menu_html, 1000);
@@ -266,9 +286,10 @@ function get_admin_sidebar(){
 
 function get_ads_type($key=''){
     $list = array(
+//        '0'=>'请选择',
 
-        '-1'=>'首页轮播',
-        '-2'=>'首页中部',
+        '-1'=>'首页轮播图片',
+        '-2'=>'首页中部三个图片',
 
         '-3'=>'首页英语版图片',
         '-4'=>'首页法语版图片',
@@ -285,6 +306,10 @@ function get_ads_type($key=''){
         '7'=>'主题图7',
         '8'=>'主题图8',
         '9'=>'主题图9',
+
+        '62'=>'英语版文章列表图片',
+        '63'=>'法语版文章列表图片',
+        '64'=>'德语版文章列表图片',
 
 //        '-3'=>'荣誉证书',
     );
@@ -404,6 +429,14 @@ function get_fancybox_img(){
 //取得单篇文章的页面
 function get_cate_article(){
     return array(16);
+}
+
+function get_cate_page(){
+    return array(61,43);
+}
+
+function get_cate_foreig(){
+    return array(62,63,64);
 }
 
 /*
