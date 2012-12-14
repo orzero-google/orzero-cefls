@@ -266,12 +266,15 @@ function get_admin_sidebar(){
 
 function get_ads_type($key=''){
     $list = array(
-        '-6'=>'友情链接',
-        '-2'=>'首页中部',
+
         '-1'=>'首页轮播',
+        '-2'=>'首页中部',
+
         '-3'=>'首页英语版图片',
         '-4'=>'首页法语版图片',
         '-5'=>'首页德语版图片',
+
+        '-6'=>'友情链接',
 
         '1'=>'主题图1',
         '2'=>'主题图2',
@@ -466,17 +469,31 @@ function get_cate_article(){
     </div>
 </div>
 */
-function get_index_foreign($type='en'){
+function get_index_foreign(){
+    $index_foreign_html = '';
+    if(!YII_DEBUG)
+        $index_foreign_html = Yii::app()->cache->get('index_foreign_html');
+    if(!empty($index_foreign_html)){
+        return $index_foreign_html;
+    }
 
     $profile=ArticleForeign::model()->article_list(3)->find();
     $culture=ArticleForeign::model()->article_list(4)->find();
+    $images_en=Ads::model()->img_ads(-3, 6)->findAll();
+    $images_fr=Ads::model()->img_ads(-4, 6)->findAll();
+    $images_de=Ads::model()->img_ads(-5, 6)->findAll();
 
-    $images=Ads::model()->img_ads(-3, 6)->findAll();
+    $articles = ArticleForeign::model()->article_all_limit(0, 11)->findAll();
 
-    $out = Yii::app()->getController()->renderPartial('//cefls/article/foreign_index', array(
+    $index_foreign_html = Yii::app()->getController()->renderPartial('//cefls/article/foreign_index', array(
         'profile'=>$profile,
         'culture'=>$culture,
-        'images'=>$images,
+        'images_en'=>$images_en,
+        'images_fr'=>$images_fr,
+        'images_de'=>$images_de,
+        'articles'=>$articles,
     ),false);
-    return $out;
+
+    Yii::app()->cache->set('index_foreign_html', $index_foreign_html, 1000);
+    return $index_foreign_html;
 }

@@ -142,6 +142,26 @@ class ArticleForeign extends CActiveRecord
 		);
 	}
 
+    public function scopes()
+    {
+        return array(
+            'article_all'=>array(
+                'condition'=>'cid=0 AND enabled=1',
+            ),
+        );
+    }
+
+    public function article_all_limit($cid=0, $limit=1){
+        $this->getDbCriteria()->mergeWith(
+            array(
+                'condition'=>'`cid`='.intval($cid).' AND enabled=1',
+                'order'=>'`aid` DESC',
+                'limit'=>intval($limit)
+            )
+        );
+        return $this;
+    }
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.

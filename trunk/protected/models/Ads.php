@@ -68,7 +68,7 @@ class Ads extends CActiveRecord
                 'condition'=>'cid=0',
             ),
             'links'=>array(
-                'condition'=>'cid=-1',
+                'condition'=>'cid=-6',
             ),
 
         );
