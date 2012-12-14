@@ -57,6 +57,7 @@ class Menu extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'sub_menu'=>array(self::HAS_MANY, 'Menu', 'parent_id'),
+            'p'=>array(self::BELONGS_TO, 'Menu', 'parent_id'),
 		);
 	}
 
