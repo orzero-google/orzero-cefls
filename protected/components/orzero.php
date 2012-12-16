@@ -64,7 +64,7 @@ function get_left_menu($pid){
     foreach($cate_p->sub_menu as $menu_one){
         $sub_sub_menu_html = '';
         $selected = false;
-        if(isset($menu_one->sub_menu)){
+        if(isset($menu_one->sub_menu) && !empty($menu_one->sub_menu)){
             $sub_sub_menu_html .= '<ul style="display: none;">';
             foreach($menu_one->sub_menu as $sub_sub_menu){
                 $sub_sub_menu_html .= '<li'.(($cid==$sub_sub_menu->menu_id) ? ' class="selected"' : '').'>
@@ -78,7 +78,7 @@ function get_left_menu($pid){
 
 
         $left_menu_html .= '<li'.(($cid==$menu_one->menu_id && $selected==false) ? ' class="p1 down selected"' : ' class="p1 down"').'>'.
-            '<a href="'.($selected==false && Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id))).'">'.
+            '<a href="'.(Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id))).'">'.
             $menu_one->menu_name.
             '</a>'.
         $sub_sub_menu_html.'</li>';
@@ -124,7 +124,7 @@ function get_header(){
             <div class="header_title"><img src="/images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
             <div class="header_link">
                 <p class="header_link1"><a href="index.html">首页</a>　|　<a href="#">加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="/index.php/cate/index?cid=61">实外信箱</a></p>
-                <p class="header_link2"><a href="#">ENGLISH</a>　|　<a href="#">Française</a>　|　<a href="#">Deutsch</a></p>
+                <p class="header_link2"><a href="/index.php/cate/index?cid=62">ENGLISH</a>　|　<a href="/index.php/cate/index?cid=63">Française</a>　|　<a href="/index.php/cate/index?cid=64">Deutsch</a></p>
                 <p class="header_link3"><input type="text" class="search_text"/><input type="submit" name="submit" class="submit"/></p>
             </div>
         </div>
@@ -146,7 +146,7 @@ function get_links(){
         return $links_html;
     }
     //cid = -1 为link类型
-    $links = Ads::model()->findAll('cid=-6 AND enabled=1');
+    $links = Ads::model()->findAll('cid=0 AND type=-6 AND enabled=1');
 
     $links_html = '
     <div class="frindLinks"><div class="linkList">';
@@ -234,6 +234,15 @@ function get_admin_sidebar(){
                 array('name'=>'Culture', 'cid'=>'4'),
             )
         ),
+        array(
+            'name'=>'合作网站',
+            'pid'=>'6',
+            'items'=>array(
+                array('name'=>'新增合作网站', 'cid'=>'1'),
+                array('name'=>'查看合作网站', 'cid'=>'2'),
+            )
+        ),
+
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
 
@@ -432,7 +441,7 @@ function get_cate_article(){
 }
 
 function get_cate_page(){
-    return array(61,43);
+    return array(61,43,65);
 }
 
 function get_cate_foreig(){

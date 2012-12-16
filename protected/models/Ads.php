@@ -6,6 +6,7 @@
  * The followings are the available columns in table '{{ads}}':
  * @property integer $aid
  * @property string $title
+ * @property string $content
  * @property string $img
  * @property string $url
  * @property integer $cid
@@ -41,12 +42,13 @@ class Ads extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, img, url, cid, type', 'required'),
+			array('title, url, cid, type', 'required'),
 			array('cid, type, order, enabled', 'numerical', 'integerOnly'=>true),
 			array('title, img, url', 'length', 'max'=>255),
+            array('content', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('aid, title, img, url, cid, type, order, enabled', 'safe', 'on'=>'search'),
+			array('aid, title, content, img, url, cid, type, order, enabled', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -94,6 +96,7 @@ class Ads extends CActiveRecord
 		return array(
 			'aid' => 'ID',
 			'title' => '说明介绍',
+            'content' => '内容',
 			'img' => '图片',
 			'url' => '链接',
 			'cid' => '分类',
@@ -116,6 +119,7 @@ class Ads extends CActiveRecord
 
 		$criteria->compare('aid',$this->aid);
 		$criteria->compare('title',$this->title,true);
+        $criteria->compare('content',$this->content,true);
 		$criteria->compare('img',$this->img,true);
 		$criteria->compare('url',$this->url,true);
 		$criteria->compare('cid',$this->cid);

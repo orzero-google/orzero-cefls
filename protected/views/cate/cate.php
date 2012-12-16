@@ -11,6 +11,8 @@ if($cate_p->menu_type == 2){
     $cate_p=$cate_p->p;
 }
 $ads_top = Ads::model()->img_ads($cate_p->menu_id)->find();
+
+$aid = Yii::app()->request->getParam('aid', 0);
 ?>
 <div class="adtop"><a href="" title="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
     <img src="<?php echo isset($ads_top->img) ? $ads_top->img : '';?>" alt="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
@@ -25,24 +27,8 @@ $ads_top = Ads::model()->img_ads($cate_p->menu_id)->find();
         <div class="article" style="width: auto;">
             <?php
             if($cid==61){
-                echo $this->renderPartial('//cefls/mail', array(
-                ));
+                echo $this->renderPartial('//cefls/mail', array());
             }else if(in_array($cid, get_cate_foreig())){
-                $profile=ArticleForeign::model()->article_list(3)->find();
-                $culture=ArticleForeign::model()->article_list(4)->find();
-
-                $articles = ArticleForeign::model()->article_all_limit(0, 11)->findAll();
-
-                $criteria=new CDbCriteria;
-                $criteria->condition='`cid`=0 AND enabled=1';
-                $criteria->order='`sort` ASC, `aid` DESC';
-                $dataProvider=new CActiveDataProvider('ArticleForeign',array(
-                    'criteria'=>$criteria,
-                    'pagination'=>array(
-                        'pageSize'=>20,
-                    ),
-                ));
-
                 if($cid == 62){
                     $key = 'en';
                 }else if($cid == 63){
@@ -50,16 +36,45 @@ $ads_top = Ads::model()->img_ads($cate_p->menu_id)->find();
                 }else if($cid == 64){
                     $key = 'de';
                 }
-                $ads_more = Ads::model()->img_ads($cid)->find();
 
-                echo $this->renderPartial('//cefls/article/foreign_more', array(
-                    'cid'=>$cid,
-                    'key'=>$key,
-                    'profile'=>$profile,
-                    'culture'=>$culture,
-                    'ads_more'=>$ads_more,
-                    'dataProvider'=>$dataProvider,
-                ));
+                if($aid > 0){
+                    $article = ArticleForeign::model()->findByPk($aid);
+                    $this->renderPartial('//cefls/article/foreign_view', array(
+                        'cid'=>$cid,
+                        'article'=>$article,
+                        'key'=>$key,
+                    ));
+                    if(!empty($article)){
+                        $article->{"clicknumber_".$key} ++;
+                        $article->save();
+                    }
+                }else{
+                    $profile=ArticleForeign::model()->article_list(3)->find();
+                    $culture=ArticleForeign::model()->article_list(4)->find();
+
+                    $articles = ArticleForeign::model()->article_all_limit(0, 11)->findAll();
+
+                    $criteria=new CDbCriteria;
+                    $criteria->condition='`cid`=0 AND enabled=1';
+                    $criteria->order='`sort` ASC, `aid` DESC';
+                    $dataProvider=new CActiveDataProvider('ArticleForeign',array(
+                        'criteria'=>$criteria,
+                        'pagination'=>array(
+                            'pageSize'=>20,
+                        ),
+                    ));
+
+                    $ads_more = Ads::model()->img_ads($cid)->find();
+
+                    echo $this->renderPartial('//cefls/article/foreign_more', array(
+                        'cid'=>$cid,
+                        'key'=>$key,
+                        'profile'=>$profile,
+                        'culture'=>$culture,
+                        'ads_more'=>$ads_more,
+                        'dataProvider'=>$dataProvider,
+                    ));
+                }
             }
             ?>
 
