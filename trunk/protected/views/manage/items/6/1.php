@@ -7,7 +7,7 @@
  * .
  */
 $id=Yii::app()->request->getParam('id', 0);
-$model = Ads::model()->img_ads_all()->findByPk($id);
+$model = Ads::model()->img_ads(0, 1, 6)->findByPk($id);
 $img_root = Yii::app()->getBasePath().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
 
 $img_old = '';
