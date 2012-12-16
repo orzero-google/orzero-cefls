@@ -27,7 +27,8 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
             }else if(in_array($cid, get_cate_page())){
                 //友情学校
                 if($cid = 65){
-                    
+                    $this->renderPartial('//cefls/ads/friend_school_index', array());
+
                 }
 
             }else{

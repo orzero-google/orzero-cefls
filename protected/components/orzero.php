@@ -437,7 +437,7 @@ function get_fancybox_img(){
 
 //取得单篇文章的页面
 function get_cate_article(){
-    return array(16);
+    return array();
 }
 
 function get_cate_page(){
