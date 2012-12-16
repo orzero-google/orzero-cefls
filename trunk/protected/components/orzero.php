@@ -238,8 +238,8 @@ function get_admin_sidebar(){
             'name'=>'合作网站',
             'pid'=>'6',
             'items'=>array(
-                array('name'=>'新增合作网站', 'cid'=>'1'),
-                array('name'=>'查看合作网站', 'cid'=>'2'),
+                array('name'=>'新增友情学校', 'cid'=>'1'),
+                array('name'=>'查看友情学校', 'cid'=>'2'),
             )
         ),
 
