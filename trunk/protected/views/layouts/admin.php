@@ -23,7 +23,6 @@
 
 <div class="hackbox"></div>
 
-
 <?php echo get_footer(); ?>
 </body>
 </html>

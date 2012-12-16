@@ -222,7 +222,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
             /*======外语版详情页=======*/
                 .container .right .article .top div.foreginTopBorder{ width: 940px; height: 100px; border-width:1px 1px 0px 1px; border-style: solid; border-color: #cccccc;}
                 .container .right .article .top div.foreginTopBorder p{ width: 900px; margin: 0 auto; text-align: center;}
-                .container .right .article .top div.foreginTopBorder p span{ width: 300px;}
+                .container .right .article .top div.foreginTopBorder p span{ width: 295px;}
                 .container .right .article .middle div.foreginBottomBorder{ width: 940px; border-width:0px 1px 1px 1px; border-style: solid; border-color: #cccccc;}
                     .container .right .article .middle div.foreginBottomBorder p{ width: 900px; color: #464646;font-size: 12px;}
                     .container .right .article .middle div.foreginBottomBorder div.previous{ text-align: center; height: 50px; padding-top: 20px; }

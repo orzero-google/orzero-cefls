@@ -1,6 +1,13 @@
 <?php
 $keys = array('en'=>'英语', 'fr'=>'法语', 'de'=>'德语');
 foreach($keys as $key=>$val):
+    if($key='en'){
+        $cid = 62;
+    }elseif($key='fr'){
+        $cid =  63;
+    }elseif($key='de'){
+        $cid =  64;
+    }
 ?>
 <!-- <?php echo $val?>版开始 -->
 <div class="bottom"<?php if($key != 'en') echo ' style="dispaly:none;"';?>>
@@ -40,7 +47,7 @@ foreach($keys as $key=>$val):
         </div>
         <div class="middle">
             <div class="recommend">
-                <h3><a href="#"><?php echo isset($articles[0]->{"title_".$key}) ? $articles[0]->{"title_".$key} : ''; ?></a></h3>
+                <h3><a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>(isset($articles[0]->aid) ? $articles[0]->aid : 0))); ?>"><?php echo isset($articles[0]->{"title_".$key}) ? $articles[0]->{"title_".$key} : ''; ?></a></h3>
                 <p><?php echo isset($articles[0]->{"excerpt_".$key}) ? $articles[0]->{"excerpt_".$key} :  ''; ?></p>
             </div>
             <div class="list">
@@ -49,13 +56,15 @@ foreach($keys as $key=>$val):
                     if(empty($articles[$i])){
                         echo '<p>&nbsp;</p>';
                     }else{
-                        echo '<p><span>('.(isset($articles[$i]->createtime) ? substr($articles[$i]->createtime, 0, 5) : '').')</span><a href="#">'.
+                        echo '<p><span>('.(isset($articles[$i]->createtime) ? substr($articles[$i]->createtime, 0, 10) : '').')</span>
+                        <a href="'.Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>(isset($articles[$i]->aid) ? $articles[$i]->aid : 0))).'">'.
                             (isset($articles[$i]->{"title_".$key}) ? CHtml::encode($articles[$i]->{"title_".$key}) : '').'</a></p>';
                     }
                 }
                 ?>
             </div>
-            <p class="foreginMore"><a href="#">more&gt;&gt;</a></p>
+            <p class="foreginMore"><a href="/index.php/cate/index?cid=<?php echo $cid;?>">more&gt;&gt;</a></p>
+
         </div>
         <div class="bothSide">
             <div class="newsPic">

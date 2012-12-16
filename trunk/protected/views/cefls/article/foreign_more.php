@@ -34,6 +34,7 @@
 <!--        <ul>-->
             <?php
             $GLOBALS['key']=$key;
+            $GLOBALS['cid']=$cid;
             if(!empty($dataProvider->data))
                 $this->widget('application.vendors.OListView', array(
                     'dataProvider'=>$dataProvider,
