@@ -28,9 +28,7 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
                 //友情学校
                 if($cid = 65){
                     $this->renderPartial('//cefls/ads/friend_school_index', array());
-
                 }
-
             }else{
                 echo $this->renderPartial('items/'.$cid, array(
                     'cid'=>$cid,
