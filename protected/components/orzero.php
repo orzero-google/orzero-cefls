@@ -441,7 +441,7 @@ function get_cate_article(){
 }
 
 function get_cate_page(){
-    return array(61,43,65);
+    return array(61,43,65,12);
 }
 
 function get_cate_foreig(){
