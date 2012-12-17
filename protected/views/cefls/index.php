@@ -13,25 +13,7 @@
             <p><a href="#">『详细内容』</a></p>
         </div>
     </div>
-    <div class="middle">
-        <div class="middleTop"><span><img src="/cefls/images/index_r11_c19.jpg" alt="更多"></span></div>
-        <div class="middleMiddle">
-            <div class="content">
-                <div class="cLeft">
-                    <h3 class="title"><a href="#">我校第九届活动周顺利开幕</a></h3>
-                    <p class="describe">中国新闻网是知名的中文新闻门户网站，也是全球互联网中文新闻资讯最重要的原创内容供应商之一。年轻向上的力量。是全方位的新闻资讯平台，24小时为您滚动报道国内、依托中新社遍布全球的采编网络,每天24小时面向广大网民 ...</p>
-                </div>
-                <div class="cRight"><a href="#"><img src="/cefls/images/5.jpg" width="177px" height="128px" alt="我校第九届活动周顺利开幕" /></a></div>
-            </div>
-        </div>
-        <div class="middleBottom">
-            <p><span>2012-11-20</span><a href="#">Apache与IIS的优劣对比点点评</a></p>
-            <p><span>2012-11-30</span><a href="#">[配置]MRTG＋IIS 6＝接近完美的信息监控！</a></p>
-            <p><span>2012-11-21</span><a href="#">IIS6应用程序池中间的 Web 园</a></p>
-            <p><span>2012-11-24</span><a href="#">中国商务部今日发表的统计报告</a></p>
-            <p><span>2012-11-25</span><a href="#">《世界新闻报·鉴赏中国专刊》介绍. 创新. • 环保华服</a></p>
-        </div>
-    </div>
+    <?php echo get_xykx(); ?>
     <div class="right">
         <div class="content">
             <h3 class="title"><a href="#">高中录取分数线</a></h3>

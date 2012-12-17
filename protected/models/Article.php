@@ -58,6 +58,7 @@ class Article extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('aid, src, file, from, uid, cid, audit, grade, createtime, updatetime, title, excerpt, content, author, enabled, sort, type, clicknumber', 'safe', 'on'=>'search'),
+            array('aid, src, file, from, uid, cid, audit, grade, createtime, updatetime, title, excerpt, content, author, enabled, sort, type, clicknumber', 'safe'),
 		);
 	}
 

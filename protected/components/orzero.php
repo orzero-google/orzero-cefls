@@ -235,11 +235,19 @@ function get_admin_sidebar(){
             )
         ),
         array(
-            'name'=>'合作网站',
+            'name'=>'友情学校',
             'pid'=>'6',
             'items'=>array(
                 array('name'=>'新增友情学校', 'cid'=>'1'),
                 array('name'=>'查看友情学校', 'cid'=>'2'),
+            )
+        ),
+        array(
+            'name'=>'校园快讯',
+            'pid'=>'7',
+            'items'=>array(
+                array('name'=>'新增校园快讯', 'cid'=>'1'),
+                array('name'=>'查看校园快讯', 'cid'=>'2'),
             )
         ),
 
@@ -298,6 +306,8 @@ function get_ads_type($key=''){
 //        '0'=>'请选择',
 
         '-1'=>'首页轮播图片',
+        '-7'=>'首页校长头像',
+        '-8'=>'首页校园快讯',
         '-2'=>'首页中部三个图片',
 
         '-3'=>'首页英语版图片',
@@ -448,6 +458,10 @@ function get_cate_foreig(){
     return array(62,63,64);
 }
 
+function get_menu_article(){
+    return array(66);
+}
+
 /*
 <div class="bottom">
     <div class="bLeft">
@@ -538,4 +552,44 @@ function get_index_foreign(){
 
     Yii::app()->cache->set('index_foreign_html', $index_foreign_html, 1000);
     return $index_foreign_html;
+}
+
+/*
+<div class="middle">
+        <div class="middleTop"><span><img src="/cefls/images/index_r11_c19.jpg" alt="更多"></span></div>
+        <div class="middleMiddle">
+            <div class="content">
+                <div class="cLeft">
+                    <h3 class="title"><a href="#">我校第九届活动周顺利开幕</a></h3>
+                    <p class="describe">中国新闻网是知名的中文新闻门户网站，也是全球互联网中文新闻资讯最重要的原创内容供应商之一。年轻向上的力量。是全方位的新闻资讯平台，24小时为您滚动报道国内、依托中新社遍布全球的采编网络,每天24小时面向广大网民 ...</p>
+                </div>
+                <div class="cRight"><a href="#"><img src="/cefls/images/5.jpg" width="177px" height="128px" alt="我校第九届活动周顺利开幕" /></a></div>
+            </div>
+        </div>
+        <div class="middleBottom">
+            <p><span>2012-11-20</span><a href="#">Apache与IIS的优劣对比点点评</a></p>
+            <p><span>2012-11-30</span><a href="#">[配置]MRTG＋IIS 6＝接近完美的信息监控！</a></p>
+            <p><span>2012-11-21</span><a href="#">IIS6应用程序池中间的 Web 园</a></p>
+            <p><span>2012-11-24</span><a href="#">中国商务部今日发表的统计报告</a></p>
+            <p><span>2012-11-25</span><a href="#">《世界新闻报·鉴赏中国专刊》介绍. 创新. • 环保华服</a></p>
+        </div>
+    </div>
+*/
+
+function get_xykx(){
+    $index_xykx_html = '';
+    if(!YII_DEBUG)
+        $index_xykx_html = Yii::app()->cache->get('index_xykx_html');
+    if(!empty($index_xykx_html)){
+        return $index_xykx_html;
+    }
+
+    $articles = Article::model()->article_list(66, 6)->findAll();
+
+    $index_xykx_html = Yii::app()->getController()->renderPartial('//cefls/article/xykx', array(
+        'articles'=>$articles,
+    ),false);
+
+    Yii::app()->cache->set('index_xykx_html', $index_xykx_html, 1000);
+    return $index_xykx_html;
 }
