@@ -21,13 +21,19 @@ $aid = Yii::app()->request->getParam('aid', 0);
 <div class="container">
     <div class="right" style="background:#fff; margin:0 auto;width: auto;">
         <?php if(!in_array($cid, get_cate_foreig())): ?>
-<!--        <p class="path">当前位置: <a href="--><?php //echo Yii::app()->createUrl('cate/index', array('cid'=>$sub_menu->menu_id));?><!--">--><?php //echo $sub_menu->menu_name;?><!--</a></p>-->
-
+            <?php if(in_array($cid, get_menu_article())): ?>
+                <p class="path">当前位置: <a href="<?php echo Yii::app()->createUrl('cate/index', array('cid'=>$sub_menu->menu_id));?>"><?php echo $sub_menu->menu_name;?></a></p>
+            <?php endif; ?>
         <?php endif; ?>
         <div class="article" style="width: auto;">
             <?php
             if($cid==61){
                 echo $this->renderPartial('//cefls/mail', array());
+            }else if(in_array($cid, get_menu_article())){
+                //无菜单列表
+                echo $this->renderPartial('items/'.$cid, array(
+                    'cid'=>$cid,
+                ));
             }else if(in_array($cid, get_cate_foreig())){
                 if($cid == 62){
                     $key = 'en';
