@@ -7,6 +7,6 @@ INSERT INTO  `cefls`.`blog_menu` (
 `menu_count`
 )
 VALUES (
-NULL ,  '0',  'У԰��Ѷ',  '-1',  '0',  '0'
+NULL ,  '0',  '校园快讯',  '-1',  '0',  '0'
 );
 

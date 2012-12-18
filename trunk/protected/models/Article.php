@@ -77,7 +77,7 @@ class Article extends CActiveRecord
         $this->getDbCriteria()->mergeWith(
             array(
                 'condition'=>'`cid`='.intval($cid).' AND enabled=1',
-                'order'=>'`sort` ASC',
+                'order'=>'`sort` ASC,  `aid` DESC',
                 'limit'=>intval($limit)
             )
         );

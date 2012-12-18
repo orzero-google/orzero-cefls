@@ -250,6 +250,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看校园快讯', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'公示公告',
+            'pid'=>'8',
+            'items'=>array(
+                array('name'=>'新增公示公告', 'cid'=>'1'),
+                array('name'=>'查看公示公告', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
@@ -447,7 +455,7 @@ function get_fancybox_img(){
 
 //取得单篇文章的页面
 function get_cate_article(){
-    return array();
+    return array(67);
 }
 
 function get_cate_page(){
@@ -459,7 +467,7 @@ function get_cate_foreig(){
 }
 
 function get_menu_article(){
-    return array(66);
+    return array(66,68);
 }
 
 /*
@@ -592,4 +600,44 @@ function get_xykx(){
 
     Yii::app()->cache->set('index_xykx_html', $index_xykx_html, 1000);
     return $index_xykx_html;
+}
+
+function get_xzjy(){
+    $index_xzjy_html = '';
+    if(!YII_DEBUG)
+        $index_xzjy_html = Yii::app()->cache->get('index_xzjy_html');
+    if(!empty($index_xzjy_html)){
+        return $index_xzjy_html;
+    }
+
+    $cate = Menu::model()->findByPk(67);
+    $article = Article::model()->findByAttributes(array('title'=>$cate->menu_name));
+
+    $img = Ads::model()->find('cid=0 AND type=-7 AND enabled=1');
+
+    $index_xzjy_html = Yii::app()->getController()->renderPartial('//cefls/article/xzjy', array(
+        'article'=>$article,
+        'img'=>$img,
+    ),false);
+
+    Yii::app()->cache->set('index_xzjy_html', $index_xzjy_html, 1000);
+    return $index_xzjy_html;
+}
+
+function get_gsgg(){
+    $index_gsgg_html = '';
+    if(!YII_DEBUG)
+        $index_gsgg_html = Yii::app()->cache->get('index_gsgg_html');
+    if(!empty($index_gsgg_html)){
+        return $index_gsgg_html;
+    }
+
+    $article = Article::model()->article_list(68)->find();
+
+    $index_gsgg_html = Yii::app()->getController()->renderPartial('//cefls/article/gsgg', array(
+        'article'=>$article,
+    ),false);
+
+    Yii::app()->cache->set('index_gsgg_html', $index_gsgg_html, 1000);
+    return $index_gsgg_html;
 }
