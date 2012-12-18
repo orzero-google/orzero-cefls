@@ -137,7 +137,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
             .container .right p.path a{ color: #797979;}
         .container .right .article{ width: 840px;}
             .container .right .article .top{ width:800px; height: 40px; margin: 0 auto; background: url(../images/container_r5_c7.jpg) top right repeat-y;}
-                .container .right .article p{ width:785px; padding-left: 10px; font-size: 14px; border-bottom:1px solid #F7D2CC; overflow: hidden; color: #797979; height: 32px; line-height: 32px; text-align: left;}
+                .container .right .article p{ padding-left: 20px; font-size: 14px; overflow: hidden; color: #797979; line-height: 32px; text-align: left;}
                 .container .right .article .top p.th_blue{ border: 0px; background: #CDE5FC; margin-top: 20px;}
             .container .right .article .bottom{ width:800px; height: 70px; margin: 0 auto;text-align: center; padding-top:20px; background: url(../images/container_r5_c7.jpg) top right repeat-y;}
             .container .right .article .middle{ width:800px; margin: 0 auto; background: url(../images/container_r8_c7.jpg) top right repeat-y;}

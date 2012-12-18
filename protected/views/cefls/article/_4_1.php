@@ -29,6 +29,10 @@
         <?php echo $form->error($model,'author'); ?>
     </div>
 
+    <div class="row">
+        <?php echo $form->textAreaRow($model, 'excerpt', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+    </div>
+
 	<div class="row">
         <?php echo $form->labelEx($model,'content'); ?>
         <?php
