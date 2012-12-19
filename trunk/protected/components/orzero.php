@@ -258,6 +258,15 @@ function get_admin_sidebar(){
                 array('name'=>'查看公示公告', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'学子风采',
+            'pid'=>'9',
+            'items'=>array(
+                //50,51,52,53
+                array('name'=>'新增学子风采', 'cid'=>'1'),
+                array('name'=>'查看学子风采', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
@@ -312,6 +321,7 @@ function get_admin_sidebar(){
 function get_ads_type($key=''){
     $list = array(
 //        '0'=>'请选择',
+//      '-10'=>'学子风采',  //保留字段
 
         '-1'=>'首页轮播图片',
         '-7'=>'首页校长头像',
@@ -339,6 +349,24 @@ function get_ads_type($key=''){
         '64'=>'德语版文章列表图片',
 
 //        '-3'=>'荣誉证书',
+    );
+    if(!empty($key)){
+        if(array_key_exists($key,$list)){
+            return $list[$key];
+        }else{
+            return false;
+        }
+    }
+
+    return $list;
+}
+
+function get_xzfc_type($key=''){
+    $list = array(
+        '50'=>'状元金榜',
+        '51'=>'理科精英',
+        '52'=>'文科翘楚',
+        '53'=>'高考年报',
     );
     if(!empty($key)){
         if(array_key_exists($key,$list)){
