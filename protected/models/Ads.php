@@ -73,7 +73,9 @@ class Ads extends CActiveRecord
             'links'=>array(
                 'condition'=>'cid=-6',
             ),
-
+            'open'=>array(
+                'condition'=>'enabled=1',
+            ),
         );
     }
 

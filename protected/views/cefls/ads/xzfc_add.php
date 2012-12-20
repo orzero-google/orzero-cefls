@@ -11,7 +11,7 @@
 
 
     <div class="row">
-        <?php echo $form->labelEx($model,'img'); ?>
+        <label for="Ads_img">个人照片</label>
         <?php echo $form->fileField($model,'img',array('size'=>60)); ?>
         <?php echo $form->error($model,'img'); ?>
         <?php
@@ -22,14 +22,14 @@
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'url'); ?>
-        <?php echo $form->textField($model,'url',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
-        <?php echo $form->error($model,'url'); ?>
+        <label class="required" for="Ads_title">名字<span class="required">*</span></label>
+        <?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
+        <?php echo $form->error($model,'title'); ?>
     </div>
 
 
     <div class="row">
-        <?php echo $form->labelEx($model,'url'); ?>
+        <label class="required" for="Ads_url">获奖说明<span class="required">*</span></label>
         <?php echo $form->textField($model,'url',array('size'=>60,'maxlength'=>255,'style'=>'width:490px;')); ?>
         <?php echo $form->error($model,'url'); ?>
     </div>
