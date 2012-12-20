@@ -7,7 +7,7 @@
  * .
  */
 $id=Yii::app()->request->getParam('id', 0);
-$model = Ads::model()->img_ads_all()->findByPk($id);
+$model = Ads::model()->open()->findByPk($id);
 $img_root = Yii::app()->getBasePath().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'xzfc'.DIRECTORY_SEPARATOR;
 
 $img_old = '';
@@ -38,7 +38,7 @@ if(isset($_POST['Ads']))
         $img_name  = md5(rand(1,100).date('YmdHis').rand(1,1000)).'.'.$img->extensionName;
         if (is_object($img)) {
             $img->saveAs($img_root.$img_name);
-            $model->img='/images/temp/'.$img_name;
+            $model->img='/images/xzfc/'.$img_name;
         }
     }
 
