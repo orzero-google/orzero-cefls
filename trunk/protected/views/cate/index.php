@@ -30,6 +30,29 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
                     $this->renderPartial('//cefls/ads/friend_school_index', array());
                 }
             }else{
+                if(in_array($cid, array(50,51,52))){
+                    $criteria=new CDbCriteria;
+                    $criteria->condition='`cid`=:cid AND `type`=-10 AND `enabled`=1';
+                    $criteria->params=array(':cid'=>$cid);
+                    $criteria->order='`order` ASC, `aid` DESC';
+                    $dataProvider=new CActiveDataProvider('Ads',array(
+                        'criteria'=>$criteria,
+                        'pagination'=>array(
+                            'pageSize'=>4,
+                        ),
+                    ));
+
+                    $this->widget('application.vendors.OListView', array(
+                        'dataProvider'=>$dataProvider,
+                        'itemView'=>'//cefls/ads/student_list',
+                        'ajaxUpdate'=>false,
+                        'template'=>"{items}" ,
+                        'itemsTagName'=>'ul',
+//                    'htmlOptions'=>array('class'=>'thingsList'),
+                    ));
+                    return ;
+                }
+
                 echo $this->renderPartial('items/'.$cid, array(
                     'cid'=>$cid,
                 ));
