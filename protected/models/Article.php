@@ -84,6 +84,15 @@ class Article extends CActiveRecord
         return $this;
     }
 
+    public function scopes()
+    {
+        return array(
+            'open'=>array(
+                'condition'=>'enabled=1',
+            ),
+        );
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -95,7 +104,7 @@ class Article extends CActiveRecord
 			'file' => 'File',
 			'from' => '出处',
 			'uid' => 'Uid',
-			'cid' => 'Cid',
+			'cid' => '分类',
 			'audit' => 'Audit',
 			'grade' => 'Grade',
 			'createtime' => '发布时间',
