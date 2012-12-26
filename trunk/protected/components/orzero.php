@@ -267,6 +267,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看学子风采', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'师资队伍',
+            'pid'=>'10',
+            'items'=>array(
+                array('name'=>'新增师资队伍', 'cid'=>'1'),
+                array('name'=>'查看师资队伍', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
@@ -368,6 +376,24 @@ function get_xzfc_type($key=''){
         '52'=>'文科翘楚',
         '53'=>'高考年报',
     );
+    if(!empty($key)){
+        if(array_key_exists($key,$list)){
+            return $list[$key];
+        }else{
+            return false;
+        }
+    }
+
+    return $list;
+}
+
+function get_jsdw_type($key=''){
+    $menu_jsdw = Menu::model()->findAll('parent_id=2');
+    $list = array();
+    foreach($menu_jsdw as $menu_jsdw_one){
+        $list[$menu_jsdw_one->menu_id]=$menu_jsdw_one->menu_name;
+    }
+
     if(!empty($key)){
         if(array_key_exists($key,$list)){
             return $list[$key];
