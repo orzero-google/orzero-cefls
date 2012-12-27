@@ -30,8 +30,14 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
                     $this->renderPartial('//cefls/ads/friend_school_index', array());
                 }
             }else{
+                $jsdw = array_keys(get_jsdw_type());
+
                 if(in_array($cid, array(50,51,52))){
                     echo $this->renderPartial('//cefls/ads/student_list', array(
+                        'cid'=>$cid,
+                    ));
+                }if(in_array($cid, $jsdw)){
+                    echo $this->renderPartial('//cefls/article/teacher_list', array(
                         'cid'=>$cid,
                     ));
                 }else{
