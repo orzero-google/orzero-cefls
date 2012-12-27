@@ -3,6 +3,7 @@ $this->breadcrumbs=array(
     $sub_menu->menu_name,
 );
 $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
+$tid=Yii::app()->request->getParam('tid', 0);
 ?>
 
 <!-- container -->
@@ -13,7 +14,18 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
         <div class="article">
 
 
-            <?php
+        <?php
+        if($tid > 0){
+            $teacher = Article::model()->find('type=-2 AND enabled=1 AND aid=:aid', array(':aid'=>$tid));
+            if(!empty($teacher)){
+                $teacher->clicknumber++;
+                $teacher->save();
+            }
+            echo $this->renderPartial('//cefls/article/teacher_one', array(
+                'cid'=>$cid,
+                'teacher'=>$teacher
+            ));
+        }else{
             if(in_array($cid, get_cate_article())){
                 $cate = Menu::model()->findByPk($cid);
 
@@ -36,17 +48,30 @@ $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
                     echo $this->renderPartial('//cefls/ads/student_list', array(
                         'cid'=>$cid,
                     ));
-                }if(in_array($cid, $jsdw)){
+                }elseif(in_array($cid, $jsdw)){
                     echo $this->renderPartial('//cefls/article/teacher_list', array(
                         'cid'=>$cid,
                     ));
-                }else{
+                }elseif(in_array($cid, array(15,16,66))){
                     echo $this->renderPartial('items/'.$cid, array(
                         'cid'=>$cid,
                     ));
+                }else{
+                    $article = Article::model()->find('title=:title and cid=-1', array(':title'=>$sub_menu->menu_name));
+                    if(!empty($article)){
+                        $article->clicknumber++;
+                        $article->save();
+                    }
+
+                    echo $this->renderPartial('article_index', array(
+                        'pid'=>$pid,
+                        'cid'=>$cid,
+                        'article'=>$article
+                    ));
                 }
             }
-            ?>
+        }
+        ?>
 
 
         </div>
