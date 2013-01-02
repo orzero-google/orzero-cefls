@@ -12,3 +12,4 @@ img{border:none;}
 #slide-index .control a{ width:11px; height:11px; cursor:pointer; display:inline-block; background-repeat:no-repeat; background:#fff; margin-right:6px; opacity:0.6; filter:alpha(opacity=60);}
 #slide-index .control a:hover, #slide-index .control a.active{ background:#666; opacity:1; filter:alpha(opacity=100);}
 .autoMaxWidth{ overflow:hidden; position:relative;height:232px; }
+img{max-width: auto;}

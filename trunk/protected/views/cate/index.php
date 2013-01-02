@@ -4,8 +4,11 @@ $this->breadcrumbs=array(
 );
 $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
 $tid=Yii::app()->request->getParam('tid', 0);
+$img = Ads::model()->find('cid=0 AND type='.$pid.' AND enabled=1');
 ?>
 
+<div class="adtop"><img src="<?php echo isset($img->img) ? $img->img : '';?>" alt=""></div>
+<div class="hackbox"></div>
 <!-- container -->
 <div class="container">
     <?php echo get_left_menu($pid);?>
@@ -41,6 +44,8 @@ $tid=Yii::app()->request->getParam('tid', 0);
                 if($cid = 65){
                     $this->renderPartial('//cefls/ads/friend_school_index', array());
                 }
+
+
             }else{
                 $jsdw = array_keys(get_jsdw_type());
 
@@ -50,6 +55,12 @@ $tid=Yii::app()->request->getParam('tid', 0);
                     ));
                 }elseif(in_array($cid, $jsdw)){
                     echo $this->renderPartial('//cefls/article/teacher_list', array(
+                        'cid'=>$cid,
+                    ));
+                }elseif($cid==12){
+                    $article = Article::model()->find('title=:title and cid=-1', array(':title'=>$sub_menu->menu_name));
+                    echo $this->renderPartial('//cefls/article/leader_index', array(
+                        'article'=>$article,
                         'cid'=>$cid,
                     ));
                 }elseif(in_array($cid, array(15,16,66))){
