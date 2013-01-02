@@ -7,6 +7,10 @@ class CateController extends Controller
 	{
         $pid=Yii::app()->request->getParam('pid', 0);
         $cid=Yii::app()->request->getParam('cid', 0);
+        if(empty($cid)){
+            $cid_obj = Menu::model()->find('`t`.`parent_id` = '.$pid.' order by `t`.`menu_id` asc ');
+            $cid=$cid_obj->menu_id;
+        }
         $sub_menu = Menu::model()->findByPk($cid);
 
         if(empty($pid)){
