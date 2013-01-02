@@ -513,7 +513,7 @@ function get_cate_article(){
 }
 
 function get_cate_page(){
-    return array(61,43,65,12);
+    return array(61,43,65);
 }
 
 function get_cate_foreig(){
