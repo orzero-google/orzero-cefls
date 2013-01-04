@@ -1,0 +1,184 @@
+<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=utf8">
+    <title>首页</title>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/coin-slider.min.js"></script>
+    <script type="text/javascript" src="./js/left.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/coin-slider-styles.css" />
+    <script type="text/javascript">
+    $(document).ready(function() { 
+        $("span.spoiler").hide();
+        $('<a class="reveal">更多</a> ').insertBefore('.spoiler');
+        $('<p class="previous"><img src="images/container_r2_c3.jpg"></p>').insertAfter('.spoiler');
+        $(".previous").hide();
+        $("a.reveal").click(function(){
+            $(this).parents("p").children("span.spoiler").slideDown(1500);
+            $(this).parents("p").children("a.reveal").fadeOut(600);
+            $(this).parents("p").children("p.previous").show();
+        });
+        $(".previous img").click(function(){
+            $(this).parent(".previous").parent("p.describeDetail").children("span.spoiler").slideUp(600);
+            $(this).parent(".previous").parent("p.describeDetail").children("a.reveal").fadeIn(600);
+            $(this).parent(".previous").fadeOut(600);
+        });
+    }); 
+    </script>
+</head>
+<body>
+
+<!-- the header -->
+<div class="header">
+    <div class="header_top">
+        <div class="header_left"><a href="#"><img src="images/logo.jpg" width="101" height="101" alt="logo"/></a></div>
+        <div class="header_right">
+            <div class="header_title"><img src="images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
+            <div class="header_link">
+                <p class="header_link1"><a href="index.html">首页</a>　|　<a href="#">加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="#">实外信箱</a></p>
+                <p class="header_link2"><a href="#">ENGLISH</a>　|　<a href="#">Francais</a>　|　<a href="#">Deutsc</a></p>
+                <p class="header_link3"><input type="text" class="search_text"/><input type="submit" name="submit" class="submit"/></p>
+            </div>
+        </div>
+    </div>
+    <div class="hackbox"></div>
+    <div class="header_bottom">
+        <div class="header_nav">
+            <ul class="header_nav_link">
+                <li>
+                    <a href="#">关于实外</a>
+                    <ul>
+                        <li><a href="#">关于实外</a></li>
+                        <li><a href="#">二级标题</a></li>
+                        <li><a href="#">关于实外</a></li>
+                        <li><a href="#">二级标题</a></li>
+                        <li><a href="#">二级标题</a></li>
+                        <li><a href="#">二级标题</a></li>
+                        <li><a href="#">二级标题</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">师资队伍</a>
+                    <ul>
+                        <li><a href="#">师资队伍</a></li>
+                        <li><a href="#">师资队伍</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">德育视窗</a></li>
+                <li>
+                    <a href="#">艺体天地</a>
+                    <ul>
+                        <li><a href="#">艺体天地</a></li>
+                        <li><a href="#">艺体天地</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">教学科研</a></li>
+                <li><a href="#">外语特色</a></li>
+                <li><a href="#">交流合作</a></li>
+                <li><a href="#">感悟实外</a></li>
+                <li><a href="#">学子风采</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="adtop"><img src="images/13.jpg" alt=""></div>
+<div class="hackbox"></div>
+<!-- container -->
+<div class="container">
+    <div class="left">
+        <h3>关于实外</h3>
+        <ul id="nav">
+            <li class="p1 down">实外概况
+                <ul>
+                    <li><a href="#url">2011</a></li>
+                    <li><a href="#url">2011</a></li>
+                </ul>
+            </li>
+            <li class="p1 down">Services
+                <ul>
+                    <li><a href="#url">Printing</a></li>
+                    <li><a href="#url">Photo Framing</a></li>
+                    <li><a href="#url">Retouching</a></li>
+                    <li><a href="#url">Archiving</a></li>
+                </ul>
+            </li>
+            <li class="p1 down">Shop
+                <ul>
+                    <li><a href="#url">Online</a></li>
+                    <li><a href="#url">Catalogue</a></li>
+                    <li><a href="#url">Mail Order</a></li>
+                </ul>
+            </li>
+            <li><a href="#url">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="path">当前位置: <a href="#">师资队伍</a></p>
+        <div class="article">
+            <div class="top"></div>
+            <div class="middle">
+                <div class="schoolitem">
+                    <div class="img"><img src="images/9.jpg" alt=""></div>
+                    <div class="describe">
+                        <h3><a href="#">哈尔滨工业大学(www.haerbinggydx.com)</a></h3>
+                        <p class="describeDetail">
+                            天体学领域有很多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。州大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，<span class="spoiler">就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。</span>
+                        </p>
+                    </div>
+                    <div class="hackbox"></div>
+                </div>
+                <div class="schoolitem">
+                    <div class="img"><img src="images/9.jpg" alt=""></div>
+                    <div class="describe">
+                        <h3><a href="#">哈尔滨工业大学(www.haerbinggydx.com)</a></h3>
+                        <p class="describeDetail">
+                            天体学领域有很多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，<span class="spoiler">将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。州大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。</span>
+                        </p>
+                    </div>
+                    <div class="hackbox"></div>
+                </div>
+                <div class="schoolitem">
+                    <div class="img"><img src="images/9.jpg" alt=""></div>
+                    <div class="describe">
+                        <h3><a href="#">哈尔滨工业大学(www.haerbinggydx.com)</a></h3>
+                        <p class="describeDetail">
+                            天体学领域有很多悬而未决的问题。比如说，<span class="spoiler">我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。州大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。</span>
+                        </p>
+                    </div>
+                    <div class="hackbox"></div>
+                </div>
+                <div class="schoolitem">
+                    <div class="img"><img src="images/9.jpg" alt=""></div>
+                    <div class="describe">
+                        <h3><a href="#">哈尔滨工业大学(www.haerbinggydx.com)</a></h3>
+                        <p class="describeDetail">
+                            天体学领域有很多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。<span class="spoiler">州大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。多悬而未决的问题。比如说，我们对于宇宙的具体组成还不清楚，只是粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。大学高能天体计算中心主任，天体学领域有很多悬而未决的问题。比如说，我们对粗浅地了解有些暗物质、暗能量在操纵着宇宙。如果了解了暗能量的本质，就可以解读未来。因此，我们希望探寻暗物质的真正本质。这一研究工作非常有挑战性，将需要海量的计算和存储。云计算的出现，使处理海量数据的方式更为灵活。加州大学高能天体计算中心主任。</span>
+                        </p>
+                    </div>
+                    <div class="hackbox"></div>
+                </div>
+                <div class="hackbox"></div>
+            </div>
+            <div class="bottom">
+                <div class="page">
+                    <a href="#">上一页</a>
+                    <a href="#">1</a>
+                    <a href="#" class="hover">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">下一页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- index's footer -->
+<div class="footer">
+        <p><a href="#">关于我们</a>  ‖  <a href="#">网站声明</a>  ‖ <a href="#">实外信箱</a>  ‖ <a href="#">联系我们</a></p>
+        <p>网站版权所有者：成都市实验外国语学校    协同建设支持单位：成都互正超媒网络科技有限公司<br/>Copyright©2011-2016  (www.cefls.cn )    All Right Reserved <br/>川教GZ-20120014号       蜀ICP备12003383-1号</p>
+</div>
+</body>
+</html>

@@ -5,9 +5,23 @@ $this->breadcrumbs=array(
 $this->pageTitle=Yii::app()->name .' - '. $sub_menu->menu_name;
 $tid=Yii::app()->request->getParam('tid', 0);
 $img = Ads::model()->find('cid=0 AND type='.$pid.' AND enabled=1');
+
+$is_swf = false;
+if(isset($img->img) && !empty($img->img)){
+    $cut_img = explode('.', $img->img);
+    if($cut_img[1]=='swf'){
+        $is_swf = true;
+    }
+}
 ?>
 
-<div class="adtop"><img src="<?php echo isset($img->img) ? $img->img : '';?>" alt=""></div>
+<div class="adtop"><?php
+if($is_swf){
+    echo ''
+}else{
+    echo isset($img->img) ? '<img src="'.$img->img.'" alt="">' : '';
+}
+?></div>
 <div class="hackbox"></div>
 <!-- container -->
 <div class="container">
