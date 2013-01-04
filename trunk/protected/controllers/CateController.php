@@ -11,6 +11,7 @@ class CateController extends Controller
             $cid_obj = Menu::model()->find('`t`.`parent_id` = '.$pid.' order by `t`.`menu_id` asc ');
             $cid=$cid_obj->menu_id;
         }
+        $top_menu = Menu::model()->findByPk($pid);
         $sub_menu = Menu::model()->findByPk($cid);
 
         if(empty($pid)){
@@ -22,7 +23,8 @@ class CateController extends Controller
             $this->render('index', array(
                 'pid'=>$pid,
                 'cid'=>$cid,
-                'sub_menu'=>$sub_menu
+                'sub_menu'=>$sub_menu,
+                'top_menu'=>$top_menu,
             ));
         }
 	}

@@ -17,7 +17,7 @@ if(isset($img->img) && !empty($img->img)){
 
 <div class="adtop"><?php
 if($is_swf){
-    echo ''
+    echo '<EMBED pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" width="100%" src="'.(isset($img->img) ? $img->img : '').'" type=application/x-shockwave-flash />';
 }else{
     echo isset($img->img) ? '<img src="'.$img->img.'" alt="">' : '';
 }
@@ -27,7 +27,10 @@ if($is_swf){
 <div class="container">
     <?php echo get_left_menu($pid);?>
     <div class="right">
-        <p class="path">当前位置: <a href="<?php echo Yii::app()->createUrl('cate/index', array('pid'=>$pid, 'cid'=>$sub_menu->menu_id));?>"><?php echo $sub_menu->menu_name;?></a></p>
+        <p class="path">当前位置:
+            <a href="<?php echo Yii::app()->createUrl('cate/index', array('pid'=>$pid));?>"><?php echo $top_menu->menu_name;?></a>&nbsp;&gt;&gt;
+            <a href="<?php echo Yii::app()->createUrl('cate/index', array('pid'=>$pid, 'cid'=>$sub_menu->menu_id));?>"><?php echo $sub_menu->menu_name;?></a>
+        </p>
         <div class="article">
 
 
