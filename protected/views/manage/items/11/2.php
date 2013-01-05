@@ -10,7 +10,7 @@
 //$model = Ads::model()->findAll('cid=0');
 
 $criteria=new CDbCriteria;
-$criteria->condition='`cid`=16 AND `enabled`=1';
+$criteria->condition='`cid`=-1 AND `enabled`=1';
 $criteria->order='`sort` ASC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
@@ -21,7 +21,7 @@ $dataProvider=new CActiveDataProvider('Article',array(
 
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
-    'itemView'=>'//cefls/article/list_dsjy',
+    'itemView'=>'//cefls/article/list_article_list',
     'ajaxUpdate'=>false,
     'template'=>"{items}\n{pager}"
 ));

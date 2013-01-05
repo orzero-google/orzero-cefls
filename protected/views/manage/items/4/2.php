@@ -21,7 +21,7 @@ $dataProvider=new CActiveDataProvider('Article',array(
 
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
-    'itemView'=>'//cefls/article/_4_2',
+    'itemView'=>'//cefls/article/list_cat_article',
     'ajaxUpdate'=>false,
     'template'=>"{items}\n{pager}"
 ));

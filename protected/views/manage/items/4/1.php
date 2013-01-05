@@ -43,5 +43,5 @@ if(isset($_POST['Article']))
         $this->redirect(array('manage/index', 'pid'=>4, 'cid'=>2));
 }
 
-echo $this->renderPartial('//cefls/article/_4_1', array('model'=>$model));
+echo $this->renderPartial('//cefls/article/edit_cat_article', array('model'=>$model));
 

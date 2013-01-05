@@ -123,7 +123,7 @@ function get_header(){
         <div class="header_right">
             <div class="header_title"><img src="/images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
             <div class="header_link">
-                <p class="header_link1"><a href="index.html">首页</a>　|　<a href="#">加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="/index.php/cate/index?cid=61">实外信箱</a></p>
+                <p class="header_link1"><a href="/">首页</a>　|　<a href=\'javascript:addBookmark("成都市实验外国语学校", "http://www.cefls.cn");\'>加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="/index.php/cate/index?cid=61">实外信箱</a></p>
                 <p class="header_link2"><a href="/index.php/cate/index?cid=62">ENGLISH</a>　|　<a href="/index.php/cate/index?cid=63">Française</a>　|　<a href="/index.php/cate/index?cid=64">Deutsch</a></p>
                 <p class="header_link3"><input type="text" class="search_text"/><input type="submit" name="submit" class="submit"/></p>
             </div>
@@ -136,6 +136,17 @@ function get_header(){
         </div>
     </div>
 </div>
+<script type="text/javascript">
+function addBookmark(title,url) {
+if (window.sidebar) {
+window.sidebar.addPanel(title, url,"");
+} else if( document.all ) {
+window.external.AddFavorite( url, title);
+} else if( window.opera && window.print ) {
+return true;
+}
+}
+</script>
     ';
 }
 
@@ -273,6 +284,15 @@ function get_admin_sidebar(){
             'items'=>array(
                 array('name'=>'新增师资队伍', 'cid'=>'1'),
                 array('name'=>'查看师资队伍', 'cid'=>'2'),
+            )
+        ),
+
+        array(
+            'name'=>'站内板块文章',
+            'pid'=>'11',
+            'items'=>array(
+                array('name'=>'新增站内板块文章', 'cid'=>'1'),
+                array('name'=>'查看站内板块文章', 'cid'=>'2'),
             )
         ),
 
