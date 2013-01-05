@@ -389,6 +389,30 @@ function get_ads_type($key=''){
     return $list;
 }
 
+function get_list_article($key=''){
+    $list = array(
+        '14'=>'媒体关注',
+        '66'=>'校园快讯',
+        '68'=>'公示公告',
+        '3'=>'德育视窗',
+        '4'=>'教学科研',
+        '9'=>'感悟实外',
+        '43'=>'外语佳作',
+        '5'=>'外语特色',
+        '6'=>'交流合作',
+        '8'=>'艺体天地',
+    );
+    if(!empty($key)){
+        if(array_key_exists($key,$list)){
+            return $list[$key];
+        }else{
+            return false;
+        }
+    }
+
+    return $list;
+}
+
 function get_xzfc_type($key=''){
     $list = array(
         '50'=>'状元金榜',

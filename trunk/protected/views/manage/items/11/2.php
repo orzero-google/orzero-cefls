@@ -8,9 +8,11 @@
  */
 
 //$model = Ads::model()->findAll('cid=0');
+$cid = Yii::app()->request->getParam('cid', 0);
 
 $criteria=new CDbCriteria;
-$criteria->condition='`cid`=-1 AND `enabled`=1';
+$criteria->condition='`cid`=:cid AND `type`=-11 AND `enabled`=1';
+$criteria->params=array(':cid'=>$cid);
 $criteria->order='`sort` ASC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
