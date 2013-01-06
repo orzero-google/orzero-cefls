@@ -389,7 +389,7 @@ function get_ads_type($key=''){
     return $list;
 }
 
-function get_list_article($key=''){
+function get_list_article($key='', $get_cid=true){
     $list = array(
         '14'=>'媒体关注',
         '66'=>'校园快讯',
@@ -410,7 +410,11 @@ function get_list_article($key=''){
         }
     }
 
-    return $list;
+    if($get_cid){
+        return array_keys($list);
+    }else{
+        return $list;
+    }
 }
 
 function get_xzfc_type($key=''){

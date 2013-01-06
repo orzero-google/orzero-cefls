@@ -45,5 +45,5 @@ if(isset($_POST['Ads']))
         $this->redirect(array('manage/index', 'pid'=>1, 'cid'=>2));
 }
 
-echo $this->renderPartial('//cefls/ads/_1_1', array('model'=>$model, 'img_root'=>$img_root));
+echo $this->renderPartial('//cefls/ads/img_add', array('model'=>$model, 'img_root'=>$img_root));
 

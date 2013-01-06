@@ -63,6 +63,27 @@ if($is_swf){
                 }
 
 
+            }else if(in_array($cid, get_list_article())){
+                $id = Yii::app()->request->getParam('id', 0);
+                if(!empty($id)){
+                    $article = Article::model()->article_list($cid)->findByPk($id);
+                    //文章详情
+                    echo $this->renderPartial('//cefls/article/list_article_post', array(
+                        'pid'=>$pid,
+                        'cid'=>$cid,
+                        'id'=>$id,
+                        'article'=>$article,
+                    ));
+                }else{
+                    //列表文章
+                    echo $this->renderPartial('//cefls/article/list_article_view', array(
+                        'pid'=>$pid,
+                        'cid'=>$cid,
+                    ));
+                }
+
+
+
             }else{
                 $jsdw = array_keys(get_jsdw_type());
 
