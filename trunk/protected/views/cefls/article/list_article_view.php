@@ -1,6 +1,6 @@
 <?php
 $criteria=new CDbCriteria;
-$criteria->condition='`cid`='.$cid.' AND `enabled`=1';
+$criteria->condition='`cid`='.$cid.' AND `enabled`=1 AND type=-11';
 $criteria->order='`sort` ASC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
@@ -25,7 +25,7 @@ $dataProvider=new CActiveDataProvider('Article',array(
 if(!empty($dataProvider->data))
     $this->widget('zii.widgets.CListView', array(
         'dataProvider'=>$dataProvider,
-        'itemView'=>'//cate/items/66/_view',
+        'itemView'=>'//cefls/article/list_article_content',
         'ajaxUpdate'=>false,
         'template'=>"{items}" ,
         'itemsTagName'=>'div',
@@ -33,12 +33,12 @@ if(!empty($dataProvider->data))
     ));
 ?>
 
-    <?php
-    $this->widget('application.vendors.OListView', array(
-        'dataProvider'=>$dataProvider,
-        'itemView'=>'//cefls/items/66/_view',
-        'ajaxUpdate'=>false,
-        'template'=>"{pager}" ,
-        'htmlOptions'=>array('style'=>'padding:0;margin-top: -5px;'),
-    ));
-    ?>
+<?php
+$this->widget('application.vendors.OListView', array(
+    'dataProvider'=>$dataProvider,
+    'itemView'=>'//cefls/article/list_article_content',
+    'ajaxUpdate'=>false,
+    'template'=>"{pager}" ,
+    'htmlOptions'=>array('style'=>'padding:0;margin-top: -5px;'),
+));
+?>

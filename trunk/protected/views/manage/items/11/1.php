@@ -32,12 +32,14 @@ $model->type=-11;
 if(isset($_POST['Article']))
 {
     $model->attributes=$_POST['Article'];
+    /*
     $article_old = Article::model()->findByAttributes(array('title'=>$model->title));
     if(isset($article_old->aid) && $article_old->aid != $model->aid){
         $this->pageTitle=Yii::app()->name;
         $this->renderPartial('//cefls/error', array('message'=>'文章已经存在'));
         die;
     }
+    */
 
     if($model->save())
         $this->redirect(array('manage/index', 'pid'=>11, 'cid'=>2));
