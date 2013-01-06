@@ -296,6 +296,15 @@ function get_admin_sidebar(){
             )
         ),
 
+        array(
+            'name'=>'教师风采',
+            'pid'=>'12',
+            'items'=>array(
+                array('name'=>'新增教师风采', 'cid'=>'1'),
+                array('name'=>'查看教师风采', 'cid'=>'2'),
+            )
+        ),
+
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
 
