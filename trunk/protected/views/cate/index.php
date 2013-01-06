@@ -81,9 +81,6 @@ if($is_swf){
                         'cid'=>$cid,
                     ));
                 }
-
-
-
             }else{
                 $jsdw = array_keys(get_jsdw_type());
 
