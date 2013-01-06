@@ -102,6 +102,16 @@ function get_menu(){
     $menu_html = '<ul class="header_nav_link">';
     foreach($menus as $menu_one){
         $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
+        //外教风采
+        if($menu_one->menu_id == 40){
+            $criteria=new CDbCriteria;
+            $criteria->condition='`type`=-12 AND `cid`=40 AND enabled=1';
+            $criteria->order='`sort` ASC';
+            $jsfc = Article::model()->findAll($criteria);
+            foreach($jsfc as $jsfc_one){
+                $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id, 'cid'=>40, 'aid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a></li>';
+            }
+        }
 
         foreach($menu_one->sub_menu as $sub_menu){
             $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id, 'cid'=>$sub_menu->menu_id)).'">'.$sub_menu->menu_name.'</a></li>';
