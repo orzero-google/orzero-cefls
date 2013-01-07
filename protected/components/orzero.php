@@ -51,6 +51,7 @@ function pd($data=array(), $end='', $stop=true)
 function get_left_menu($pid){
     $cid = Yii::app()->request->getParam('cid', 0);
     $aid = Yii::app()->request->getParam('aid', 0);
+    $id = Yii::app()->request->getParam('id', 0);
 
     if(!YII_DEBUG)
         $left_menu_html = Yii::app()->cache->get('left_menu_html::'.$cid);
@@ -65,7 +66,7 @@ function get_left_menu($pid){
     foreach($cate_p->sub_menu as $menu_one){
         $sub_sub_menu_html = '';
         $selected = false;
-        if((isset($menu_one->sub_menu) && !empty($menu_one->sub_menu)) || $menu_one->menu_id==40){
+        if((isset($menu_one->sub_menu) && !empty($menu_one->sub_menu)) || $menu_one->menu_id==40 || $menu_one->menu_id==53){
             $sub_sub_menu_html .= '<ul style="display: none;">';
             foreach($menu_one->sub_menu as $sub_sub_menu){
                 $sub_sub_menu_html .= '<li'.(($cid==$sub_sub_menu->menu_id) ? ' class="selected"' : '').'>
@@ -82,6 +83,19 @@ function get_left_menu($pid){
                 foreach($jsfc as $jsfc_one){
                     $sub_sub_menu_html .= '<li'.(($aid==$jsfc_one->aid) ? ' class="selected"' : '').'>
                 <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>40, 'aid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a>
+                </li>';
+                }
+            }
+
+            //外教风采
+            if($menu_one->menu_id == 53){
+                $criteria=new CDbCriteria;
+                $criteria->condition='`type`=-14 AND `cid`=53 AND `enabled`=1';
+                $criteria->order='`sort` ASC';
+                $jsfc = Article::model()->findAll($criteria);
+                foreach($jsfc as $jsfc_one){
+                    $sub_sub_menu_html .= '<li'.(($id==$jsfc_one->aid) ? ' class="selected"' : '').'>
+                <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>53, 'id'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a>
                 </li>';
                 }
             }
@@ -326,6 +340,14 @@ function get_admin_sidebar(){
                 array('name'=>'查看外语佳作', 'cid'=>'2'),
             )
         ),
+        array(
+            'name'=>'高考年报',
+            'pid'=>'14',
+            'items'=>array(
+                array('name'=>'新增高考年报', 'cid'=>'1'),
+                array('name'=>'查看高考年报', 'cid'=>'2'),
+            )
+        ),
 
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
@@ -435,6 +457,8 @@ function get_list_article($key='', $get_cid=true){
         62=>'英语佳作',
         63=>'法语佳作',
         64=>'德语佳作',
+
+        53=>'高考年报',
     );
     if(!empty($key)){
         if(array_key_exists($key,$list)){
