@@ -11,7 +11,34 @@
 <div class="middle" style="width:970px;">
     <div class="foreginBottomBorder">
         <?php echo isset($article->{"content_".$key})? $article->{"content_".$key} : '';?>
-        <div class="previous"><a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid)); ?>"><img src="/cefls/images/container_r5_c9.jpg" alt=""></a></div>
+        <div class="previous">
+            <?php if(!empty($article_prev)): ?>
+            <a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>$article_prev->aid)); ?>" class="pv">
+                <?php
+                if($cid == 62){
+                echo 'Previous';
+                }elseif($cid == 63){
+                echo 'Précédent';
+                }elseif($cid == 64){
+                echo 'Früher';
+                }
+                ?>
+            </a>
+            <?php endif;?>
+            <?php if(!empty($article_next)): ?>
+            <a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>$article_next->aid)); ?>" class="pv">
+                <?php
+                if($cid == 62){
+                    echo 'Next';
+                }elseif($cid == 63){
+                    echo 'Suivant';
+                }elseif($cid == 64){
+                    echo 'Nächste';
+                }
+                ?>
+            </a>
+            <?php endif;?>
+        </div>
     </div>
 </div>
 <div class="bottom" style="width:970px;"></div>

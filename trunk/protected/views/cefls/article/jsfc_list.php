@@ -7,10 +7,6 @@
 
     <img src="<?php echo $data->file; ?>" /><br />
 
-    <b>所属分类:</b>
-    <?php echo CHtml::encode(get_jsdw_type($data->cid)); ?>
-    <br />
-
     <b>名字:</b>
     <?php echo CHtml::encode($data->author); ?>
     <br />

@@ -56,10 +56,14 @@ $aid = Yii::app()->request->getParam('aid', 0);
 
                 if($aid > 0){
                     $article = ArticleForeign::model()->findByPk($aid);
+                    $article_prev = ArticleForeign::model()->find('aid<'.$aid.' AND enabled=1');
+                    $article_next = ArticleForeign::model()->find('aid>'.$aid.' AND enabled=1');
                     $this->renderPartial('//cefls/article/foreign_view', array(
                         'cid'=>$cid,
                         'article'=>$article,
                         'key'=>$key,
+                        'article_prev'=>$article_prev,
+                        'article_next'=>$article_next,
                     ));
                     if(!empty($article)){
                         $article->{"clicknumber_".$key} ++;
