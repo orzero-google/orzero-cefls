@@ -22,3 +22,15 @@ img{max-width: auto;}
 .container .right .article .top div.foreginTopBorder p span {
     float: left;
 }
+
+div.previous a.pv{
+    background-image: url("/cefls/images/container.jpg");
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 18px;
+    height: 26px;
+    margin-top: 10px;
+    padding-top: 4px;
+    text-decoration: none;
+    width: 120px;
+}

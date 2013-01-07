@@ -1,6 +1,11 @@
 <?php
 $criteria=new CDbCriteria;
-$criteria->condition='`cid`='.$cid.' AND `enabled`=1 AND type=-11';
+if(in_array($cid, array(62,63,64))){
+    $criteria->condition='`cid`='.$cid.' AND `enabled`=1 AND type=-13';
+}else{
+    $criteria->condition='`cid`='.$cid.' AND `enabled`=1 AND type=-11';
+}
+
 $criteria->order='`sort` ASC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,

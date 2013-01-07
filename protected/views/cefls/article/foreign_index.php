@@ -1,11 +1,11 @@
 <?php
 $keys = array('en'=>'英语', 'fr'=>'法语', 'de'=>'德语');
 foreach($keys as $key=>$val):
-    if($key='en'){
+    if($key=='en'){
         $cid = 62;
-    }elseif($key='fr'){
+    }elseif($key=='fr'){
         $cid =  63;
-    }elseif($key='de'){
+    }elseif($key=='de'){
         $cid =  64;
     }
 ?>
@@ -63,7 +63,15 @@ foreach($keys as $key=>$val):
                 }
                 ?>
             </div>
-            <p class="foreginMore"><a href="/index.php/cate/index?cid=<?php echo $cid;?>">more&gt;&gt;</a></p>
+            <p class="foreginMore"><a href="/index.php/cate/index?cid=<?php echo $cid;?>"><?php
+                if($cid == 62){
+                    echo 'more';
+                }elseif($cid == 63){
+                    echo 'plus';
+                }elseif($cid == 64){
+                    echo 'mehr';
+                }
+                ?>&gt;&gt;</a></p>
 
         </div>
         <div class="bothSide">

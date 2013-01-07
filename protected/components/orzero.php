@@ -50,6 +50,7 @@ function pd($data=array(), $end='', $stop=true)
 
 function get_left_menu($pid){
     $cid = Yii::app()->request->getParam('cid', 0);
+    $aid = Yii::app()->request->getParam('aid', 0);
 
     if(!YII_DEBUG)
         $left_menu_html = Yii::app()->cache->get('left_menu_html::'.$cid);
@@ -64,13 +65,27 @@ function get_left_menu($pid){
     foreach($cate_p->sub_menu as $menu_one){
         $sub_sub_menu_html = '';
         $selected = false;
-        if(isset($menu_one->sub_menu) && !empty($menu_one->sub_menu)){
+        if((isset($menu_one->sub_menu) && !empty($menu_one->sub_menu)) || $menu_one->menu_id==40){
             $sub_sub_menu_html .= '<ul style="display: none;">';
             foreach($menu_one->sub_menu as $sub_sub_menu){
                 $sub_sub_menu_html .= '<li'.(($cid==$sub_sub_menu->menu_id) ? ' class="selected"' : '').'>
-            <a href="'.Yii::app()->createUrl('cate/index', array('cid'=>$sub_sub_menu->menu_id)).'">'.$sub_sub_menu->menu_name.'</a>
+            <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$sub_sub_menu->menu_id)).'">'.$sub_sub_menu->menu_name.'</a>
             </li>';
             }
+
+            //外教风采
+            if($menu_one->menu_id == 40){
+                $criteria=new CDbCriteria;
+                $criteria->condition='`type`=-12 AND `cid`=40 AND enabled=1';
+                $criteria->order='`sort` ASC';
+                $jsfc = Article::model()->findAll($criteria);
+                foreach($jsfc as $jsfc_one){
+                    $sub_sub_menu_html .= '<li'.(($aid==$jsfc_one->aid) ? ' class="selected"' : '').'>
+                <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>40, 'aid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a>
+                </li>';
+                }
+            }
+
             $sub_sub_menu_html .= '</ul>';
 
             $selected = true;
@@ -102,16 +117,6 @@ function get_menu(){
     $menu_html = '<ul class="header_nav_link">';
     foreach($menus as $menu_one){
         $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
-        //外教风采
-        if($menu_one->menu_id == 40){
-            $criteria=new CDbCriteria;
-            $criteria->condition='`type`=-12 AND `cid`=40 AND enabled=1';
-            $criteria->order='`sort` ASC';
-            $jsfc = Article::model()->findAll($criteria);
-            foreach($jsfc as $jsfc_one){
-                $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id, 'cid'=>40, 'aid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a></li>';
-            }
-        }
 
         foreach($menu_one->sub_menu as $sub_menu){
             $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id, 'cid'=>$sub_menu->menu_id)).'">'.$sub_menu->menu_name.'</a></li>';
@@ -305,13 +310,20 @@ function get_admin_sidebar(){
                 array('name'=>'查看站内板块文章', 'cid'=>'2'),
             )
         ),
-
         array(
-            'name'=>'教师风采',
+            'name'=>'外教风采',
             'pid'=>'12',
             'items'=>array(
-                array('name'=>'新增教师风采', 'cid'=>'1'),
-                array('name'=>'查看教师风采', 'cid'=>'2'),
+                array('name'=>'新增外教风采', 'cid'=>'1'),
+                array('name'=>'查看外教风采', 'cid'=>'2'),
+            )
+        ),
+        array(
+            'name'=>'外语佳作',
+            'pid'=>'13',
+            'items'=>array(
+                array('name'=>'新增外语佳作', 'cid'=>'1'),
+                array('name'=>'查看外语佳作', 'cid'=>'2'),
             )
         ),
 
@@ -420,6 +432,9 @@ function get_list_article($key='', $get_cid=true){
         '5'=>'外语特色',
         '6'=>'交流合作',
         '8'=>'艺体天地',
+        62=>'英语佳作',
+        63=>'法语佳作',
+        64=>'德语佳作',
     );
     if(!empty($key)){
         if(array_key_exists($key,$list)){
