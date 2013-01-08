@@ -9,5 +9,6 @@
 </div>
 <div class="middle">
     <?php echo $data->content;?>
+<!--    <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=--><?php //echo $data->aid;?><!--" allowtransparency="true" style="width: 100%; height: auto;"></iframe>-->
 </div>
 <div class="bottom"></div>
