@@ -29,6 +29,11 @@ class CateController extends Controller
         }
 	}
 
+    public function actionArticle_one($id){
+        $article = Article::model()->findByPk($id);
+        echo $this->renderPartial('//cefls/article_one',array('article'=>$article));
+    }
+
     public function actions()
     {
         return array(

@@ -1,4 +1,4 @@
-<div class="top" style="width:970px; height:100px; ">
+<div class="top" style="width:970px; ">
     <div class="foreginTopBorder">
         <p class="authorinfo">
             <span>信息来源：<?php echo isset($article->from)? $article->from : '';?></span>
@@ -7,8 +7,9 @@
         </p>
     </div>
 </div>
-<div class="middle" style="width:970px;">
+<div class="middle" style="width: 825px;">
     <div class="foreginBottomBorder">
-        <?php echo isset($article->content)? $article->content : '';?>
+<!--        --><?php //echo isset($article->content)? $article->content : '';?>
+        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=<?php echo $article->aid;?>" allowtransparency="true" style="width: 830px; min-height: 700px;"></iframe>
     </div>
 </div>
