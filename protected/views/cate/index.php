@@ -85,9 +85,26 @@ if($is_swf){
                 $jsdw = array_keys(get_jsdw_type());
 
                 if(in_array($cid, array(50,51,52))){
-                    echo $this->renderPartial('//cefls/ads/student_list', array(
-                        'cid'=>$cid,
-                    ));
+                    $id = Yii::app()->request->getParam('id', 0);
+                    if(!empty($id)){
+                        $student = Ads::model()->img_ads(-10, 1, $cid)->findByPk($id);
+                        if(!empty($student)){
+                            $student->order++;
+                            $student->save();
+                        }
+                        //文章详情
+                        echo $this->renderPartial('//cefls/article/student_one', array(
+                            'pid'=>$pid,
+                            'cid'=>$cid,
+                            'id'=>$id,
+                            'student'=>$student,
+                        ));
+                    }else{
+                        echo $this->renderPartial('//cefls/ads/student_list', array(
+                            'pid'=>$pid,
+                            'cid'=>$cid,
+                        ));
+                    }
                 }elseif(in_array($cid, $jsdw)){
                     echo $this->renderPartial('//cefls/article/teacher_list', array(
                         'cid'=>$cid,
