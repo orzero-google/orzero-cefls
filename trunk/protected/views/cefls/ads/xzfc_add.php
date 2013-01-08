@@ -35,6 +35,21 @@
     </div>
 
     <div class="row">
+        <label for="Ads_content">内容描述</label>
+        <?php
+        $this->widget('application.extensions.tinymce.ETinyMce', array(
+//            'id'=>'Article_content',
+//            'name'=>'Article[content]',
+            'model'=>$model,
+            'attribute'=>'content',
+            'useSwitch' => false,
+            'editorTemplate'=>'full',
+        )); ?>
+        <!--        --><?php //echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        <?php echo $form->error($model,'content'); ?>
+    </div>
+
+    <div class="row">
         <?php echo $form->dropDownListRow($model, 'cid', get_xzfc_type());  ?>
     </div>
 
