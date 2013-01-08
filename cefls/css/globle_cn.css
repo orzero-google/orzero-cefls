@@ -34,3 +34,8 @@ div.previous a.pv{
     text-decoration: none;
     width: 120px;
 }
+
+
+.container .right .article .middle div.numberOne {
+    height: auto;
+}
