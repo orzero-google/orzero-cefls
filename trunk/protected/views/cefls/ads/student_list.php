@@ -35,6 +35,7 @@ $dataProvider=new CActiveDataProvider('Ads',array(
 //        'template'=>"{pager}"
 //    ));
     ?>
+    <?php if($cid==50):?>
     <div class="numberOneShow">
         <a href="#bottom"><img src="/cefls/images/container_r8_c9.jpg" alt=""></a>
     </div>
@@ -47,4 +48,5 @@ $dataProvider=new CActiveDataProvider('Ads',array(
             });
         });
     </script>
+    <?php endif;?>
 </div>

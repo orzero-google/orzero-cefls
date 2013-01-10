@@ -35,8 +35,9 @@ if($is_swf){
 
 
         <?php
-        if($tid > 0){
-            $teacher = Article::model()->find('type=-2 AND enabled=1 AND aid=:aid', array(':aid'=>$tid));
+        if($tid > 0 || $cid ==40){
+            //教师风采
+            $teacher = Article::model()->find('type=-12 AND enabled=1 AND aid=:aid', array(':aid'=>$tid));
             if(!empty($teacher)){
                 $teacher->clicknumber++;
                 $teacher->save();
@@ -58,13 +59,51 @@ if($is_swf){
                 $article->save();
             }else if(in_array($cid, get_cate_page())){
                 //友情学校
-                if($cid = 65){
+                if($cid = 46){
                     $this->renderPartial('//cefls/ads/friend_school_index', array());
                 }
 
 
             }else if(in_array($cid, get_list_article())){
+
+                switch ($cid) {
+                    case 66:
+                        $info = "审核部门";
+                        break;
+                    case 68:
+                    case 3:
+                    case 4:
+                        $info = "管理部门";
+                        break;
+                    case 9:
+                    case 43:
+                    case 62:
+                    case 63:
+                    case 64:
+                        $info = "作者";
+                        break;
+                    case 39:
+                    case 41:
+                    case 42:
+                    case 44:
+                    case 45:
+                    case 47:
+                    case 48:
+                    case 49:
+                    case 54:
+                    case 55:
+                    case 56:
+                        $info = "部门管理";
+                        break;
+                    default:
+                        $info = '信息来源';
+                }
+
                 $id = Yii::app()->request->getParam('id', 0);
+                if($cid == 53 && empty($id)){
+                    $article_top = Article::model()->article_list($cid)->find();
+                    $id = $article_top->aid;
+                }
                 if(!empty($id)){
                     $article = Article::model()->article_list($cid)->findByPk($id);
                     $article->clicknumber++;
@@ -74,6 +113,7 @@ if($is_swf){
                         'pid'=>$pid,
                         'cid'=>$cid,
                         'id'=>$id,
+                        'info'=>$info,
                         'article'=>$article,
                     ));
                 }else{
@@ -81,6 +121,7 @@ if($is_swf){
                     echo $this->renderPartial('//cefls/article/list_article_view', array(
                         'pid'=>$pid,
                         'cid'=>$cid,
+                        'info'=>$info,
                     ));
                 }
             }else{
