@@ -36,13 +36,14 @@
     <div class="row">
         <?php echo $form->labelEx($model,'content'); ?>
         <?php
-        $this->widget('application.extensions.tinymce.ETinyMce', array(
+        $this->widget('application.extensions.xheditor.JXHEditor', array(
 //            'id'=>'Article_content',
 //            'name'=>'Article[content]',
             'model'=>$model,
             'attribute'=>'content',
-            'useSwitch' => false,
-            'editorTemplate'=>'full',
+//            'useSwitch' => false,
+//            'editorTemplate'=>'full',
+            'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         )); ?>
         <!--        --><?php //echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
         <?php echo $form->error($model,'content'); ?>

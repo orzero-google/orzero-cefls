@@ -37,11 +37,12 @@
     <div class="row">
         <label class="required" for="Article_content">介绍<span class="required">*</span></label>
         <?php
-        $this->widget('application.extensions.tinymce.ETinyMce', array(
+        $this->widget('application.extensions.xheditor.JXHEditor', array(
             'model'=>$model,
             'attribute'=>'content',
-            'useSwitch' => false,
-            'editorTemplate'=>'full',
+//            'useSwitch' => false,
+//            'editorTemplate'=>'full',
+            'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         )); ?>
         <?php echo $form->error($model,'content'); ?>
     </div>

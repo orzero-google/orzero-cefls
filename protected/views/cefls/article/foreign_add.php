@@ -36,11 +36,12 @@
     <div class="row">
         <?php echo $form->labelEx($model,'content_en'); ?>
         <?php
-        $this->widget('application.extensions.tinymce.ETinyMce', array(
+        $this->widget('application.extensions.xheditor.JXHEditor', array(
             'model'=>$model,
             'attribute'=>'content_en',
-            'useSwitch' => false,
-            'editorTemplate'=>'full',
+//            'useSwitch' => false,
+//            'editorTemplate'=>'full',
+            'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         )); ?>
         <?php echo $form->error($model,'content_en'); ?>
     </div>
@@ -72,11 +73,12 @@
     <div class="row">
         <?php echo $form->labelEx($model,'content_fr'); ?>
         <?php
-        $this->widget('application.extensions.tinymce.ETinyMce', array(
+        $this->widget('application.extensions.xheditor.JXHEditor', array(
             'model'=>$model,
             'attribute'=>'content_fr',
-            'useSwitch' => false,
-            'editorTemplate'=>'full',
+//            'useSwitch' => false,
+//            'editorTemplate'=>'full',
+            'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         )); ?>
         <?php echo $form->error($model,'content_fr'); ?>
     </div>
@@ -109,11 +111,12 @@
     <div class="row">
         <?php echo $form->labelEx($model,'content_de'); ?>
         <?php
-        $this->widget('application.extensions.tinymce.ETinyMce', array(
+        $this->widget('application.extensions.xheditor.JXHEditor', array(
             'model'=>$model,
             'attribute'=>'content_de',
-            'useSwitch' => false,
-            'editorTemplate'=>'full',
+//            'useSwitch' => false,
+//            'editorTemplate'=>'full',
+            'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         )); ?>
         <?php echo $form->error($model,'content_de'); ?>
     </div>
