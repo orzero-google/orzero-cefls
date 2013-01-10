@@ -67,6 +67,8 @@ if($is_swf){
                 $id = Yii::app()->request->getParam('id', 0);
                 if(!empty($id)){
                     $article = Article::model()->article_list($cid)->findByPk($id);
+                    $article->clicknumber++;
+                    $article->save();
                     //文章详情
                     echo $this->renderPartial('//cefls/article/list_article_post', array(
                         'pid'=>$pid,
