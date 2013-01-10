@@ -30,10 +30,21 @@ $aid = Yii::app()->request->getParam('aid', 0);
             if($cid==61){
                 echo $this->renderPartial('//cefls/mail', array());
             }else if(in_array($cid, get_menu_article())){
-                //无菜单列表
-                echo $this->renderPartial('items/66', array(
-                    'cid'=>$cid,
-                ));
+                if(!empty($aid)){
+                    $cate = Menu::model()->findByPk($cid);
+                    $article = Article::model()->findByAttributes(array('aid'=>$aid, 'cid'=>$cid));
+                    $article->clicknumber ++;
+                    $article->save();
+                    echo $this->renderPartial('article_detail', array(
+                        'cate'=>$cate,
+                        'article'=>$article
+                    ));
+                }else{
+                    //无菜单列表
+                    echo $this->renderPartial('items/66', array(
+                        'cid'=>$cid,
+                    ));
+                }
             }else if(in_array($cid, get_cate_article())){
                 //无菜单列表
                 $cate = Menu::model()->findByPk($cid);

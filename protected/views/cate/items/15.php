@@ -1,6 +1,6 @@
 <?php
 $criteria=new CDbCriteria;
-$criteria->condition='`cid`=-1 AND type=-3';
+$criteria->condition='`cid`=-1 AND type=-3 AND enabled=1';
 $criteria->order='`order` ASC';
 $dataProvider=new CActiveDataProvider('Ads',array(
     'criteria'=>$criteria,
