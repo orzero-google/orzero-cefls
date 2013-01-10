@@ -53,7 +53,7 @@ function get_left_menu($pid){
     $aid = Yii::app()->request->getParam('aid', 0);
     $id = Yii::app()->request->getParam('id', 0);
 
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $left_menu_html = Yii::app()->cache->get('left_menu_html::'.$cid);
     if(!empty($left_menu_html)){
         return $left_menu_html;
@@ -82,7 +82,7 @@ function get_left_menu($pid){
                 $jsfc = Article::model()->findAll($criteria);
                 foreach($jsfc as $jsfc_one){
                     $sub_sub_menu_html .= '<li'.(($aid==$jsfc_one->aid) ? ' class="selected"' : '').'>
-                <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>40, 'aid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a>
+                <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>40, 'tid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a>
                 </li>';
                 }
             }
@@ -105,11 +105,20 @@ function get_left_menu($pid){
             $selected = true;
         }
 
+        if($selected == false){
+            $top_menu = '<a style="color:#000000;" href="'.(Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id))).'">'.
+                $menu_one->menu_name.
+                '</a>';
+        }else{
+            $top_menu = '<span>'.$menu_one->menu_name.'</span>';
+        }
 
-        $left_menu_html .= '<li'.(($cid==$menu_one->menu_id && $selected==false) ? ' class="p1 down selected"' : ' class="p1 down"').'>'.
-            '<a href="'.(Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id))).'">'.
-            $menu_one->menu_name.
-            '</a>'.
+
+
+        $left_menu_html .= '<li'.(($cid==$menu_one->menu_id && $selected==false) ? ' class="p1 down selected"' : ' class="p1 down"').'>'.$top_menu.
+//            '<a href="'.(Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>$menu_one->menu_id))).'">'.
+//            $menu_one->menu_name.
+//            '</a>'.
         $sub_sub_menu_html.'</li>';
 
     }
@@ -121,7 +130,7 @@ function get_left_menu($pid){
 }
 
 function get_menu(){
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $menu_html = Yii::app()->cache->get('menu');
     if(!empty($menu_html)){
         return $menu_html;
@@ -130,9 +139,14 @@ function get_menu(){
     $menus = Menu::model()->with('sub_menu')->findAll('t.menu_type=:menu_type',array(':menu_type'=>1));
     $menu_html = '<ul class="header_nav_link">';
     foreach($menus as $menu_one){
-        $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
+//        $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
+        $menu_html .= '<li><a href="#">'.$menu_one->menu_name.'</a><ul>';
 
         foreach($menu_one->sub_menu as $sub_menu){
+            if($sub_menu->menu_id ==43){
+                $sub_menu->menu_id =62;
+            }
+
             $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id, 'cid'=>$sub_menu->menu_id)).'">'.$sub_menu->menu_name.'</a></li>';
         }
         $menu_html .= '</ul>';
@@ -180,7 +194,7 @@ return true;
 }
 
 function get_links(){
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $links_html = Yii::app()->cache->get('links_html');
     if(!empty($links_html)){
         return $links_html;
@@ -225,7 +239,7 @@ function get_admin_sidebar(){
     $cid=Yii::app()->request->getParam('cid', 0);
 
     $sidebar_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $sidebar_html = Yii::app()->cache->get('sidebar::'.$pid.'::'.$cid);
     if(!empty($sidebar_html)){
         return $sidebar_html;
@@ -559,7 +573,7 @@ function get_ads_list($type, $limit=1){
 */
 function get_index_adlist(){
     $list_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $list_html = Yii::app()->cache->get('list_html::index');
     if(!empty($list_html)){
         return $list_html;
@@ -662,7 +676,7 @@ function get_cate_article(){
 }
 
 function get_cate_page(){
-    return array(61,43,65);
+    return array(61, 65, 46);
 }
 
 function get_cate_foreig(){
@@ -738,7 +752,7 @@ function get_menu_article(){
 */
 function get_index_foreign(){
     $index_foreign_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $index_foreign_html = Yii::app()->cache->get('index_foreign_html');
     if(!empty($index_foreign_html)){
         return $index_foreign_html;
@@ -789,7 +803,7 @@ function get_index_foreign(){
 
 function get_xykx(){
     $index_xykx_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $index_xykx_html = Yii::app()->cache->get('index_xykx_html');
     if(!empty($index_xykx_html)){
         return $index_xykx_html;
@@ -807,7 +821,7 @@ function get_xykx(){
 
 function get_xzjy(){
     $index_xzjy_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $index_xzjy_html = Yii::app()->cache->get('index_xzjy_html');
     if(!empty($index_xzjy_html)){
         return $index_xzjy_html;
@@ -829,7 +843,7 @@ function get_xzjy(){
 
 function get_gsgg(){
     $index_gsgg_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $index_gsgg_html = Yii::app()->cache->get('index_gsgg_html');
     if(!empty($index_gsgg_html)){
         return $index_gsgg_html;
