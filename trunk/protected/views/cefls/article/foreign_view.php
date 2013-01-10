@@ -3,6 +3,7 @@
         <h1 class="title"><?php echo isset($article->{"title_".$key})? $article->{"title_".$key} : '';?></h1>
         <p class="authorinfo">
             <span>信息来源：<?php echo isset($article->{"from_".$key})? $article->{"from_".$key} : '';?></span>
+            <span>发布人：<?php echo isset($article->author)? $article->author : '';?></span>
             <span>发布时间：<?php echo isset($article->createtime)? $article->createtime : '';?></span>
             <span>点击量：<?php echo isset($article->{"clicknumber_".$key}) ? $article->{"clicknumber_".$key} : '';?></span>
         </p>

@@ -35,6 +35,9 @@ div.previous a.pv{
     width: 120px;
 }
 
+.container .right .article .top div.foreginTopBorder p span {
+    width: 210px;
+}
 
 .container .right .article .middle div.numberOne {
     height: auto;

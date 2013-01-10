@@ -17,7 +17,7 @@ if(isset($img->img) && !empty($img->img)){
 
 <div class="adtop"><?php
 if($is_swf){
-    echo '<EMBED pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" width="100%" src="'.(isset($img->img) ? $img->img : '').'" type=application/x-shockwave-flash />';
+    echo '<EMBED pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" width="100%" height="155px" src="'.(isset($img->img) ? $img->img : '').'" type=application/x-shockwave-flash />';
 }else{
     echo isset($img->img) ? '<img src="'.$img->img.'" alt="">' : '';
 }
