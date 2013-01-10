@@ -607,31 +607,46 @@ function get_index_adlist(){
 */
 function get_img_slides(){
     $slides_html = '';
-    if(!YII_DEBUG)
+    if(!YII_DEBUG_CACHE)
         $slides_html = Yii::app()->cache->get('slides_html::index');
     if(!empty($slides_html)){
         return $slides_html;
     }
 
     $imgs = get_ads_list('-1', 10);
-
-    $body='';
-    $footer='';
+    $is_swf = false;
     foreach($imgs as $img){
-        $body .= '<div class="slide autoMaxWidth" links=[{left:"30px",top:"81px"},{left:"30px",top:"244px"},{direction:"tb"}]>';
-        $body .= '<div class="image" id="bi_1"><a href="#" target="_blank"><img name="" src="'.$img->img.'" /></a></div>';
-        $body .= '<div class="text" id="bt_2"></div>';
-        $body .= '<div class="button" id="bb_2"></div>';
-        $body .= '</div>';
-
-        $footer .= '<a href=""></a>';
+        if(isset($img->img) && !empty($img->img)){
+            $cut_img = explode('.', $img->img);
+            if($cut_img[1]=='swf'){
+                $swf_src = $img->img;
+                $is_swf = true;
+            }
+        }
     }
 
-    $slides_html = '<div id="slide-index">';
-    $slides_html .= '<div class="slides">'.$body.'</div>';
-    $slides_html .= '<div class="control">'.$footer.'</div>';
-    $slides_html .= '</div>';
+    if($is_swf == true){
+        $slides_html =  '<div>
+        <EMBED pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" width="100%" height="365" src="'.(isset($swf_src) ? $swf_src : '').'" type=application/x-shockwave-flash />
+        </div>';
+    }else{
+        $body='';
+        $footer='';
+        foreach($imgs as $img){
+            $body .= '<div class="slide autoMaxWidth" links=[{left:"30px",top:"81px"},{left:"30px",top:"244px"},{direction:"tb"}]>';
+            $body .= '<div class="image" id="bi_1"><a href="#" target="_blank"><img name="" src="'.$img->img.'" width="100%" height="400" style="height:400px;width:100%;" /></a></div>';
+            $body .= '<div class="text" id="bt_2"></div>';
+            $body .= '<div class="button" id="bb_2"></div>';
+            $body .= '</div>';
 
+            $footer .= '<a href=""></a>';
+        }
+
+        $slides_html = '<div id="slide-index">';
+        $slides_html .= '<div class="slides">'.$body.'</div>';
+        $slides_html .= '<div class="control">'.$footer.'</div>';
+        $slides_html .= '</div>';
+    }
     Yii::app()->cache->set('slides_html::index', $slides_html, 1000);
     return $slides_html;
 }
