@@ -35,15 +35,20 @@
     </div>
 
     <div class="row">
-        <label class="required" for="Article_content">介绍<span class="required">*</span></label>
+<!--        <label class="required" for="Article_content">介绍<span class="required">*</span></label>-->
         <?php
+        /*
+        $this->widget('application.extensions.tinymce.ETinyMce', array(
         $this->widget('application.extensions.xheditor.JXHEditor', array(
             'model'=>$model,
             'attribute'=>'content',
 //            'useSwitch' => false,
 //            'editorTemplate'=>'full',
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
-        )); ?>
+        ));*/
+        Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Article_content\');', CClientScript::POS_READY);
+        echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;'));
+        ?>
         <?php echo $form->error($model,'content'); ?>
     </div>
 
