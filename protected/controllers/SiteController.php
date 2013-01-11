@@ -23,6 +23,23 @@ class SiteController extends Controller
 		);
 	}
 
+    public function actionUeditor()
+    {
+        $session=new CHttpSession();
+        $session->open();
+
+        $uid=Yii::app()->user->id;
+
+        $_path='php/';
+        $_base='/protected/extensions/ueditor/';
+
+
+        $this->renderPartial('ueditor', array(
+            '_path' => $_path,
+            '_base'=> $_base
+        ));
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */

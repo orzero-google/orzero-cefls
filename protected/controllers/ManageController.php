@@ -87,6 +87,18 @@ class ManageController extends Controller
 
     public function actionIndex()
     {
+        $cs=Yii::app()->clientScript;
+        $cs->registerCoreScript('jquery');
+        $dir = Yii::getPathOfAlias('ext.ueditor');
+        $baseUrl = Yii::app()->getAssetManager()->publish($dir);
+        $cs->registerScriptFile($baseUrl.'/editor_all.js',CClientScript::POS_HEAD );
+        $cs->registerScriptFile($this->createUrl('site/ueditor', array('_'=>md5(rand(),rand()))),CClientScript::POS_HEAD );
+        $dir = Yii::getPathOfAlias('ext.ueditor.themes.default');
+        $baseUrl = Yii::app()->getAssetManager()->publish($dir);
+        $cs->registerCssFile($baseUrl.'/ueditor.css');
+//        $cs->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Article_content\');', CClientScript::POS_READY);
+
+
         if(empty(YII::app()->user->id)){
             $this->redirect('user/login');
             return;

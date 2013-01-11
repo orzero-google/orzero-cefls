@@ -35,8 +35,10 @@
     </div>
 
     <div class="row">
-        <label for="Ads_content">内容描述</label>
+<!--        <label for="Ads_content">内容描述</label>-->
         <?php
+        /*
+        $this->widget('application.extensions.tinymce.ETinyMce', array(
         $this->widget('application.extensions.xheditor.JXHEditor', array(
 //            'id'=>'Article_content',
 //            'name'=>'Article[content]',
@@ -45,8 +47,10 @@
 //            'useSwitch' => false,
 //            'editorTemplate'=>'full',
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
-        )); ?>
-        <!--        --><?php //echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        ));*/ ?>
+                <?php
+        Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Ads_content\');', CClientScript::POS_READY);
+        echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
         <?php echo $form->error($model,'content'); ?>
     </div>
 
