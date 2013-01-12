@@ -6,7 +6,11 @@ $ads = Ads::model()->find('cid=0 AND type=-8 AND enabled=1');
     <div class="middleMiddle">
         <div class="content">
             <div class="cLeft">
-                <h3 class="title"><a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>66, 'aid'=>$articles[0]->aid)); ?>"><?php echo isset($articles[0]->title) ? CHtml::encode($articles[0]->title) : '';?></a></h3>
+                <h3 class="title">
+                    <?php if(isset($articles[0]->aid)):?>
+                    <a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>66, 'aid'=>$articles[0]->aid)); ?>"><?php echo isset($articles[0]->title) ? CHtml::encode($articles[0]->title) : '';?></a>
+                    <?php endif;?>
+                </h3>
                 <p class="describe"><?php echo isset($articles[0]->excerpt) ? CHtml::encode($articles[0]->excerpt) : '';?></p>
             </div>
 

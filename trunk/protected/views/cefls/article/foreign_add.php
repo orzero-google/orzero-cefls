@@ -49,7 +49,7 @@
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         ));*/
         Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Foreign_content_en\');', CClientScript::POS_READY);
-        echo $form->textAreaRow($model, 'content_en', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        echo $form->textAreaRow($model, 'content_en', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;')); ?>
         ?>
         <?php echo $form->error($model,'content_en'); ?>
     </div>
@@ -94,7 +94,7 @@
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         ));*/
         Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Foreign_content_fr\');', CClientScript::POS_READY);
-        echo $form->textAreaRow($model, 'content_fr', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;'));
+        echo $form->textAreaRow($model, 'content_fr', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;'));
         ?>
         <?php echo $form->error($model,'content_fr'); ?>
     </div>
@@ -137,7 +137,7 @@
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         ));*/
         Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Foreign_content_de\');', CClientScript::POS_READY);
-        echo $form->textAreaRow($model, 'content_de', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;'));
+        echo $form->textAreaRow($model, 'content_de', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;'));
         ?>
         <?php echo $form->error($model,'content_de'); ?>
     </div>
