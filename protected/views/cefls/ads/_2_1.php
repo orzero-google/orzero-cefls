@@ -9,7 +9,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-        <?php echo $form->textAreaRow($model, 'title', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        <?php echo $form->textAreaRow($model, 'title', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;')); ?>
 	</div>
 
 	<div class="row">

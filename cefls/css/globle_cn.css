@@ -42,3 +42,6 @@ div.previous a.pv{
 .container .right .article .middle div.numberOne {
     height: auto;
 }
+[class*="span"] {
+    margin-left: 0;
+}

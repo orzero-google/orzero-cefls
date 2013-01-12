@@ -49,7 +49,7 @@
         ));*/ ?>
         <?php
         Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Article_content\');', CClientScript::POS_READY);
-        echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:500px;')); ?>
+        echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;')); ?>
         <?php echo $form->error($model,'content'); ?>
 	</div>
 
