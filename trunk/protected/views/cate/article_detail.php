@@ -1,3 +1,4 @@
+
 <div class="top" style="width:970px; height:100px; ">
     <div class="foreginTopBorder">
         <h1 class="title"><?php echo isset($article->title)? $article->title : '';?></h1>
@@ -12,7 +13,7 @@
 <div class="middle" style="width:970px;">
     <div class="foreginBottomBorder">
 <!--        --><?php //echo isset($article->content)? $article->content : '';?>
-        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=<?php echo $article->aid;?>" allowtransparency="true" style="width: 830px; min-height: 700px;"></iframe>
+        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=<?php echo $article->aid;?>" allowtransparency="true" style="width: 940px; min-height: 700px;"></iframe>
     </div>
 </div>
 
