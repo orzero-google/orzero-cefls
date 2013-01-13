@@ -36,12 +36,9 @@
     <div class="row">
 <!--        --><?php //echo $form->labelEx($model,'content_en'); ?>
         <?php
-<<<<<<< .mine
         /*
         $this->widget('application.extensions.tinymce.ETinyMce', array(
-=======
         $this->widget('application.extensions.xheditor.JXHEditor', array(
->>>>>>> .r79
             'model'=>$model,
             'attribute'=>'content_en',
 //            'useSwitch' => false,
