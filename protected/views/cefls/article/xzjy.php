@@ -3,7 +3,7 @@
     <div class="leftTitle"><?php echo isset($article->from) ? CHtml::encode($article->from) : '';?>
         <br/>校长：<?php echo isset($article->author) ? CHtml::encode($article->author) : '';?></div>
     <div class="leftDescribe">
-        <?php echo isset($article->excerpt) ? CHtml::encode($article->excerpt) : '';?>
+        &nbsp;&nbsp;<?php echo isset($article->excerpt) ? CHtml::encode($article->excerpt) : '';?>
         <p><a href="/index.php/cate/index?cid=67">『详细内容』</a></p>
     </div>
 </div>
