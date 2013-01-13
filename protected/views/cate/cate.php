@@ -17,6 +17,34 @@ $aid = Yii::app()->request->getParam('aid', 0);
 <div class="adtop"><a href="" title="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
     <img src="<?php echo isset($ads_top->img) ? $ads_top->img : '';?>" alt="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
 </a></div>
+
+<?php
+if(in_array($cid, get_cate_article())){
+    if($cid==69){
+        $img = Ads::model()->find('cid=0 AND type=2 AND enabled=1');
+    }else{
+        $img = Ads::model()->find('cid=0 AND type=1 AND enabled=1');
+    }
+
+    $is_swf = false;
+    if(isset($img->img) && !empty($img->img)){
+        $cut_img = explode('.', $img->img);
+        if($cut_img[1]=='swf'){
+            $is_swf = true;
+        }
+    }
+
+    echo '<div class="adtop">';
+    if($is_swf){
+        echo '<EMBED pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" width="100%" height="155px" src="'.(isset($img->img) ? $img->img : '').'" type=application/x-shockwave-flash />';
+    }else{
+        echo isset($img->img) ? '<img src="'.$img->img.'" alt="">' : '';
+    }
+    echo '</div>';
+}
+?>
+
+
 <!-- container -->
 <div class="container">
     <div class="right" style="background:#fff; margin:0 auto;width: auto;">
