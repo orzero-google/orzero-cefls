@@ -45,8 +45,8 @@
 //            'editorTemplate'=>'full',
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         ));*/
-        Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Foreign_content_en\');', CClientScript::POS_READY);
-        echo $form->textAreaRow($model, 'content_en', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;')); ?>
+        Yii::app()->clientScript->registerScript('ueditor1', 'var ue1 = new UE.ui.Editor();ue1.render(\'ArticleForeign_content_en\');', CClientScript::POS_READY);
+        echo $form->textAreaRow($model, 'content_en', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;'));
         ?>
         <?php echo $form->error($model,'content_en'); ?>
     </div>
@@ -78,19 +78,16 @@
     <div class="row">
 <!--        --><?php //echo $form->labelEx($model,'content_fr'); ?>
         <?php
-<<<<<<< .mine
         /*
         $this->widget('application.extensions.tinymce.ETinyMce', array(
-=======
         $this->widget('application.extensions.xheditor.JXHEditor', array(
->>>>>>> .r79
             'model'=>$model,
             'attribute'=>'content_fr',
 //            'useSwitch' => false,
 //            'editorTemplate'=>'full',
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         ));*/
-        Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Foreign_content_fr\');', CClientScript::POS_READY);
+        Yii::app()->clientScript->registerScript('ueditor2', 'var ue2 = new UE.ui.Editor();ue2.render(\'ArticleForeign_content_fr\');', CClientScript::POS_READY);
         echo $form->textAreaRow($model, 'content_fr', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;'));
         ?>
         <?php echo $form->error($model,'content_fr'); ?>
@@ -133,7 +130,7 @@
 //            'editorTemplate'=>'full',
             'htmlOptions'=>array('cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
         ));*/
-        Yii::app()->clientScript->registerScript('ueditor', 'var ue = new UE.ui.Editor();ue.render(\'Foreign_content_de\');', CClientScript::POS_READY);
+        Yii::app()->clientScript->registerScript('ueditor3', 'var ue3 = new UE.ui.Editor();ue3.render(\'ArticleForeign_content_de\');', CClientScript::POS_READY);
         echo $form->textAreaRow($model, 'content_de', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;'));
         ?>
         <?php echo $form->error($model,'content_de'); ?>
