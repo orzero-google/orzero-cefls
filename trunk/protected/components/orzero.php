@@ -660,6 +660,7 @@ function get_img_slides(){
         $slides_html .= '<div class="slides">'.$body.'</div>';
         $slides_html .= '<div class="control">'.$footer.'</div>';
         $slides_html .= '</div>';
+        $slides_html .= '<script type="text/javascript" src="/cefls/js/global_cn.index.js"></script>';
     }
     Yii::app()->cache->set('slides_html::index', $slides_html, 1000);
     return $slides_html;
