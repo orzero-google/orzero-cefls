@@ -643,6 +643,7 @@ function get_img_slides(){
         $slides_html =  '<div>
         <EMBED pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" width="100%" height="365" src="'.(isset($swf_src) ? $swf_src : '').'" type=application/x-shockwave-flash />
         </div>';
+        $slides_html .= '<script type="text/javascript" src="/cefls/js/global_cn.index.swf.js"></script>';
     }else{
         $body='';
         $footer='';

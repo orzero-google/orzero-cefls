@@ -3,7 +3,6 @@
     <?php echo get_img_slides(); ?>
 </div>
 
-<script type="text/javascript" src="/cefls//js/global_cn.index.js"></script>
 
 <!-- index's newsPlan  -->
 <div class="newsPlan">

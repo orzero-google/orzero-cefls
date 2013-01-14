@@ -15,7 +15,7 @@
     </div>
 
     <div class="row">
-        <?php echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>5, 'style'=>'width:655px;')); ?>
+        <?php echo $form->textAreaRow($model, 'content', array('class'=>'span8', 'rows'=>25, 'style'=>'width:655px;')); ?>
     </div>
 
     <div class="row">
