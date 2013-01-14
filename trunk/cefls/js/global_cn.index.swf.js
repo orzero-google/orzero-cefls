@@ -526,7 +526,7 @@ CEFLS.page.onLoad = function(){
 }
 
 $(function(){	
-	CEFLS.page.onLoad();
+//	CEFLS.page.onLoad();
 });
 
 

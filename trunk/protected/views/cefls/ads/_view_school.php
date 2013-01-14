@@ -1,7 +1,11 @@
 <div class="schoolitem">
-    <div class="img"><img width="230" height="135" src="<?php echo isset($data->img)?$data->img:'';?>" alt=""></div>
+    <div class="img">
+        <a href="<?php echo isset($data->url)?$data->url:'';?>">
+            <img width="230" height="135" src="<?php echo isset($data->img)?$data->img:'';?>" alt="">
+        </a>
+    </div>
     <div class="describe">
-        <h3><a href="#"><?php echo isset($data->title)?$data->title:'';?></a></h3>
+        <h3><a href="<?php echo isset($data->url)?$data->url:'';?>"><?php echo isset($data->title)?$data->title:'';?></a></h3>
         <p class="describeDetail">
             <?php
             if(isset($data->content)){
