@@ -1,7 +1,7 @@
 <div class="view">
     <b>ID:<?php echo $data->aid; ?></b>
-    <?php echo CHtml::link(CHtml::encode('[修改]'), array('manage/index', 'pid'=>10, 'cid'=>1, 'id'=>$data->aid)); ?>
-    <?php echo CHtml::link(CHtml::encode('[删除]'), array('manage/del_article', 'pid'=>10, 'cid'=>2, 'id'=>$data->aid),
+    <?php echo CHtml::link(CHtml::encode('[修改]'), array('manage/index', 'pid'=>12, 'cid'=>1, 'id'=>$data->aid)); ?>
+    <?php echo CHtml::link(CHtml::encode('[删除]'), array('manage/del_article', 'pid'=>12, 'cid'=>2, 'id'=>$data->aid),
     array('onclick'=>'return confirm("确定删除？");')); ?>
     <br />
 
