@@ -1,7 +1,7 @@
 <!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html charset=utf8">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <script type="text/javascript" src="/cefls/js/left.js"></script>
     <script type="text/javascript" src="/cefls/js/script.js"></script>
