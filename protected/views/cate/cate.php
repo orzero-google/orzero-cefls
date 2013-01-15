@@ -14,9 +14,7 @@ $ads_top = Ads::model()->img_ads($cate_p->menu_id)->find();
 
 $aid = Yii::app()->request->getParam('aid', 0);
 ?>
-<div class="adtop"><a href="" title="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
-    <img src="<?php echo isset($ads_top->img) ? $ads_top->img : '';?>" alt="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
-</a></div>
+
 
 <?php
 if(in_array($cid, get_cate_article())){
@@ -41,6 +39,12 @@ if(in_array($cid, get_cate_article())){
         echo isset($img->img) ? '<img src="'.$img->img.'" alt="">' : '';
     }
     echo '</div>';
+}else if(!in_array($cid, array(61))){
+?>
+<div class="adtop"><a href="<?php echo isset($ads_top->src) ? CHtml::encode($ads_top->src) : '';?>" title="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
+    <img src="<?php echo isset($ads_top->img) ? $ads_top->img : '';?>" alt="<?php echo isset($ads_top->title) ? CHtml::encode($ads_top->title) : '';?>">
+</a></div>
+<?php
 }
 ?>
 

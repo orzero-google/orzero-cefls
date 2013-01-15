@@ -45,3 +45,8 @@ div.previous a.pv{
 [class*="span"] {
     margin-left: 0;
 }
+
+
+.container .right .article .bottom {
+    height: 80px;
+}
