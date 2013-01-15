@@ -3,13 +3,24 @@
     <div class="preview">
         <div class="title">
             <ul>
+                <?php if($type=='p'):?>
                 <li class="hover"><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></li>
                 <li style="margin-left:10px;"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></li>
+                <?php else:?>
+                <li><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></li>
+                <li style="margin-left:10px;" class="hover"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></li>
+                <?php endif;?>
+
             </ul>
         </div>
+        <?php if($type=='p'):?>
         <div class="describe"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?></div>
-        <div class="describe" style="display:none;"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?></div>
-        <script type="text/javascript">
+        <div class="describe" style="display:none;"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"content_".$key} : '';?></div>
+        <?php else:?>
+        <div class="describe" style="display:none;"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"content_".$key}:'';?></div>
+        <div class="describe"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?></div>
+        <?php endif;?>
+    <script type="text/javascript">
             $(function(){
                 var $title = $(".preview .title li");
                 var $content = $(".preview .describe");

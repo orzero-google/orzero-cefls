@@ -8,7 +8,11 @@ $ads = Ads::model()->find('cid=0 AND type=-8 AND enabled=1');
             <div class="cLeft">
                 <h3 class="title">
                     <?php if(isset($articles[0]->aid)):?>
-                    <a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>66, 'aid'=>$articles[0]->aid)); ?>"><?php echo isset($articles[0]->title) ? CHtml::encode($articles[0]->title) : '';?></a>
+                    <a style="display: block;width: 250px;overflow: hidden;white-space: nowrap;-o-text-overflow: ellipsis;text-overflow: ellipsis;" href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>66, 'aid'=>$articles[0]->aid)); ?>">
+                        <?php //echo isset($articles[0]->title) ? CHtml::encode(mb_substr($articles[0]->title,0 ,16, 'utf-8')) : '';
+                            echo isset($articles[0]->title) ? CHtml::encode($articles[0]->title) : '';
+                        ?>
+                    </a>
                     <?php endif;?>
                 </h3>
                 <p class="describe"><?php echo isset($articles[0]->excerpt) ? CHtml::encode($articles[0]->excerpt) : '';?></p>
