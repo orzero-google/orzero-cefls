@@ -765,9 +765,9 @@ function get_index_foreign(){
     $images_en=Ads::model()->img_ads(-3, 6)->findAll();
     $images_fr=Ads::model()->img_ads(-4, 6)->findAll();
     $images_de=Ads::model()->img_ads(-5, 6)->findAll();
-    foreach($images_en as $images_en_one){
-        echo $images_en_one->aid.'|'.$images_en_one->title."<br />";
-    }die;
+//    foreach($images_en as $images_en_one){
+//        echo $images_en_one->aid.'|'.$images_en_one->title."<br />";
+//    }die;
 
     $articles = ArticleForeign::model()->article_all_limit(0, 11)->findAll();
 
