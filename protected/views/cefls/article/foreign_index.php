@@ -14,11 +14,11 @@ foreach($keys as $key=>$val):
     <div class="bLeft">
         <div class="brief">
             <div class="blbTop"><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></div>
-            <div class="blbBottom"><a href="#"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?></a></div>
+            <div class="blbBottom"><a href="<?php echo Yii::app()->createUrl('cate/index', array('cid'=>$cid, 'type'=>'p'));?>"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?></a></div>
         </div>
         <div class="brief">
             <div class="blbTop"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></div>
-            <div class="blbBottom"><a href="#"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?></a></div>
+            <div class="blbBottom"><a href="<?php echo Yii::app()->createUrl('cate/index', array('cid'=>$cid, 'type'=>'c'));?>"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?></a></div>
         </div>
     </div>
     <div class="bMiddle">
@@ -57,7 +57,7 @@ foreach($keys as $key=>$val):
                         echo '<p>&nbsp;</p>';
                     }else{
                         echo '<p><span>('.(isset($articles[$i]->createtime) ? substr($articles[$i]->createtime, 0, 10) : '').')</span>
-                        <a href="'.Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>(isset($articles[$i]->aid) ? $articles[$i]->aid : 0))).'">'.
+                        <a style="display: block;width: 250px;overflow: hidden;white-space: nowrap;-o-text-overflow: ellipsis;text-overflow: ellipsis;" href="'.Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>(isset($articles[$i]->aid) ? $articles[$i]->aid : 0))).'">'.
                             (isset($articles[$i]->{"title_".$key}) ? CHtml::encode($articles[$i]->{"title_".$key}) : '').'</a></p>';
                     }
                 }

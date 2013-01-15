@@ -92,6 +92,8 @@ if(in_array($cid, get_cate_article())){
                 }else if($cid == 64){
                     $key = 'de';
                 }
+                $type = Yii::app()->request->getParam('type', 'p');
+
 
                 if($aid > 0){
                     $article = ArticleForeign::model()->findByPk($aid);
@@ -133,6 +135,7 @@ if(in_array($cid, get_cate_article())){
                         'culture'=>$culture,
                         'ads_more'=>$ads_more,
                         'dataProvider'=>$dataProvider,
+                        'type'=>$type,
                     ));
                 }
             }
