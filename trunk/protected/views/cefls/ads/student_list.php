@@ -36,8 +36,30 @@ $dataProvider=new CActiveDataProvider('Ads',array(
 //    ));
     ?>
     <?php if($cid==50):?>
+    <script type="text/javascript">
+        var page_id = 1;
+        function dosubmit()
+        {
+            $.ajax({
+                type:"POST",
+                dataType:"html",
+                data:{"id":page_id, "YII_CSRF_TOKEN":"<?php echo Yii::app()->request->csrfToken;?>", "cid":<?php echo $cid;?>},
+                url:"/index.php/ads/get_more",
+                success:function(r) {
+                    page_id++;
+                    if(r==0){
+                        alert('已经显示完成');
+                    }else{
+                        $("#yw0 div.keys").before(r);
+                    }
+                    //alert("success")
+                },
+                cache: false
+            });
+        }
+    </script>
     <div class="numberOneShow">
-        <a href="#bottom"><img src="/cefls/images/container_r8_c9.jpg" alt=""></a>
+        <a href="#bottom"><img src="/cefls/images/container_r8_c9.jpg" onclick="dosubmit()"></a>
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
