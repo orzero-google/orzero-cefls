@@ -402,6 +402,8 @@ function get_admin_sidebar(){
             foreach($one['items'] as $i_one){
                 if(isset($i_one['cid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid']));
+                }elseif(isset($one['cc'])){
+                    $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cc'=>$i_one['cc']));
                 }elseif(isset($one['cid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
                 }
