@@ -27,7 +27,7 @@ class AdsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'get_more'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -54,6 +54,32 @@ class AdsController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+
+    public function actionGet_more()
+    {
+        $id=Yii::app()->request->getParam('id', 1);
+        $cid=Yii::app()->request->getParam('cid', 1);
+        if(Yii::app()->request->isAjaxRequest)
+        {
+            $criteria=new CDbCriteria;
+            $criteria->condition='`cid`=:cid AND `type`=-10 AND `enabled`=1';
+            $criteria->order='`order` ASC, `aid` DESC';
+            $criteria->limit=4;
+            $criteria->offset = intval($id)*4;
+            $criteria->params=array(':cid'=>$cid);
+            $list = Ads::model()->findAll($criteria);
+            if(empty($list)){
+                pd(0);
+            }else{
+                $html = '';
+                foreach($list as $data){
+                    $html .= $this->renderPartial('//cefls/ads/student_ajax',array('cid'=>$cid, 'data'=>$data));
+                }
+                pd($html);
+            }
+
+        }
+    }
 
 	/**
 	 * Creates a new model.
