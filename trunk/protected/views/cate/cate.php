@@ -64,7 +64,7 @@ if(in_array($cid, get_cate_article())){
             }else if(in_array($cid, get_menu_article())){
                 if(!empty($aid)){
                     $cate = Menu::model()->findByPk($cid);
-                    $article = Article::model()->findByAttributes(array('aid'=>$aid, 'cid'=>$cid));
+                    $article = Article::model()->findByAttributes(array('aid'=>$aid));
                     $article->clicknumber ++;
                     $article->save();
                     echo $this->renderPartial('article_detail', array(
