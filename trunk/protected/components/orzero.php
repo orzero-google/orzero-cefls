@@ -390,6 +390,15 @@ function get_admin_sidebar(){
 
         $items_html='';
         if(!empty($one['items'])){
+            if($one['pid']==11){
+                $cat_tmp = get_list_article_manage();
+                $cat_tmp_new = array();
+                foreach($cat_tmp as $key => $val){
+                    $cat_tmp_new['name']=$val;
+                    $cat_tmp_new['cc']=$key;
+                }
+                $one['items']=array_merge($one['items'], $cat_tmp_new);
+            }
             foreach($one['items'] as $i_one){
                 if(isset($i_one['cid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid']));
@@ -454,6 +463,55 @@ function get_ads_type($key=''){
     }
 
     return $list;
+}
+
+function get_list_article_manage($key='', $get_cid=true){
+    $list = array(
+        '14'=>'媒体关注',
+        '29'=>'德育管理',
+        '30'=>'德育动态',
+        '31'=>'团队活动',
+
+        '32'=>'心理教育',
+        '33'=>'德育成果',
+
+        '34'=>'学研管理',
+        '35'=>'教学动态',
+        '36'=>'教研活动',
+        '37'=>'课堂延伸',
+        '38'=>'教学成果',
+        '39'=>'英语课堂',
+        '41'=>'活动集锦',
+        '42'=>'法德苑地',
+
+        '44'=>'赛事风云',
+        '45'=>'学习资源',
+        '47'=>'国内互动',
+        '48'=>'国际往来',
+        '49'=>'合作项目',
+
+        '54'=>'运动时空',
+        '55'=>'音乐之声',
+        '56'=>'美术佳苑',
+        '57'=>'学子寄情',
+        '58'=>'家长抒怀',
+        '59'=>'教师达意',
+        '60'=>'媒评舆论',
+
+    );
+    if(!empty($key)){
+        if(array_key_exists($key,$list)){
+            return $list[$key];
+        }else{
+            return false;
+        }
+    }
+
+    if($get_cid){
+        return array_keys($list);
+    }else{
+        return $list;
+    }
 }
 
 function get_list_article($key='', $get_cid=true){
