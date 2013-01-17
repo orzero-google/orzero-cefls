@@ -391,11 +391,12 @@ function get_admin_sidebar(){
         $items_html='';
         if(!empty($one['items'])){
             if($one['pid']==11){
-                $cat_tmp = get_list_article_manage();
+                $cat_tmp = get_list_article_manage('',false);
                 $cat_tmp_new = array();
+                $i=3;
                 foreach($cat_tmp as $key => $val){
-                    $cat_tmp_new['name']=$val;
-                    $cat_tmp_new['cc']=$key;
+                    $cat_tmp_new[]=array('name'=>'查看'.$val, 'cc'=>$key, 'cid'=>$i);
+                    $i++;
                 }
                 $one['items']=array_merge($one['items'], $cat_tmp_new);
             }
@@ -403,7 +404,7 @@ function get_admin_sidebar(){
                 if(isset($i_one['cid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid']));
                 }elseif(isset($one['cc'])){
-                    $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cc'=>$i_one['cc']));
+                    $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid'], 'cc'=>$i_one['cc']));
                 }elseif(isset($one['cid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
                 }
