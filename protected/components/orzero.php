@@ -237,6 +237,7 @@ EOF;
 function get_admin_sidebar(){
     $pid=Yii::app()->request->getParam('pid', 0);
     $cid=Yii::app()->request->getParam('cid', 0);
+    $cc=Yii::app()->request->getParam('cc', 0);
 
     $sidebar_html = '';
     if(!YII_DEBUG_CACHE)
@@ -335,7 +336,7 @@ function get_admin_sidebar(){
             'pid'=>'11',
             'items'=>array(
                 array('name'=>'新增站内板块文章', 'cid'=>'1'),
-                array('name'=>'查看站内板块文章', 'cid'=>'2'),
+                array('name'=>'查看所有站内板块文章', 'cid'=>'2'),
             )
         ),
         array(
@@ -351,7 +352,7 @@ function get_admin_sidebar(){
             'pid'=>'13',
             'items'=>array(
                 array('name'=>'新增外语佳作', 'cid'=>'1'),
-                array('name'=>'查看外语佳作', 'cid'=>'2'),
+                array('name'=>'查看所有外语佳作', 'cid'=>'2'),
             )
         ),
         array(
@@ -400,17 +401,35 @@ function get_admin_sidebar(){
                 }
                 $one['items']=array_merge($one['items'], $cat_tmp_new);
             }
+            if($one['pid']==13){
+                $cat_tmp = array(
+                    62=>'英语佳作',
+                    63=>'法语佳作',
+                    64=>'德语佳作',
+                );
+                $cat_tmp_new = array();
+                $i=3;
+                foreach($cat_tmp as $key => $val){
+                    $cat_tmp_new[]=array('name'=>'查看'.$val, 'cc'=>$key, 'cid'=>$i);
+                    $i++;
+                }
+                $one['items']=array_merge($one['items'], $cat_tmp_new);
+            }
+
             foreach($one['items'] as $i_one){
-                if(isset($i_one['cid'])){
+                if(isset($i_one['cid']) && empty($i_one['cc'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid']));
-                }elseif(isset($one['cc'])){
+                }elseif(isset($i_one['cc'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid'], 'cid'=>$i_one['cid'], 'cc'=>$i_one['cc']));
-                }elseif(isset($one['cid'])){
+                }elseif(isset($one['pid'])){
                     $i_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
                 }
 
                 $sx = '';
                 if((isset($i_one['cid']) && $i_one['cid']==$cid) && (isset($one['pid']) && $one['pid']==$pid)){
+                    $sx = ' class="x"';
+                }
+                if((isset($i_one['cc']) && $i_one['cc']==$cc) && (isset($one['pid']) && $one['pid']==$pid)){
                     $sx = ' class="x"';
                 }
 

@@ -12,7 +12,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
     <div class="row">
-        <?php echo $form->dropDownListRow($model, 'cid', get_list_article_manage());  ?>
+        <?php echo $form->dropDownListRow($model, 'cid', get_list_article_manage('',false));  ?>
     </div>
 
     <div class="row">
