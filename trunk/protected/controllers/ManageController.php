@@ -107,9 +107,11 @@ class ManageController extends Controller
 
         $cid=Yii::app()->request->getParam('cid', 0);
         $pid=Yii::app()->request->getParam('pid', 0);
+        $cc=Yii::app()->request->getParam('cc', 0);
         $this->render('index',array(
             'cid'=>$cid,
             'pid'=>$pid,
+            'cc'=>$cc,
             'user_info'=>$user_info
         ));
     }

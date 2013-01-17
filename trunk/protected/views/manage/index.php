@@ -43,11 +43,23 @@ $this->pageTitle=Yii::app()->name . ' - '.'管理员后台';
         </div>
 
         <?php
+        if(isset($cc)&&!empty($cc)){
+            echo $this->renderPartial('items/'.$pid.'/2', array(
+                'menu_pid'=>$pid,
+                'menu_cid'=>$cid,
+                'pid'=>$pid,
+                'cc'=>$cc,
+                'user_info'=>$user_info,
+            ));
+        }else{
             echo $this->renderPartial('items/'.$pid.'/'.$cid, array(
                 'menu_pid'=>$pid,
                 'menu_cid'=>$cid,
+                'pid'=>$pid,
                 'user_info'=>$user_info,
             ));
+        }
+
         ?>
     </div>
     <div class="clear"></div>

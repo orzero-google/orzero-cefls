@@ -12,6 +12,9 @@
 
 $criteria=new CDbCriteria;
 $criteria->condition='`type`=-11 AND `enabled`=1';
+if(isset($cc)&&!empty($cc)){
+    $criteria->condition='`type`=-11 AND `enabled`=1 AND cid='.$cc;
+}
 //$criteria->params=array(':cid'=>$cid);
 $criteria->order='`sort` ASC';
 $dataProvider=new CActiveDataProvider('Article',array(

@@ -41,8 +41,13 @@ if(isset($_POST['Article']))
     }
     */
 
-    if($model->save())
-        $this->redirect(array('manage/index', 'pid'=>13, 'cid'=>2));
+    if($model->save()){
+        if(in_array($pid, array(13))){
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cc'=>$model->cid));
+        }else{
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cid'=>2));
+        }
+    }
 }
 
 echo $this->renderPartial('//manage/items/13/list_article_add', array('model'=>$model));
