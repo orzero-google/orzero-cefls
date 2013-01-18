@@ -27,7 +27,7 @@ foreach($keys as $key=>$val):
                 <img src="<?php echo isset(${"images_"."$key"}[0]->img) ? ${"images_"."$key"}[0]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[0]->title) ?${"images_"."$key"}[0]->title : '';?>">
                 <p><a href="<?php echo isset($images_{$key}[0]->src) ? $images_{$key}[0]->src : '';?>">
-                    <?php echo isset($images_{$key}[0]->title) ? $images_{$key}[0]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[0]->title) ? ${"images_"."$key"}[0]->title : '';?>
                 </a></p>
             </div>
             <div class="newsPic">

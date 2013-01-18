@@ -252,7 +252,7 @@ function get_admin_sidebar(){
             'pid'=>'1',
             'items'=>array(
                 array('name'=>'新增图片广告', 'cid'=>'1'),
-                array('name'=>'查看图片广告', 'cid'=>'2'),
+                array('name'=>'[查看所有图片广告]', 'cid'=>'2'),
             )
         ),
         array(
@@ -336,7 +336,7 @@ function get_admin_sidebar(){
             'pid'=>'11',
             'items'=>array(
                 array('name'=>'新增站内板块文章', 'cid'=>'1'),
-                array('name'=>'查看所有站内板块文章', 'cid'=>'2'),
+                array('name'=>'[查看所有站内板块文章]', 'cid'=>'2'),
             )
         ),
         array(
@@ -352,7 +352,7 @@ function get_admin_sidebar(){
             'pid'=>'13',
             'items'=>array(
                 array('name'=>'新增外语佳作', 'cid'=>'1'),
-                array('name'=>'查看所有外语佳作', 'cid'=>'2'),
+                array('name'=>'[查看所有外语佳作]', 'cid'=>'2'),
             )
         ),
         array(
@@ -372,7 +372,7 @@ function get_admin_sidebar(){
     foreach($items as $one){
         if(!empty($one['items'])){
             $c++;
-            $cs->registerScript('items'.$c,'$("#cid-sub-'.$c.'").click(function(){$("#id-sub-'.$c.'").toggle();});');
+            $cs->registerScript('items'.$c,'$("#cid-sub-'.$c.'").click(function(){$("#id-sub-'.$c.'").toggle();});$("#id-sub-'.$c.'").hide();');
             $_one_url='javascript:viod();';
         }else{
             if(!empty($one['src'])){
@@ -407,6 +407,16 @@ function get_admin_sidebar(){
                     63=>'法语佳作',
                     64=>'德语佳作',
                 );
+                $cat_tmp_new = array();
+                $i=3;
+                foreach($cat_tmp as $key => $val){
+                    $cat_tmp_new[]=array('name'=>'查看'.$val, 'cc'=>$key, 'cid'=>$i);
+                    $i++;
+                }
+                $one['items']=array_merge($one['items'], $cat_tmp_new);
+            }
+            if($one['pid']==1){
+                $cat_tmp = get_ads_type();
                 $cat_tmp_new = array();
                 $i=3;
                 foreach($cat_tmp as $key => $val){
