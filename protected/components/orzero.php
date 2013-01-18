@@ -380,10 +380,11 @@ function get_admin_sidebar(){
             }else{
                 $_one_url=Yii::app()->createUrl('manage/index',array('pid'=>$one['pid']));
             }
-
         }
 
+
         if((isset($one['cid']) && $one['cid']==$cid) || (isset($one['pid']) && $one['pid']==$pid)){
+            $cs->registerScript('items_open'.$c,'$("#id-sub-'.$c.'").show();');
             $sidebar_html.='<li'.((!empty($one['items']))?' id="cid-sub-'.$c.'"':'').' class="m"><span class="first"></span><a href="'.$_one_url.'">'.$one['name'].'</a></li>';
         }else{
             $sidebar_html.='<li'.((!empty($one['items']))?' id="cid-sub-'.$c.'"':'').'><span></span><a href="'.$_one_url.'">'.$one['name'].'</a></li>';
@@ -446,6 +447,7 @@ function get_admin_sidebar(){
                 $items_html.='<li'.$sx.'><span></span><a href="'.$i_one_url.'">'.$i_one['name'].'</a></li>';
             }
             $sidebar_html .= '<li style="display: block;" id="id-sub-'.$c.'" class="sub"><ul class="sub-leftmenu">'.$items_html.'</ul></li>';
+
         }
     }
 
