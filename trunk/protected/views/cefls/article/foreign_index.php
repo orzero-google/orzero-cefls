@@ -27,21 +27,21 @@ foreach($keys as $key=>$val):
                 <img src="<?php echo isset(${"images_"."$key"}[0]->img) ? ${"images_"."$key"}[0]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[0]->title) ?${"images_"."$key"}[0]->title : '';?>">
                 <p><a href="<?php echo isset($images_{$key}[0]->src) ? $images_{$key}[0]->src : '';?>">
-                    <?php echo isset(${"images_"."$key"}[0]->title) ? ${"images_"."$key"}[0]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[0]->title) ? nl2br(${"images_"."$key"}[0]->title) : '';?>
                 </a></p>
             </div>
             <div class="newsPic">
                 <img src="<?php echo isset(${"images_"."$key"}[1]->img) ? ${"images_"."$key"}[1]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[1]->title) ? ${"images_"."$key"}[1]->title : '';?>">
                 <p><a href="<?php echo isset(${"images_"."$key"}[1]->src) ? ${"images_"."$key"}[1]->src : '';?>">
-                    <?php echo isset(${"images_"."$key"}[1]->title) ? ${"images_"."$key"}[1]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[1]->title) ? nl2br(${"images_"."$key"}[1]->title) : '';?>
                 </a></p>
             </div>
             <div class="newsPic">
                 <img src="<?php echo isset(${"images_"."$key"}[2]->img) ? ${"images_"."$key"}[2]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[2]->title) ? ${"images_"."$key"}[2]->title : '';?>">
                 <p><a href="<?php echo isset(${"images_"."$key"}[2]->src) ? ${"images_"."$key"}[2]->src : '';?>">
-                    <?php echo isset(${"images_"."$key"}[2]->title) ? ${"images_"."$key"}[2]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[2]->title) ? nl2br(${"images_"."$key"}[2]->title) : '';?>
                 </a></p>
             </div>
         </div>
@@ -79,21 +79,21 @@ foreach($keys as $key=>$val):
                 <img src="<?php echo isset(${"images_"."$key"}[3]->img) ? ${"images_"."$key"}[3]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[3]->title) ? ${"images_"."$key"}[3]->title : '';?>">
                 <p><a href="<?php echo isset(${"images_"."$key"}[3]->src) ? ${"images_"."$key"}[3]->src : '';?>">
-                    <?php echo isset(${"images_"."$key"}[3]->title) ? ${"images_"."$key"}[3]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[3]->title) ? nl2br(${"images_"."$key"}[3]->title) : '';?>
                 </a></p>
             </div>
             <div class="newsPic">
                 <img src="<?php echo isset(${"images_"."$key"}[4]->img) ? ${"images_"."$key"}[4]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[4]->title) ? ${"images_"."$key"}[4]->title : '';?>">
                 <p><a href="<?php echo isset(${"images_"."$key"}[4]->src) ? ${"images_"."$key"}[4]->src : '';?>">
-                    <?php echo isset(${"images_"."$key"}[4]->title) ? ${"images_"."$key"}[4]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[4]->title) ? nl2br(${"images_"."$key"}[4]->title) : '';?>
                 </a></p>
             </div>
             <div class="newsPic">
                 <img src="<?php echo isset(${"images_"."$key"}[5]->img) ? ${"images_"."$key"}[5]->img : '';?>" width="150" height="106" alt="<?php
                 echo isset(${"images_"."$key"}[5]->title) ? ${"images_"."$key"}[5]->title : '';?>">
                 <p><a href="<?php echo isset(${"images_"."$key"}[5]->src) ? ${"images_"."$key"}[5]->src : '';?>">
-                    <?php echo isset(${"images_"."$key"}[5]->title) ? ${"images_"."$key"}[5]->title : '';?>
+                    <?php echo isset(${"images_"."$key"}[5]->title) ? nl2br(${"images_"."$key"}[5]->title) : '';?>
                 </a></p>
             </div>
         </div>
