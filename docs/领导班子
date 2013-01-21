@@ -1,0 +1,28 @@
+<div class="middle">
+    <div class="imginfo">
+        <img src="/protected/extensions/ueditor/php/upload/37501358142193.jpg" alt="成都市实验外国语学校现任领导班子合影">
+        <p>成都市实验外国语学校现任领导班子合影</p>
+    </div>
+    <div class="imglist">
+        <div class="imgitem">
+            <a href="#"><img src="/protected/extensions/ueditor/php/upload/33121358141928.jpg" alt=""></a>
+            <p><a href="#">校长：xxxx</a></p>
+        </div>
+        <div class="imgitem">
+            <a href="#"><img src="/protected/extensions/ueditor/php/upload/96881358141988.jpg" alt=""></a>
+            <p><a href="#">副校长：xxxx</a></p>
+        </div>
+        <div class="imgitem">
+            <a href="#"><img src="/protected/extensions/ueditor/php/upload/3151358142067.jpg" alt=""></a>
+            <p><a href="#">副校长：xxxx</a></p>
+        </div>
+        <div class="imgitem">
+            <a href="#"><img src="/protected/extensions/ueditor/php/upload/68821358142106.jpg" alt=""></a>
+            <p><a href="#">副校长：xxxx</a></p>
+        </div>
+        <div class="imgitem">
+            <a href="#"><img src="/protected/extensions/ueditor/php/upload/80261358142136.jpg" alt=""></a>
+            <p><a href="#">副校长：xxxx</a></p>
+        </div>
+    </div>
+</div>

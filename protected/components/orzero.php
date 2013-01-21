@@ -228,7 +228,7 @@ function get_footer(){
     return <<<EOF
 <!-- index's footer -->
 <div class="footer">
-    <p><a href="#">关于我们</a>  ‖  <a href="#">网站声明</a>  ‖ <a href="#">实外信箱</a>  ‖ <a href="#">联系我们</a></p>
+    <p><a href="/index.php/cate/index?cid=70">关于我们</a>  ‖  <a href="/index.php/cate/index?cid=71">网站声明</a>  ‖ <a href="/index.php/cate/index?cid=61">实外信箱</a>  ‖ <a href="/index.php/cate/index?cid=72">联系我们</a></p>
     <p>网站版权所有者：成都市实验外国语学校    协同建设支持单位：成都互正超媒网络科技有限公司<br/>Copyright©2011-2016  (www.cefls.cn )    All Right Reserved <br/>川教GZ-20120014号       蜀ICP备12003383-1号</p>
 </div>
 EOF;
@@ -766,7 +766,7 @@ function get_fancybox_img(){
 
 //取得单篇文章的页面
 function get_cate_article(){
-    return array(67,69);
+    return array(66,67,68,69,70,71,72);
 }
 
 function get_cate_page(){
