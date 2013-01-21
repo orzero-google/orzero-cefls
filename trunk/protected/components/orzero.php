@@ -82,7 +82,7 @@ function get_left_menu($pid){
                 $jsfc = Article::model()->findAll($criteria);
                 foreach($jsfc as $jsfc_one){
                     $sub_sub_menu_html .= '<li'.(($aid==$jsfc_one->aid) ? ' class="selected"' : '').'>
-                <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>40, 'tid'=>$jsfc_one->aid)).'">'.$jsfc_one->title.'</a>
+                <a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$cate_p->menu_id, 'cid'=>40, 'tid'=>$jsfc_one->aid)).'">'.$jsfc_one->author.'</a>
                 </li>';
                 }
             }
@@ -319,7 +319,7 @@ function get_admin_sidebar(){
             'items'=>array(
                 //50,51,52,53
                 array('name'=>'新增学子风采', 'cid'=>'1'),
-                array('name'=>'查看学子风采', 'cid'=>'2'),
+                array('name'=>'[查看所有学子风采]', 'cid'=>'2'),
             )
         ),
         array(
@@ -418,6 +418,16 @@ function get_admin_sidebar(){
             }
             if($one['pid']==1){
                 $cat_tmp = get_ads_type();
+                $cat_tmp_new = array();
+                $i=3;
+                foreach($cat_tmp as $key => $val){
+                    $cat_tmp_new[]=array('name'=>'查看'.$val, 'cc'=>$key, 'cid'=>$i);
+                    $i++;
+                }
+                $one['items']=array_merge($one['items'], $cat_tmp_new);
+            }
+            if($one['pid']==9){
+                $cat_tmp = get_xzfc_type();
                 $cat_tmp_new = array();
                 $i=3;
                 foreach($cat_tmp as $key => $val){
@@ -614,7 +624,7 @@ function get_xzfc_type($key=''){
         '50'=>'状元金榜',
         '51'=>'理科精英',
         '52'=>'文科翘楚',
-        '53'=>'高考年报',
+//        '53'=>'高考年报',
     );
     if(!empty($key)){
         if(array_key_exists($key,$list)){
