@@ -81,13 +81,16 @@ if(in_array($cid, get_cate_article())){
                 //无菜单列表
                 $cate = Menu::model()->findByPk($cid);
                 $article = Article::model()->findByAttributes(array('title'=>$cate->menu_name));
-                $article->clicknumber ++;
-                $article->save();
+                if(!empty($article)){
+                    $article->clicknumber ++;
+                    $article->save();
 
-                echo $this->renderPartial('article_detail', array(
-                    'cate'=>$cate,
-                    'article'=>$article
-                ));
+                    echo $this->renderPartial('article_detail', array(
+                        'cate'=>$cate,
+                        'article'=>$article
+                    ));
+                }
+
             }else if(in_array($cid, get_cate_foreig())){
                 if($cid == 62){
                     $key = 'en';
