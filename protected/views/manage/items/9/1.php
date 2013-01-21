@@ -42,8 +42,14 @@ if(isset($_POST['Ads']))
         }
     }
 
-    if($model->save())
-        $this->redirect(array('manage/index', 'pid'=>9, 'cid'=>2));
+    if($model->save()){
+        if(in_array($pid, array(9))){
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cc'=>$model->cid));
+        }else{
+            $this->redirect(array('manage/index', 'pid'=>$pid, 'cid'=>2));
+        }
+    }
+
 }
 
 echo $this->renderPartial('//cefls/ads/xzfc_add', array('model'=>$model, 'img_root'=>$img_root));
