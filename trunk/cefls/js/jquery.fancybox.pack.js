@@ -1867,7 +1867,7 @@
                 return;
             }
             var arr = text.split("&");
-            text = "<p class='title'>"+arr[0]+"</p><p>"+arr[1]+"</p>";
+            text = "<p class='title'>"+arr[0]+"</p>";
             title = $('<div class="fancybox-title fancybox-title-' + type + '-wrap">' + text + '</div>');
             switch (type) {
                 case 'inside':
