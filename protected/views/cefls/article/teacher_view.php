@@ -5,5 +5,5 @@ $tid=Yii::app()->request->getParam('tid', 0);
 ?>
 <div class="imgitem">
     <a href="<?php echo $this->createUrl('cate/index', array('pid'=>$pid, 'cid'=>$cid, 'tid'=>$data->aid)); ?>" width="150" height="210"><img src="<?php echo $data->file; ?>" width="150" height="210" alt=""></a>
-    <p><a style="text-align: center;display: block;width: 150px;overflow: hidden;white-space: nowrap;-o-text-overflow: ellipsis;text-overflow: ellipsis;" href="<?php echo $this->createUrl('cate/index', array('pid'=>$pid, 'cid'=>$cid, 'tid'=>$data->aid)); ?>"><?php echo $data->title; ?>：<?php echo $data->author; ?></a></p>
+    <p><a style="text-align: center;display: block;width: 150px;overflow: hidden;white-space: nowrap;-o-text-overflow: ellipsis;text-overflow: ellipsis;" href="<?php echo $this->createUrl('cate/index', array('pid'=>$pid, 'cid'=>$cid, 'tid'=>$data->aid)); ?>"><!--<?php echo $data->title; ?>：--><?php echo $data->author; ?></a></p>
 </div>

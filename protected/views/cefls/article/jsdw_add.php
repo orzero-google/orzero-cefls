@@ -52,8 +52,13 @@
         <?php echo $form->error($model,'content'); ?>
     </div>
 
+<?php
+    $jsdw = get_jsdw_type();
+    $jsdw = array_merge($jsdw, array(-1=>'领导班子'));
+?>
+
     <div class="row">
-        <?php echo $form->dropDownListRow($model, 'cid', get_jsdw_type());  ?>
+        <?php echo $form->dropDownListRow($model, 'cid', $jsdw);  ?>
     </div>
 
     <div class="row">

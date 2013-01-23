@@ -8,7 +8,13 @@
     <img src="<?php echo $data->file; ?>" /><br />
 
     <b>所属分类:</b>
-    <?php echo CHtml::encode(get_jsdw_type($data->cid)); ?>
+    <?php
+    if($data->cid == -1){
+        echo '领导班子';
+    }else{
+        echo CHtml::encode(get_jsdw_type($data->cid));
+    }
+    ?>
     <br />
 
     <b>名字:</b>

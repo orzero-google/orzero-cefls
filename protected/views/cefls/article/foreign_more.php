@@ -27,12 +27,41 @@ if($cid == 62){
             </ul>
         </div>
         <?php if($type=='p'):?>
-        <div class="describe"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
-        <div class="describe" style="display:none;"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
+        <div class="describe">
+            <div id="p_excerpt">
+                <?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+            </div>
+            <div id="p_content" style="display: none;">
+                <?php echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?><p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
+            </div>
+        </div>
+        <div class="describe" style="display:none;">
+            <div id="c_excerpt">
+                <?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+            </div>
+            <div id="c_content" style="display: none;">
+                <?php echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?><p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
+            </div>
+        </div>
         <?php else:?>
-        <div class="describe" style="display:none;"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
-        <div class="describe"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
+        <div class="describe" style="display:none;">
+            <div id="p_excerpt">
+                <?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+            </div>
+            <div id="p_content" style="display: none;">
+                <?php echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?><p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
+            </div>
+        </div>
+        <div class="describe">
+            <div id="c_excerpt">
+                <?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+            </div>
+            <div id="c_content" style="display: none;">
+                <?php echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?><p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
+            </div>
+        </div>
         <?php endif;?>
+
     <script type="text/javascript">
             $(function(){
                 var $title = $(".preview .title li");
@@ -46,6 +75,61 @@ if($cid == 62){
 
                     return false;
                 });
+
+
+                $("#ex_p_en").click(function(){
+                    $("#p_excerpt").hide();
+                    $("#p_content").show();
+                });
+                $("#hi_p_en").click(function(){
+                    $("#p_content").hide();
+                    $("#p_excerpt").show();
+                });
+                $("#ex_c_en").click(function(){
+                    $("#c_excerpt").hide();
+                    $("#c_content").show();
+                });
+                $("#hi_c_en").click(function(){
+                    $("#c_content").hide();
+                    $("#c_excerpt").show();
+                });
+
+
+                $("#ex_p_de").click(function(){
+                    $("#p_excerpt").hide();
+                    $("#p_content").show();
+                });
+                $("#hi_p_de").click(function(){
+                    $("#p_content").hide();
+                    $("#p_excerpt").show();
+                });
+                $("#ex_c_de").click(function(){
+                    $("#c_excerpt").hide();
+                    $("#c_content").show();
+                });
+                $("#hi_c_de").click(function(){
+                    $("#c_content").hide();
+                    $("#c_excerpt").show();
+                });
+
+
+                $("#ex_p_fr").click(function(){
+                    $("#p_excerpt").hide();
+                    $("#p_content").show();
+                });
+                $("#hi_p_fr").click(function(){
+                    $("#p_content").hide();
+                    $("#p_excerpt").show();
+                });
+                $("#ex_c_fr").click(function(){
+                    $("#c_excerpt").hide();
+                    $("#c_content").show();
+                });
+                $("#hi_c_fr").click(function(){
+                    $("#c_content").hide();
+                    $("#c_excerpt").show();
+                });
+
             });
         </script>
     </div>

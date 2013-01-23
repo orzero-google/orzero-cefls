@@ -166,7 +166,7 @@ function get_header(){
         <div class="header_right">
             <div class="header_title"><img src="/images/index_r2_c11.jpg" width="404" height="101" alt="成都市实验外国语学校"/></div>
             <div class="header_link">
-                <p class="header_link1"><a href="/">首页</a>　|　<a href=\'javascript:addBookmark("成都市实验外国语学校", "http://www.cefls.cn");\'>加入收藏</a>　|　<a href="#">联系我们</a>　|　<a href="/index.php/cate/index?cid=61">实外信箱</a></p>
+                <p class="header_link1"><a href="/">首页</a>　|　<a href=\'javascript:addBookmark("成都市实验外国语学校", "http://www.cefls.cn");\'>加入收藏</a>　|　<a href="/index.php/cate/index?cid=72">联系我们</a>　|　<a href="/index.php/cate/index?cid=61">实外信箱</a></p>
                 <p class="header_link2"><a href="/index.php/cate/index?cid=62">ENGLISH</a>　|　<a href="/index.php/cate/index?cid=63">Française</a>　|　<a href="/index.php/cate/index?cid=64">Deutsch</a></p>
                 <p class="header_link3"><input type="text" class="search_text"/><input type="submit" name="submit" class="submit"/></p>
             </div>
@@ -229,7 +229,7 @@ function get_footer(){
 <!-- index's footer -->
 <div class="footer">
     <p><a href="/index.php/cate/index?cid=70">关于我们</a>  ‖  <a href="/index.php/cate/index?cid=71">网站声明</a>  ‖ <a href="/index.php/cate/index?cid=61">实外信箱</a>  ‖ <a href="/index.php/cate/index?cid=72">联系我们</a></p>
-    <p>网站版权所有者：成都市实验外国语学校    协同建设支持单位：成都互正超媒网络科技有限公司<br/>Copyright©2011-2016  (www.cefls.cn )    All Right Reserved <br/>川教GZ-20120014号       蜀ICP备12003383-1号</p>
+    <p>网站版权所有者：成都市实验外国语学校　　协同建设支持单位：成都互正超媒网络科技有限公司<br/>Copyright©2011-2016　(www.cefls.cn )　　All Right Reserved <br/>川教GZ-20120014号　　　　蜀ICP备12003383-1号</p>
 </div>
 EOF;
 }
@@ -776,7 +776,7 @@ function get_fancybox_img(){
 
 //取得单篇文章的页面
 function get_cate_article(){
-    return array(66,67,68,69,70,71,72);
+    return array(66,67,68,69,70,71,72,73);
 }
 
 function get_cate_page(){

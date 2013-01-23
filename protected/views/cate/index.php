@@ -37,7 +37,11 @@ if($is_swf){
         <?php
         if($tid > 0 || $cid ==40){
             //教师风采
-            $teacher = Article::model()->find('type=-12 AND enabled=1 AND aid=:aid', array(':aid'=>$tid));
+            if($cid ==40){
+                $teacher = Article::model()->find('type=-12 AND enabled=1 AND aid=:aid', array(':aid'=>$tid));
+            }else{
+                $teacher = Article::model()->find('cid=:cid AND enabled=1 AND aid=:aid', array(':aid'=>$tid,':cid'=>$cid));
+            }
             if(!empty($teacher)){
                 $teacher->clicknumber++;
                 $teacher->save();
