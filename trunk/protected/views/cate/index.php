@@ -84,21 +84,26 @@ if($is_swf){
                     case 62:
                     case 63:
                     case 64:
+
+                    case 57:
+                    case 58:
+                    case 59:
+                    case 60:
                         $info = "作者";
                         break;
-                    case 39:
-                    case 41:
-                    case 42:
-                    case 44:
-                    case 45:
-                    case 47:
-                    case 48:
-                    case 49:
-                    case 54:
-                    case 55:
-                    case 56:
-                        $info = "部门管理";
-                        break;
+//                    case 39:
+//                    case 41:
+//                    case 42:
+//                    case 44:
+//                    case 45:
+//                    case 47:
+//                    case 48:
+//                    case 49:
+//                    case 54:
+//                    case 55:
+//                    case 56:
+//                        $info = "部门管理";
+//                        break;
                     default:
                         $info = '信息来源';
                 }

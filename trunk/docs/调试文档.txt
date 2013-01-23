@@ -8,25 +8,25 @@ INSERT INTO  `cefls`.`blog_menu` (
 )
 VALUES 
 (
-NULL ,  '0',  '�����Ӵ�',  '1',  '0',  '0'
+NULL ,  '0',  '�����Ӵ�',  '1',  '0',  '0'
 ), 
 (
-NULL ,  '0',  '��ѧ����',  '1',  '0',  '0'
+NULL ,  '0',  '��ѧ����',  '1',  '0',  '0'
 ), 
 (
-NULL ,  '0',  '������ɫ',  '1',  '0',  '0'
+NULL ,  '0',  '������ɫ',  '1',  '0',  '0'
 ), 
 (
-NULL ,  '0',  '��������',  '1',  '0',  '0'
+NULL ,  '0',  '��������',  '1',  '0',  '0'
 ), 
 (
-NULL ,  '0',  'ѧ�ӷ��',  '1',  '0',  '0'
+NULL ,  '0',  'ѧ�ӷ��',  '1',  '0',  '0'
 ), 
 (
-NULL ,  '0',  '�������',  '1',  '0',  '0'
+NULL ,  '0',  '�������',  '1',  '0',  '0'
 ), 
 (
-NULL ,  '0',  '����ʵ��',  '1',  '0',  '0'
+NULL ,  '0',  '����ʵ��',  '1',  '0',  '0'
 )
 
 ;
@@ -42,18 +42,40 @@ INSERT INTO  `cefls`.`blog_menu` (
 )
 VALUES 
 (
-NULL ,  '9',  'ѧ�Ӽ���',  '2',  '0',  '0'
+NULL ,  '9',  'ѧ�Ӽ���',  '2',  '0',  '0'
 ),
 (
-NULL ,  '9',  '�ҳ��㻳',  '2',  '0',  '0'
+NULL ,  '9',  '�ҳ��㻳',  '2',  '0',  '0'
 ),
 (
-NULL ,  '9',  '��ʦ����',  '2',  '0',  '0'
+NULL ,  '9',  '��ʦ����',  '2',  '0',  '0'
 ),
 (
-NULL ,  '9',  'ý������',  '2',  '0',  '0'
+NULL ,  '9',  'ý������',  '2',  '0',  '0'
 )
 ;
 
 
-SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t` LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`) WHERE (menu_type=:menu_type) AND (`t`.`pa`=1) 
+SELECT `t`.`menu_id` AS `t0_c0`, `t`.`parent_id` AS `t0_c1`, `t`.`menu_name` AS `t0_c2`, `t`.`menu_type` AS `t0_c3`, `t`.`menu_sort` AS `t0_c4`, `t`.`menu_count` AS `t0_c5`, `sub_menu`.`menu_id` AS `t1_c0`, `sub_menu`.`parent_id` AS `t1_c1`, `sub_menu`.`menu_name` AS `t1_c2`, `sub_menu`.`menu_type` AS `t1_c3`, `sub_menu`.`menu_sort` AS `t1_c4`, `sub_menu`.`menu_count` AS `t1_c5` FROM `blog_menu` `t` LEFT OUTER JOIN `blog_menu` `sub_menu` ON (`sub_menu`.`parent_id`=`t`.`menu_id`) WHERE (menu_type=:menu_type) AND (`t`.`pa`=1)
+
+
+
+
+
+ 四.不修改:开始跟你沟通说的就是参考状元金榜来做,只是不实现下拉按钮
+
+ 五.已经修改
+
+ 六.已经修改
+
+ 七.有显示
+
+ 八.去掉了上传头像的选项,直接显示编辑器内容
+
+ 九.没法解决
+
+ 十.已经修改
+
+ 十一.请给出具体没实现的栏目
+
+ 十二.没重现问题,我1920*1080的分辨率
