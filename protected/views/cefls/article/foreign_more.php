@@ -1,3 +1,16 @@
+<?php
+if($cid == 62){
+    $expand = 'Expansion';
+    $hide = 'Hision';
+}elseif($cid == 63){
+    $expand = 'Expansion';
+    $hide = 'Cacher';
+}elseif($cid == 64){
+    $expand = 'Expansion';
+    $hide = 'Verbergen';
+}
+?>
+
 <div class="top" style="width:900px;"></div>
 <div class="middle" style="width:900px;">
     <div class="preview">
@@ -14,11 +27,11 @@
             </ul>
         </div>
         <?php if($type=='p'):?>
-        <div class="describe"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?></div>
-        <div class="describe" style="display:none;"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"content_".$key} : '';?></div>
+        <div class="describe"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
+        <div class="describe" style="display:none;"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
         <?php else:?>
-        <div class="describe" style="display:none;"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"content_".$key}:'';?></div>
-        <div class="describe"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?></div>
+        <div class="describe" style="display:none;"><?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
+        <div class="describe"><?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p></div>
         <?php endif;?>
     <script type="text/javascript">
             $(function(){

@@ -210,8 +210,8 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
                     .container .right .article .middle div.preview div.describe{ width: 850px; border:1px solid #CC3020; border-top: 0px; font-size: 12px; color: #464646; text-indent: 24px; padding: 10px; line-height: 20px;}
                     .container .right .article .middle div.preview div.title ul li.hover{background: url(../images/container_r4_c4.jpg) top left no-repeat;}
                         .container .right .article .middle div.preview div.describe p{ width: 105px; height: 30px; line-height: 30px; padding: 0px; border:0px; margin:0 auto; margin-top: 15px; padding-left: 7px; overflow: hidden; color: #000; font-weight: bold;}
-                        .container .right .article .middle div.preview div.describe p.expansion{ background: url(../images/container_r4_c8.jpg) top left no-repeat;}
-                        .container .right .article .middle div.preview div.describe p.hision{ padding-left: 9px; background: url(../images/container_r4_c1.jpg) top left no-repeat;}
+                        .container .right .article .middle div.preview div.describe p.expansion{ background: url(/cefls/images/container_r4_c8.jpg) top left no-repeat;}
+                        .container .right .article .middle div.preview div.describe p.hision{ padding-left: 9px; background: url(/cefls/images/container_r4_c1.jpg) top left no-repeat;}
                         .container .right .article .middle div.preview div.describe span{ display: inline;}
                 .container .right .article .middle div.foreginlist{ width: 870px; height:665px; border:1px solid #cccccc; overflow: hidden; margin-top: 20px;}
                     .container .right .article .middle div.foreginlist ul{ width: 840px; height:540px; font-size: 14px; margin: 0 auto; overflow: hidden;}
