@@ -39,17 +39,27 @@ if($is_swf){
             //教师风采
             if($cid ==40){
                 $teacher = Article::model()->find('type=-12 AND enabled=1 AND aid=:aid', array(':aid'=>$tid));
+                if(!empty($teacher)){
+                    $teacher->clicknumber++;
+                    $teacher->save();
+                }
+                echo $this->renderPartial('//cefls/article/foreign_teacher_one', array(
+                    'cid'=>$cid,
+                    'teacher'=>$teacher
+                ));
+
             }else{
                 $teacher = Article::model()->find('cid=:cid AND enabled=1 AND aid=:aid', array(':aid'=>$tid,':cid'=>$cid));
+                if(!empty($teacher)){
+                    $teacher->clicknumber++;
+                    $teacher->save();
+                }
+                echo $this->renderPartial('//cefls/article/teacher_one', array(
+                    'cid'=>$cid,
+                    'teacher'=>$teacher
+                ));
             }
-            if(!empty($teacher)){
-                $teacher->clicknumber++;
-                $teacher->save();
-            }
-            echo $this->renderPartial('//cefls/article/teacher_one', array(
-                'cid'=>$cid,
-                'teacher'=>$teacher
-            ));
+
         }else{
             if(in_array($cid, get_cate_article())){
                 $cate = Menu::model()->findByPk($cid);
