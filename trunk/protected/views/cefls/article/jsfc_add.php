@@ -9,7 +9,7 @@
     <?php echo $form->errorSummary($model); ?>
 
 
-
+<!--
     <div class="row">
         <label for="Ads_img">形象照片</label>
         <?php echo $form->fileField($model,'file',array('size'=>60)); ?>
@@ -20,6 +20,7 @@
         }
         ?>
     </div>
+-->
 
     <div class="row">
         <label class="required" for="Article_author">名字<span class="required">*</span></label>
