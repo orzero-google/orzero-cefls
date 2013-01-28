@@ -14,7 +14,7 @@ $page=intval(Yii::app()->request->getParam('Ads_page', 1));
 <div class="top"></div>
 <link rel="stylesheet" type="text/css" href="/cefls/css/jquery.fancybox.css" media="screen"/>
 
-<div class="middle">
+<div class="middle" style="margin: 0 auto 0 20px;width: 816px;">
     <div class="prev"><a href="<?php
     if($page>1){
         echo $this->createUrl('cate/index', array('pid'=>1,'cid'=>15, 'Ads_page'=>$page-1));
@@ -39,7 +39,6 @@ $page=intval(Yii::app()->request->getParam('Ads_page', 1));
     <div class="hackbox"></div>
 </div>
 
-<div class="bottom" id="bottom"></div>
 <script type="text/javascript">
 $(document).ready(function() {
     $("a.certImg").fancybox();
