@@ -14,7 +14,7 @@ $dataProvider=new CActiveDataProvider('Ads',array(
 
 <div class="top"></div>
 <div class="middle">
-    <div class="imglist" style="height: 747px;">
+    <div class="imglist" style="height: 747px;margin-left: 20px;">
         <?php
         $this->widget('application.vendors.OListView', array(
             'dataProvider'=>$dataProvider,
