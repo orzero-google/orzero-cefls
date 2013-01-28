@@ -29,35 +29,51 @@ if($cid == 62){
         <?php if($type=='p'):?>
         <div class="describe">
             <div id="p_excerpt">
-                <?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+<!--                --><?php //echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="p_content" style="display: none;">
-                <?php echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?><p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
+<!--                --><?php //echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <div class="describe" style="display:none;">
             <div id="c_excerpt">
-                <?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+<!--                --><?php //echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="c_content" style="display: none;">
-                <?php echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?><p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
+<!--                --><?php //echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <?php else:?>
         <div class="describe" style="display:none;">
             <div id="p_excerpt">
-                <?php echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?><p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+<!--                --><?php //echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="p_content" style="display: none;">
-                <?php echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?><p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
+<!--                --><?php //echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <div class="describe">
             <div id="c_excerpt">
-                <?php echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?><p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
+<!--                --><?php //echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="c_content" style="display: none;">
-                <?php echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?><p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
+<!--                --><?php //echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?>
+                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <?php endif;?>
