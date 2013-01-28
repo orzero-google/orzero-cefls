@@ -11,7 +11,7 @@
 
 $criteria=new CDbCriteria;
 $criteria->condition='`cid`=68 AND `enabled`=1';
-$criteria->order='`sort` ASC';
+$criteria->order='`sort` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
     'pagination'=>array(

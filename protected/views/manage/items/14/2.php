@@ -13,7 +13,7 @@
 $criteria=new CDbCriteria;
 $criteria->condition='`type`=-14 AND `cid`=53 AND `enabled`=1';
 //$criteria->params=array(':cid'=>$cid);
-$criteria->order='`sort` ASC';
+$criteria->order='`sort` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
     'pagination'=>array(

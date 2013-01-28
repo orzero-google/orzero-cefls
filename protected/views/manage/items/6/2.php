@@ -11,7 +11,7 @@
 
 $criteria=new CDbCriteria;
 $criteria->condition='`cid`=6 AND enabled=1';
-$criteria->order='`order` ASC';
+$criteria->order='`order` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Ads',array(
     'criteria'=>$criteria,
     'pagination'=>array(

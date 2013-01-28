@@ -16,7 +16,7 @@ if(isset($cc)&&!empty($cc)){
     $criteria->condition='`type`=-13 AND `enabled`=1 AND cid='.$cc;
 }
 //$criteria->params=array(':cid'=>$cid);
-$criteria->order='`sort` ASC';
+$criteria->order='`sort` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
     'pagination'=>array(

@@ -6,7 +6,7 @@ if(in_array($cid, array(62,63,64))){
     $criteria->condition='`cid`='.$cid.' AND `enabled`=1 AND type=-11';
 }
 
-$criteria->order='`sort` ASC';
+$criteria->order='`sort` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
     'pagination'=>array(
