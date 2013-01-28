@@ -14,7 +14,7 @@ $criteria->condition='`cid`=0 AND enabled=1';
 if(isset($cc)&&!empty($cc)){
     $criteria->condition='`cid`=0 AND enabled=1 AND type='.$cc;
 }
-$criteria->order='`order` ASC';
+$criteria->order='`order` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Ads',array(
     'criteria'=>$criteria,
     'pagination'=>array(

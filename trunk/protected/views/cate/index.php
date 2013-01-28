@@ -162,10 +162,19 @@ if($is_swf){
                             'student'=>$student,
                         ));
                     }else{
-                        echo $this->renderPartial('//cefls/ads/student_list', array(
-                            'pid'=>$pid,
-                            'cid'=>$cid,
-                        ));
+                        if($cid == 50){
+                            echo $this->renderPartial('//cefls/ads/student_list', array(
+                                'pid'=>$pid,
+                                'cid'=>$cid,
+                            ));
+                        }else{
+                            echo $this->renderPartial('//cefls/article/student_list', array(
+                                'pid'=>$pid,
+                                'cid'=>$cid,
+                            ));
+                        }
+
+
                     }
                 }elseif(in_array($cid, $jsdw)){
                     echo $this->renderPartial('//cefls/article/teacher_list', array(
