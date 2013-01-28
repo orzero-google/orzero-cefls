@@ -3,7 +3,7 @@
         <h1 class="title"><?php echo isset($article->{"title_".$key})? $article->{"title_".$key} : '';?></h1>
         <p class="authorinfo">
             <span>信息来源：<?php echo isset($article->{"from_".$key})? $article->{"from_".$key} : '';?></span>
-            <span>发布人：<?php echo isset($article->author)? $article->author : '';?></span>
+            <span>发布人：<?php echo isset($article->{"author_".$key})? $article->{"author_".$key} : '';?></span>
             <span>发布时间：<?php echo isset($article->createtime)? $article->createtime : '';?></span>
             <span>点击量：<?php echo isset($article->{"clicknumber_".$key}) ? $article->{"clicknumber_".$key} : '';?></span>
         </p>
@@ -12,7 +12,7 @@
 <div class="middle" style="width:970px;">
     <div class="foreginBottomBorder">
 <!--        --><?php //echo isset($article->{"content_".$key})? $article->{"content_".$key} : '';?>
-        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=<?php echo $article->aid;?>" allowtransparency="true" style="width: 940px; min-height: 700px;"></iframe>
+        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $article->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 940px; min-height: 700px;"></iframe>
         <div class="previous">
             <?php if(!empty($article_prev)): ?>
             <a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>$article_prev->aid)); ?>" class="pv">
