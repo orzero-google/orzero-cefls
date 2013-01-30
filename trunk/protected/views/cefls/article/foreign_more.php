@@ -11,6 +11,7 @@ if($cid == 62){
 }
 ?>
 
+
 <div class="top" style="width:900px;"></div>
 <div class="middle" style="width:900px;">
     <div class="preview">
@@ -30,24 +31,24 @@ if($cid == 62){
         <div class="describe">
             <div id="p_excerpt">
 <!--                --><?php //echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr1" id="Article_content_ifr1" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="p_content" style="display: none;">
 <!--                --><?php //echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr2" id="Article_content_ifr2" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <div class="describe" style="display:none;">
             <div id="c_excerpt">
 <!--                --><?php //echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr3" id="Article_content_ifr3" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="c_content" style="display: none;">
 <!--                --><?php //echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr4" id="Article_content_ifr4" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
@@ -55,24 +56,24 @@ if($cid == 62){
         <div class="describe" style="display:none;">
             <div id="p_excerpt">
 <!--                --><?php //echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr1" id="Article_content_ifr1" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="p_content" style="display: none;">
 <!--                --><?php //echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr2" id="Article_content_ifr2" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <div class="describe">
             <div id="c_excerpt">
 <!--                --><?php //echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 180px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr3" id="Article_content_ifr3" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="c_content" style="display: none;">
 <!--                --><?php //echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?>
-                <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px; min-height: 620px;"></iframe>
+                <iframe frameborder="0" name="Article_content_ifr4" id="Article_content_ifr4" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
                 <p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
@@ -80,6 +81,25 @@ if($cid == 62){
 
     <script type="text/javascript">
             $(function(){
+                function auto_height(){
+                    var h=0;
+                    if(Article_content_ifr1.document.body.scrollHeight>0){
+                        h = Article_content_ifr1.document.body.scrollHeight;
+                    }
+                    if(Article_content_ifr2.document.body.scrollHeight>0){
+                        h = Article_content_ifr1.document.body.scrollHeight;
+                    }
+                    if(Article_content_ifr3.document.body.scrollHeight>0){
+                        h = Article_content_ifr1.document.body.scrollHeight;
+                    }
+                    if(Article_content_ifr4.document.body.scrollHeight>0){
+                        h = Article_content_ifr1.document.body.scrollHeight;
+                    }
+
+
+                }
+
+
                 var $title = $(".preview .title li");
                 var $content = $(".preview .describe");
                 $title.click(function(){
@@ -89,6 +109,7 @@ if($cid == 62){
                     $content.hide();
                     $($content.get(index)).show();
 
+                    auto_height();
                     return false;
                 });
 
@@ -96,54 +117,66 @@ if($cid == 62){
                 $("#ex_p_en").click(function(){
                     $("#p_excerpt").hide();
                     $("#p_content").show();
+                    auto_height();
                 });
                 $("#hi_p_en").click(function(){
                     $("#p_content").hide();
                     $("#p_excerpt").show();
+                    auto_height();
                 });
                 $("#ex_c_en").click(function(){
                     $("#c_excerpt").hide();
                     $("#c_content").show();
+                    auto_height();
                 });
                 $("#hi_c_en").click(function(){
                     $("#c_content").hide();
                     $("#c_excerpt").show();
+                    auto_height();
                 });
 
 
                 $("#ex_p_de").click(function(){
                     $("#p_excerpt").hide();
                     $("#p_content").show();
+                    auto_height();
                 });
                 $("#hi_p_de").click(function(){
                     $("#p_content").hide();
                     $("#p_excerpt").show();
+                    auto_height();
                 });
                 $("#ex_c_de").click(function(){
                     $("#c_excerpt").hide();
                     $("#c_content").show();
+                    auto_height();
                 });
                 $("#hi_c_de").click(function(){
                     $("#c_content").hide();
                     $("#c_excerpt").show();
+                    auto_height();
                 });
 
 
                 $("#ex_p_fr").click(function(){
                     $("#p_excerpt").hide();
                     $("#p_content").show();
+                    auto_height();
                 });
                 $("#hi_p_fr").click(function(){
                     $("#p_content").hide();
                     $("#p_excerpt").show();
+                    auto_height();
                 });
                 $("#ex_c_fr").click(function(){
                     $("#c_excerpt").hide();
                     $("#c_content").show();
+                    auto_height();
                 });
                 $("#hi_c_fr").click(function(){
                     $("#c_content").hide();
                     $("#c_excerpt").show();
+                    auto_height();
                 });
 
             });
