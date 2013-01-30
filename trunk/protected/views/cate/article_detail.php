@@ -13,7 +13,7 @@
 <div class="middle" style="width: auto;">
     <div class="foreginBottomBorder" style="width: auto;">
 <!--        --><?php //echo isset($article->content)? $article->content : '';?>
-        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=<?php echo $article->aid;?>" allowtransparency="true" style=" width:995px;min-height: 700px;"></iframe>
+        <iframe frameborder="0" id="Article_content_ifr" src="/index.php/cate/article_one?id=<?php echo $article->aid;?>" allowtransparency="true" style=" width:994px;min-height: 700px;"></iframe>
     </div>
 </div>
 
