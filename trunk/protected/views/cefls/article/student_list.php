@@ -6,7 +6,7 @@ $criteria->order='`order` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Ads',array(
     'criteria'=>$criteria,
     'pagination'=>array(
-        'pageSize'=>4,
+        'pageSize'=>15,
     ),
 ));
 
