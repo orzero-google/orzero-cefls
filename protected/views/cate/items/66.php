@@ -11,7 +11,7 @@ $dataProvider=new CActiveDataProvider('Article',array(
 
 ?>
 
-<div class="top">
+<div class="top" style="width: 847px;">
     <p class="th_blue">
         <span class="field1">标  题</span>
         <span class="field2">信息来源</span>
