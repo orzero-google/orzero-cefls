@@ -30,50 +30,50 @@ if($cid == 62){
         <?php if($type=='p'):?>
         <div class="describe">
             <div id="p_excerpt">
-<!--                --><?php //echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?>
-                <iframe frameborder="0" name="Article_content_ifr1" id="Article_content_ifr1" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($profile->{"excerpt_".$key}) ? strip_tags($profile->{"excerpt_".$key}):'';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr1" id="Article_content_ifr1" src="/index.php/cate/foreign_one?id=--><?php //echo $profile->aid;?><!--&key=--><?php //echo 'excerpt_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="p_content" style="display: none;">
-<!--                --><?php //echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?>
-                <iframe frameborder="0" name="Article_content_ifr2" id="Article_content_ifr2" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($profile->{"content_".$key}) ? strip_tags($profile->{"content_".$key}):'';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr2" id="Article_content_ifr2" src="/index.php/cate/foreign_one?id=--><?php //echo $profile->aid;?><!--&key=--><?php //echo 'content_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <div class="describe" style="display:none;">
             <div id="c_excerpt">
-<!--                --><?php //echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?>
-                <iframe frameborder="0" name="Article_content_ifr3" id="Article_content_ifr3" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($culture->{"excerpt_".$key}) ? strip_tags($culture->{"excerpt_".$key}) : '';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr3" id="Article_content_ifr3" src="/index.php/cate/foreign_one?id=--><?php //echo $culture->aid;?><!--&key=--><?php //echo 'excerpt_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="c_content" style="display: none;">
-<!--                --><?php //echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?>
-                <iframe frameborder="0" name="Article_content_ifr4" id="Article_content_ifr4" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($culture->{"content_".$key}) ? strip_tags($culture->{"content_".$key}) : '';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr4" id="Article_content_ifr4" src="/index.php/cate/foreign_one?id=--><?php //echo $culture->aid;?><!--&key=--><?php //echo 'content_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <?php else:?>
         <div class="describe" style="display:none;">
             <div id="p_excerpt">
-<!--                --><?php //echo isset($profile->{"excerpt_".$key}) ? $profile->{"excerpt_".$key}:'';?>
-                <iframe frameborder="0" name="Article_content_ifr1" id="Article_content_ifr1" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($profile->{"excerpt_".$key}) ? strip_tags($profile->{"excerpt_".$key}):'';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr1" id="Article_content_ifr1" src="/index.php/cate/foreign_one?id=--><?php //echo $profile->aid;?><!--&key=--><?php //echo 'excerpt_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="expansion" id="ex_p_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="p_content" style="display: none;">
-<!--                --><?php //echo isset($profile->{"content_".$key}) ? $profile->{"content_".$key}:'';?>
-                <iframe frameborder="0" name="Article_content_ifr2" id="Article_content_ifr2" src="/index.php/cate/foreign_one?id=<?php echo $profile->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($profile->{"content_".$key}) ? strip_tags($profile->{"content_".$key}):'';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr2" id="Article_content_ifr2" src="/index.php/cate/foreign_one?id=--><?php //echo $profile->aid;?><!--&key=--><?php //echo 'content_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="hision" id="hi_p_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
         <div class="describe">
             <div id="c_excerpt">
-<!--                --><?php //echo isset($culture->{"excerpt_".$key}) ? $culture->{"excerpt_".$key} : '';?>
-                <iframe frameborder="0" name="Article_content_ifr3" id="Article_content_ifr3" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'excerpt_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($culture->{"excerpt_".$key}) ? strip_tags($culture->{"excerpt_".$key}) : '';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr3" id="Article_content_ifr3" src="/index.php/cate/foreign_one?id=--><?php //echo $culture->aid;?><!--&key=--><?php //echo 'excerpt_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="expansion" id="ex_c_<?php echo $key;?>"><?php echo isset($expand) ? $expand : '';?></p>
             </div>
             <div id="c_content" style="display: none;">
-<!--                --><?php //echo isset($culture->{"content_".$key}) ? $culture->{"content_".$key} : '';?>
-                <iframe frameborder="0" name="Article_content_ifr4" id="Article_content_ifr4" src="/index.php/cate/foreign_one?id=<?php echo $culture->aid;?>&key=<?php echo 'content_'.$key;?>" allowtransparency="true" style="width: 835px;" ></iframe>
+                <?php echo isset($culture->{"content_".$key}) ? strip_tags($culture->{"content_".$key}) : '';?>
+<!--                <iframe frameborder="0" name="Article_content_ifr4" id="Article_content_ifr4" src="/index.php/cate/foreign_one?id=--><?php //echo $culture->aid;?><!--&key=--><?php //echo 'content_'.$key;?><!--" allowtransparency="true" style="width: 835px;height: 90%;" ></iframe>-->
                 <p class="hision" id="hi_c_<?php echo $key;?>"><?php echo $hide;?></p>
             </div>
         </div>
@@ -95,8 +95,8 @@ if($cid == 62){
                     if(Article_content_ifr4.document.body.scrollHeight>0){
                         h = Article_content_ifr1.document.body.scrollHeight;
                     }
-
-
+                    if(h>0)
+                        $("#Article_content_ifr1, #Article_content_ifr2, #Article_content_ifr3, #Article_content_ifr4").css('height',h);
                 }
 
 
@@ -109,7 +109,7 @@ if($cid == 62){
                     $content.hide();
                     $($content.get(index)).show();
 
-                    auto_height();
+//                    auto_height();
                     return false;
                 });
 
