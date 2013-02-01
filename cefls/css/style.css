@@ -33,7 +33,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
             .header .header_link p a:hover{ color:#052098; font-weight: bold;}
             .header .header_link p.header_link2 a:hover{ font-weight: normal;}
             .header .header_link p.header_link3 input.search_text{ border:0px; padding-left: 22px; margin-right: 10px; width: 144px; height: 25px; background: url(../images/index_r3_c23.jpg) top left no-repeat;}
-            .header .header_link p.header_link3 input.submit{ border:0px; overflow: hidden; text-indent: 1000px; width: 49px; height: 26px; background: url(../images/index_r3_c26.jpg) top left no-repeat;}
+            .header .header_link p.header_link3 input.submit{ border:0px; overflow: hidden; text-indent: 1000px; width: 49px; height: 45px; background: url(../images/index_r3_c26.jpg) top left no-repeat;}
     .header .header_bottom{ min-width:1000px; height: 42px; background: url(../images/index_r6_c1.jpg) top left repeat-x;}
         .header .header_nav{ width: 975px; height: 42px; margin: 0 auto; clear: both;}
         .header .header_nav ul li{ float: left; position: relative; margin-right:2px;  height: 42px; list-style-type: none;}
