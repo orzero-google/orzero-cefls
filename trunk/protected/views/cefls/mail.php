@@ -1,4 +1,4 @@
-<div class="top"></div>
+<div class="top" style="width: 840px;"></div>
 <?php
 $model=new ContactForm;
 if(isset($_POST['ContactForm']))
@@ -81,4 +81,4 @@ if(isset($_POST['ContactForm']))
     <?php $this->endWidget(); ?>
 </div>
 
-<div class="bottom"></div>
+<div class="bottom" style="width: 840px;"></div>
