@@ -34,6 +34,11 @@ class CateController extends Controller
         echo $this->renderPartial('//cefls/article_one',array('article'=>$article));
     }
 
+    public function actionAds_one($id){
+        $article = Ads::model()->findByPk($id);
+        echo $this->renderPartial('//cefls/article_one',array('article'=>$article));
+    }
+
     public function actionForeign_one($id, $key){
         $article = ArticleForeign::model()->findByPk($id);
         echo $this->renderPartial('//cefls/foreign_one',array('article'=>$article, 'key'=>$key));
