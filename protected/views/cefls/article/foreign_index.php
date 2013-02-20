@@ -47,7 +47,7 @@ foreach($keys as $key=>$val):
         </div>
         <div class="middle">
             <div class="recommend">
-                <h3><a href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>(isset($articles[0]->aid) ? $articles[0]->aid : 0))); ?>"><?php echo isset($articles[0]->{"title_".$key}) ? $articles[0]->{"title_".$key} : ''; ?></a></h3>
+                <h3><a style="display: block;width: 330px;overflow: hidden;white-space: nowrap;-o-text-overflow: ellipsis;text-overflow: ellipsis;" href="<?php echo Yii::app()->createUrl('cate/index',array('cid'=>$cid,'aid'=>(isset($articles[0]->aid) ? $articles[0]->aid : 0))); ?>"><?php echo isset($articles[0]->{"title_".$key}) ? $articles[0]->{"title_".$key} : ''; ?></a></h3>
                 <p><?php echo isset($articles[0]->{"excerpt_".$key}) ? $articles[0]->{"excerpt_".$key} :  ''; ?></p>
             </div>
             <div class="list">
