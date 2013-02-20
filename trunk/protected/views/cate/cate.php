@@ -104,8 +104,8 @@ if(in_array($cid, get_cate_article())){
 
                 if($aid > 0){
                     $article = ArticleForeign::model()->findByPk($aid);
-                    $article_prev = ArticleForeign::model()->find('aid<'.$aid.' AND enabled=1');
-                    $article_next = ArticleForeign::model()->find('aid>'.$aid.' AND enabled=1');
+                    $article_prev = ArticleForeign::model()->find('aid<'.$aid.' AND enabled=1 AND cid NOT IN(3,4)');
+                    $article_next = ArticleForeign::model()->find('aid>'.$aid.' AND enabled=1 AND cid NOT IN(3,4)');
                     $this->renderPartial('//cefls/article/foreign_view', array(
                         'cid'=>$cid,
                         'article'=>$article,

@@ -11,8 +11,8 @@ $dataProvider=new CActiveDataProvider('Ads',array(
 
 ?>
 <link rel="stylesheet" type="text/css" href="/cefls/css/coin-slider-styles.css" />
-    <div class="top"></div>
-    <div class="middle">
+    <div class="top" style="width: 800px;"></div>
+    <div class="middle" style="width: 800px;">
         <?php
         $this->widget('zii.widgets.CListView', array(
             'dataProvider'=>$dataProvider,

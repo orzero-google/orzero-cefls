@@ -11,9 +11,9 @@
             if(isset($data->content)){
                 if(mb_strlen($data->content,'utf-8')>500){
                     $content = mb_substr($data->content, 0, 260,'utf-8').'<span class="spoiler">'.mb_substr($data->content, 260, 50000,'utf-8');
-                    echo $content;
+                    echo nl2br($content);
                 }else{
-                    echo $data->content;
+                    echo nl2br($data->content);
                 }
             }
             ?>

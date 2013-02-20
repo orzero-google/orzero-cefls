@@ -791,6 +791,34 @@ function get_menu_article(){
     return array(66,68);
 }
 
+
+function nl2br_ext($in){
+    $out=nl2br($in);
+    $out=str_replace('　  ', '&nbsp;', $out);
+    $out=str_replace(' ', ' &nbsp;', $out);
+    $out=str_replace('　', '&nbsp;', $out);
+//    $out=preg_replace('/(.*?\r\n)/', '&nbsp;&nbsp;\\1&nbsp;&nbsp;', $out);
+//    $out='&nbsp;'.$out;
+    return $out;
+}
+
+function blank_ext($out){
+    $out=str_replace('　　', ' ', $out);
+    $out=str_replace('　  ', ' ', $out);
+    $out=str_replace(' ', ' ', $out);
+    $out=str_replace('　', ' ', $out);
+    $out=str_replace('  ', ' ', $out);
+    $out=str_replace(' ', '&nbsp; ', $out);
+    return $out;
+}
+
+function nl2br_blank_ext($in){
+//    $in = blank_ext($in);
+    $in = nl2br_ext($in);
+//    $in = blank_ext($in);
+    return $in;
+}
+
 /*
 <div class="bottom">
     <div class="bLeft">

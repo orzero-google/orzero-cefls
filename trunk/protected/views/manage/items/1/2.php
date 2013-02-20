@@ -8,19 +8,27 @@
  */
 
 //$model = Ads::model()->findAll('cid=0');
-
 $criteria=new CDbCriteria;
 $criteria->condition='`cid`=0 AND enabled=1';
 if(isset($cc)&&!empty($cc)){
     $criteria->condition='`cid`=0 AND enabled=1 AND type='.$cc;
 }
 $criteria->order='`order` ASC, `aid` DESC';
-$dataProvider=new CActiveDataProvider('Ads',array(
-    'criteria'=>$criteria,
-    'pagination'=>array(
-        'pageSize'=>5,
-    ),
-));
+if(in_array($cc,array('-3','-4','-5'))){
+    $dataProvider=new CActiveDataProvider('Ads',array(
+        'criteria'=>$criteria,
+        'pagination'=>array(
+            'pageSize'=>6,
+        ),
+    ));
+}else{
+    $dataProvider=new CActiveDataProvider('Ads',array(
+        'criteria'=>$criteria,
+        'pagination'=>array(
+            'pageSize'=>5,
+        ),
+    ));
+}
 
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
