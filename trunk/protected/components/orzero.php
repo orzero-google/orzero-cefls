@@ -988,9 +988,11 @@ function get_gsgg(){
     }
 
     $articles = Article::model()->article_list(68, 10)->findAll();
+    $article = Article::model()->article_list(68, 10)->find();
 
     $index_gsgg_html = Yii::app()->getController()->renderPartial('//cefls/article/gsgg', array(
         'articles'=>$articles,
+        'article'=>$article,
     ),false);
 
     Yii::app()->cache->set('index_gsgg_html', $index_gsgg_html, 1000);
