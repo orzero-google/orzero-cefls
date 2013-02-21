@@ -52,8 +52,14 @@ if(isset($_POST['Article']))
         }
     }
 
-    if($model->save())
-        $this->redirect(array('manage/index', 'pid'=>10, 'cid'=>2));
+    if($model->save()){
+        if($model->cid ==11){
+            $this->redirect(array('manage/index', 'pid'=>10, 'cid'=>3));
+        }else{
+            $this->redirect(array('manage/index', 'pid'=>10, 'cid'=>2));
+        }
+    }
+
 }
 
 echo $this->renderPartial('//cefls/article/jsdw_add', array('model'=>$model, 'img_root'=>$img_root));

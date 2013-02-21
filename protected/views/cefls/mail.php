@@ -23,7 +23,10 @@ if(isset($_POST['ContactForm']))
 内　　容：
 '.$model->body.$user_info;
 
-        if(mail(Yii::app()->params['adminEmail'],$model->subject,$body,$headers)){
+        $user_admin = User::model()->findByPk(1);
+        $mail = $user_admin->email;
+
+        if(mail($mail,$model->subject,$body,$headers)){
             Yii::app()->user->setFlash('contact','感谢您联系我们,您已经成功发送信件到校长信箱！');
         }
     }
