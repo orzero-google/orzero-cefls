@@ -10,7 +10,7 @@
 //$model = Ads::model()->findAll('cid=0');
 
 $criteria=new CDbCriteria;
-$criteria->condition='`type`=-2 AND enabled=1 AND cid <> 11';
+$criteria->condition='`type`=-2 AND enabled=1 AND cid <> 12';
 $criteria->order='`sort` ASC, `aid` DESC';
 $dataProvider=new CActiveDataProvider('Article',array(
     'criteria'=>$criteria,
