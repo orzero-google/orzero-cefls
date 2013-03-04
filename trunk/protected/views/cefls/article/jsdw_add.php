@@ -54,7 +54,8 @@
 
 <?php
     $jsdw = get_jsdw_type();
-    $jsdw = array_merge($jsdw, array(-1=>'领导班子'));
+//    $jsdw = array_merge($jsdw, array(-1=>'领导班子'));
+    $jsdw[12]='领导班子';
 ?>
 
     <div class="row">

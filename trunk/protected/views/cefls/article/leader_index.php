@@ -4,7 +4,7 @@
 //echo $article->content;
 
 $criteria=new CDbCriteria;
-$criteria->condition='`type`=-2 AND enabled=1 AND cid = 11';
+$criteria->condition='`type`=-2 AND enabled=1 AND cid = 12';
 $criteria->order='`sort` ASC, `aid` DESC';
 $criteria->limit=5;
 $articles = Article::model()->findAll($criteria);
@@ -32,8 +32,8 @@ $articles_all = Ads::model()->find($criteria);
         if(!empty($articles)){
             foreach($articles as $article){
                 echo '<div class="imgitem">
-                    <a href="#"><img alt="" src="'.$article->file.'"></a>
-                    <p><a href="#">'.$article->title.'：'.$article->author.'</a></p>
+                    <a href="/index.php/cate/index?pid=1&cid=12&tid='.$article->aid.'"><img alt="" src="'.$article->file.'"></a>
+                    <p><a href="/index.php/cate/index?pid=1&cid=12&tid='.$article->aid.'">'.$article->title.'：'.$article->author.'</a></p>
                 </div>';
             }
         }

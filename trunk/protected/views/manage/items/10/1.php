@@ -53,7 +53,7 @@ if(isset($_POST['Article']))
     }
 
     if($model->save()){
-        if($model->cid ==11){
+        if($model->cid ==12){
             $this->redirect(array('manage/index', 'pid'=>10, 'cid'=>3));
         }else{
             $this->redirect(array('manage/index', 'pid'=>10, 'cid'=>2));
