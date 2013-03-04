@@ -8,7 +8,7 @@ $dataProvider=new CActiveDataProvider('Article',array(
         'pageSize'=>13,
     ),
 ));
-
+$GLOBALS["cid"]=$cid;
 ?>
 
 <div class="top" style="width: 847px;">

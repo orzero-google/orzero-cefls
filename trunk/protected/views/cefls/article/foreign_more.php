@@ -24,11 +24,11 @@ if($cid == 62){
         <div class="title">
             <ul>
                 <?php if($type=='p'):?>
-                <li class="hover"><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></li>
-                <li style="margin-left:10px;"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></li>
+                <li class="hover"<?php if($cid==63){echo ' style="font-size:14px;"';}?>><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></li>
+                <li style="margin-left:10px;<?php if($cid==63){echo " font-size:14px;";}?>"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></li>
                 <?php else:?>
-                <li><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></li>
-                <li style="margin-left:10px;" class="hover"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></li>
+                <li<?php if($cid==63){echo ' style="font-size:14px;"';}?>><?php echo isset($profile->{"title_".$key})? $profile->{"title_".$key} : '';?></li>
+                <li style="margin-left:10px;<?php if($cid==63){echo " font-size:14px;";}?>" class="hover"><?php echo isset($culture->{"title_".$key}) ? $culture->{"title_".$key} : '';?></li>
                 <?php endif;?>
 
             </ul>

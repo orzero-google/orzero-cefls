@@ -10,6 +10,16 @@ $dataProvider=new CActiveDataProvider('Ads',array(
 ));
 
 ?>
+
+<style>
+.container .right .article .middle div.schoolitem {
+    clear: both;
+    display: inline-block;
+    padding-bottom: 15px;
+    width: 770px;
+}
+
+</style>
 <link rel="stylesheet" type="text/css" href="/cefls/css/coin-slider-styles.css" />
     <div class="top" style="width: 800px;"></div>
     <div class="middle" style="width: 800px;">
@@ -43,11 +53,13 @@ $dataProvider=new CActiveDataProvider('Ads',array(
                 $(this).parents("p").children("span.spoiler").slideDown(1500);
                 $(this).parents("p").children("a.reveal").fadeOut(600);
                 $(this).parents("p").children("p.previous").show();
+$("div.describe").css({height:"0"}).css({height:"auto"});
             });
             $(".previous img").click(function(){
                 $(this).parent(".previous").parent("p.describeDetail").children("span.spoiler").slideUp(600);
                 $(this).parent(".previous").parent("p.describeDetail").children("a.reveal").fadeIn(600);
                 $(this).parent(".previous").fadeOut(600);
+$("div.describe").css({height:"0"}).css({height:"auto"});
             });
         });
     </script>
