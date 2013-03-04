@@ -1,3 +1,6 @@
+<style>
+body{font-size:12px;}
+</style>
 <!-- index's slide  -->
 <div class="videoList-container" id="pcList" style="display:none;margin-bottom:0px;">
     <?php echo get_img_slides(); ?>

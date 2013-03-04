@@ -2,7 +2,7 @@
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, q, th, td { margin: 0; padding: 0;}
 abbr[title], acronym[title] { border-bottom:thin solid;cursor:help}
-body{ background: #fff; font-size: 12px; font-family: "Bitstream Charter",serif,\5b8b\4f53; color: #000; text-align: left; line-height: 1.2;}
+body{ background: #fff; font-family: "Bitstream Charter"; color: #000000; text-align: left; line-height: 1.2;}
 h1,h2,h3,h4,h5,h6{font-family:Georgia,"Times New Roman",Times,serif;font-weight:bold}
 h1{ font-size: 24px; line-height: 30px;}
 h2{ font-size: 20px; line-height: 26px;}
@@ -208,7 +208,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
                     .container .right .article .middle div.preview div.title{ width: 872px; font-family: "宋体"; height: 40px; line-height: 35px;font-size: 18px; color: #CC301F; position: relative; border-bottom:1px solid #CC3020; z-index: 999px;}
                         .container .right .article .middle div.preview div.title ul{ position: absolute; top: 9px; z-index: 900;}
                             .container .right .article .middle div.preview div.title ul li{ list-style-type: none; text-align: center; padding: 0px; background: url(../images/container_r4_c3.jpg) top left no-repeat; width: 125px; height: 32px; float: left; cursor: pointer;}
-                    .container .right .article .middle div.preview div.describe{ width: 850px; border:1px solid #CC3020; border-top: 0px; font-size: 12px; color: #464646; text-indent: 24px; padding: 10px; line-height: 20px;}
+                    .container .right .article .middle div.preview div.describe{ width: 850px; border:1px solid #CC3020; border-top: 0px; color: #464646; text-indent: 24px; padding: 10px; line-height: 20px;}
                     .container .right .article .middle div.preview div.title ul li.hover{background: url(../images/container_r4_c4.jpg) top left no-repeat;}
                         .container .right .article .middle div.preview div.describe p{ width: 105px; height: 30px; line-height: 30px; padding: 0px; border:0px; margin:0 auto; margin-top: 15px; padding-left: 7px; overflow: hidden; color: #000; font-weight: bold;}
                         .container .right .article .middle div.preview div.describe p.expansion{ background: url(/cefls/images/container_r4_c8.jpg) top left no-repeat;}
@@ -231,3 +231,4 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
 div.page{ margin: 0 auto;  text-align: center; border: 0px; font-size: 14px;}
 div.page a{ color: #3D3D3D; display: inline-block; padding:2px 5px;}
 div.page a.hover{background: #BEBBEE;}
+div.schoolitem{display:inline-block;}
