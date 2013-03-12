@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN">
 <head>
+    <meta name="author" content="xami520@qq.com" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
