@@ -10,10 +10,25 @@ $dataProvider=new CActiveDataProvider('Article',array(
     ),
 ));
 
+$criteria=new CDbCriteria;
+$criteria->condition='`cid`=0 AND enabled=1';
+$criteria->condition='`cid`=0 AND enabled=1 AND type='.$cid;
+$criteria->order='`order` ASC, `aid` DESC';
+$imgs = Ads::model()->findAll($criteria);
 ?>
 
-<div class="top"></div>
+
+
 <div class="middle">
+    <div style="text-align: center;">
+<?php
+    foreach($imgs as $img){
+        echo '<div><a href="'.$img->url.'"><img src="'.$img->img.'" /></a></div>';
+        echo '<div><a href="'.$img->url.'">'.nl2br_blank_ext($img->title).'</a></div><br />';
+    }
+?>
+    </div>
+
     <div class="imglist" style="height: 747px;">
         <?php
         $this->widget('application.vendors.OListView', array(
