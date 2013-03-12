@@ -128,7 +128,7 @@ return array(
 	'Display order of fields.' => '字段显示顺序.',
     'Not visited' => '没有访问过',
     'Manage Users'=>'管理用户',
-
+    'Old Password'=>'原密码',
     
     
     

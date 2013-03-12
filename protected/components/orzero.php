@@ -365,6 +365,15 @@ function get_admin_sidebar(){
             )
         ),
 
+        array(
+            'name'=>'[管理设置]',
+            'pid'=>'15',
+            'items'=>array(
+                array('name'=>'修改密码', 'cid'=>'1'),
+                array('name'=>'修改管理员邮箱', 'cid'=>'2'),
+            )
+        ),
+
         array('name'=>'[退出登陆]', 'pid'=>'13', 'src'=>'/index.php/user/logout'),
     );
 
@@ -501,6 +510,11 @@ function get_ads_type($key=''){
 
 //        '-3'=>'荣誉证书',
     );
+    $teaches = Menu::model()->findAllByAttributes(array('parent_id'=>2));
+    foreach($teaches as $teache){
+        $list[$teache->menu_id]=$teache->menu_name;
+    }
+
     if(!empty($key)){
         if(array_key_exists($key,$list)){
             return $list[$key];
