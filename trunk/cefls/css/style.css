@@ -119,7 +119,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
     .frindLinks a{ color: #353535; display: inline-block; padding:5px; padding-left:25px; }
 
 /*======footer=======*/
-.footer{ min-width: 1000px; height: 129px; background: url(../images/index_r37_c1.jpg) top left repeat-x; overflow: hidden; margin: 0 auto;  margin-top: 20px; }
+.footer{ min-width: 1000px; height: 145px; background: url(../images/index_r37_c1.jpg) top left repeat-x; overflow: hidden; margin: 0 auto;  margin-top: 20px; }
     .footer p{ text-align:center; color: #2C2C2C; margin-top: 20px; line-height: 20px;}
     .footer p a{ color: #2C2C2C; font-weight: bold;}
     .footer p a:hover{ color: #0042FF;}
