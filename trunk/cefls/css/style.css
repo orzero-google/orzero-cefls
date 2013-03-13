@@ -75,7 +75,7 @@ blockquote, q { display: block; margin-bottom: 8px; padding: 5px 8px 2px 24px; b
     .newsPlan .right{ width: 260px; height: 360px; background: url(../images/index_r10_c21.jpg) top left no-repeat; overflow: hidden; float: left;}
         .newsPlan .content{ width: 200px; margin-left: 30px; margin-top: 55px;}
             .newsPlan .content .title a{ color: #1B37B5; }
-            .newsPlan .content .describe{ width: 200px; height: 210px; overflow:hidden; color: red; line-height: 25px; margin-top: 20px;}
+            .newsPlan .content .describe{ width: 200px; overflow:hidden; color: red; line-height: 25px; margin-top: 20px;}
             .newsPlan .content .link{ text-align: right; height: 25px; margin-top: 20px;}
                 .newsPlan .content .link a{ color: #3949D5;}
 
