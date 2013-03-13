@@ -229,8 +229,11 @@ function get_footer(){
 <!-- index's footer -->
 <div class="footer">
     <p><a href="/index.php/cate/index?cid=70">关于我们</a>  ‖  <a href="/index.php/cate/index?cid=71">网站声明</a>  ‖ <a href="/index.php/cate/index?cid=61">实外信箱</a>  ‖ <a href="/index.php/cate/index?cid=72">联系我们</a></p>
-    <p>网站版权所有者：成都市实验外国语学校　　协同建设支持单位：成都互正超媒网络科技有限公司<br/>Copyright©2011-2016　(www.cefls.cn )　　All Right Reserved <br/>川教GZ-20120014号　　　　蜀ICP备12003383-1号</p>
-    <p style="margin:0 auto;color:#F4A460;"> [本网站在电脑宽度的分辨率设置为1280像素以上时，浏览效果较佳]</p>
+    <p>网站版权所有者：成都市实验外国语学校　　协同建设支持单位：成都互正超媒网络科技有限公司</p>
+    <p style="color:#ff0000;">（校部地址：成都市羊犀线西高新西区百草路    邮政编码：611731）</p>
+    <p>Copyright©2011-2016　(www.cefls.cn )　　All Right Reserved </p>
+    <p>川教GZ-20120014号　　　　蜀ICP备12003383-1号</p>
+    <p style="color:#F4A460;"> [本网站在电脑宽度的分辨率设置为1280像素以上时，浏览效果较佳]</p>
 </div>
 EOF;
 }
