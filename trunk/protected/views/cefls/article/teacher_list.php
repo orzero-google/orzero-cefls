@@ -19,7 +19,7 @@ $imgs = Ads::model()->findAll($criteria);
 
 
 
-<div class="middle">
+<div class="middle" style="min-height: 800px;">
     <div style="text-align: center;">
 <?php
     foreach($imgs as $img){
@@ -29,7 +29,7 @@ $imgs = Ads::model()->findAll($criteria);
 ?>
     </div>
 
-    <div class="imglist" style="height: 747px;">
+    <div class="imglist">
         <?php
         $this->widget('application.vendors.OListView', array(
             'dataProvider'=>$dataProvider,
@@ -49,4 +49,3 @@ $imgs = Ads::model()->findAll($criteria);
     ));
     ?>
 </div>
-<div class="bottom"></div>
