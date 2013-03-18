@@ -68,6 +68,7 @@ if(in_array($cid, get_cate_article())){
                     $article->clicknumber ++;
                     $article->save();
                     echo $this->renderPartial('article_detail', array(
+                        'cid'=>$cid,
                         'cate'=>$cate,
                         'article'=>$article
                     ));
@@ -87,6 +88,7 @@ if(in_array($cid, get_cate_article())){
 
                     echo $this->renderPartial('article_detail', array(
                         'cate'=>$cate,
+                        'cid'=>$cid,
                         'article'=>$article
                     ));
                 }
