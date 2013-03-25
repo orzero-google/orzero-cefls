@@ -2,9 +2,9 @@
 a{ outline:none;}
 img{border:none;}
 /* index */
-#slide-index{min-width:1000px;width:auto; height:400px; overflow:hidden; position:relative;}
-#slide-index .slides{ min-width:1000px; width:auto; height:400px; }
-#slide-index .slide{ min-width:1000px; height:400px; float:left; position:relative; }
+#slide-index{min-width:1000px;width:auto; height:360px; overflow:hidden; position:relative;}
+#slide-index .slides{ min-width:1000px; width:auto; height:360px; }
+#slide-index .slide{ min-width:1000px; height:360px; float:left; position:relative; }
 #slide-index .image{ z-index:1;position:absolute; }
 #slide-index .text, #slide-index .button { z-index:2;position:absolute; top:-500px; }
 #slide-index .button{ display:none; width:138px;}
