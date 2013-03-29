@@ -139,7 +139,7 @@ function get_menu(){
     $menus = Menu::model()->with('sub_menu')->findAll('t.menu_type=:menu_type',array(':menu_type'=>1));
     $menu_html = '<ul class="header_nav_link">';
     foreach($menus as $menu_one){
-        $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
+        $menu_html .= '<li><a href="'.Yii::app()->createUrl('cate/index', array('pid'=>$menu_one->menu_id,'cid'=>$menu_one->sub_menu[0]->menu_id)).'">'.$menu_one->menu_name.'</a><ul>';
 //        $menu_html .= '<li><a href="#">'.$menu_one->menu_name.'</a><ul>';
 
         foreach($menu_one->sub_menu as $sub_menu){
@@ -361,11 +361,11 @@ function get_admin_sidebar(){
             )
         ),
         array(
-            'name'=>'高考年报',
+            'name'=>'丰硕成果',
             'pid'=>'14',
             'items'=>array(
-                array('name'=>'新增高考年报', 'cid'=>'1'),
-                array('name'=>'查看高考年报', 'cid'=>'2'),
+                array('name'=>'新增丰硕成果', 'cid'=>'1'),
+                array('name'=>'查看丰硕成果', 'cid'=>'2'),
             )
         ),
 
