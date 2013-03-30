@@ -38,9 +38,13 @@ div.previous a.pv{
 .container .right .article .top div.foreginTopBorder p span {
     width: 190px;
 }
-
+/*
 .container .right .article .middle div.numberOne {
     height: auto;
+}
+*/
+.certificateslist a.certImg img{
+    width:140px;height:115px;
 }
 [class*="span"] {
     margin-left: 0;
