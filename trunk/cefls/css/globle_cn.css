@@ -50,6 +50,9 @@ div.previous a.pv{
     margin-left: 0;
 }
 
+div.adtop img {
+    width: 100%;
+}
 
 .container .right .article .bottom {
     height: 80px;
