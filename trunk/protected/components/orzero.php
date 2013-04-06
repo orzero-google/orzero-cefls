@@ -772,7 +772,7 @@ function get_img_slides(){
         $footer='';
         foreach($imgs as $img){
             $body .= '<div class="slide autoMaxWidth" links=[{left:"30px",top:"81px"},{left:"30px",top:"244px"},{direction:"tb"}]>';
-            $body .= '<div class="image" id="bi_1"><a href="#" target="_blank"><img name="" src="'.$img->img.'" /></a></div>';
+            $body .= '<div class="image" id="bi_1"><a href="'.$img->src.'" target="_blank"><img name="" src="'.$img->img.'" /></a></div>';
             $body .= '<div class="text" id="bt_2"></div>';
             $body .= '<div class="button" id="bb_2"></div>';
             $body .= '</div>';
